@@ -6,6 +6,7 @@ redirect_from:
   - /articles/adding-a-jekyll-theme-to-your-github-pages-site
   - /articles/adding-a-theme-to-your-github-pages-site-using-jekyll
   - /github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-using-jekyll
+  - /pages/getting-started-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
@@ -49,7 +50,7 @@ shortTitle: Pagesサイトへのテーマの追加
   ---
   ---
 
-  @import "{{ site.theme }}";
+  @import "{% raw %}{{ site.theme }}{% endraw %}";
   ```
 3. カスタム CSS または Sass (インポートファイルも含む) があれば `@import` 行の直後に追加します。
 

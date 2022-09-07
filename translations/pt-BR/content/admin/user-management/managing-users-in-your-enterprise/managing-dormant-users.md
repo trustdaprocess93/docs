@@ -18,6 +18,12 @@ topics:
   - Licensing
 ---
 
+{% ifversion ghec %}
+{% data reusables.enterprise-accounts.dormant-user-release-phase %}
+{% endif %}
+
+## Sobre usuários inativos
+
 {% data reusables.enterprise-accounts.dormant-user-activity %}
 
 {% ifversion ghes or ghae%}
@@ -42,26 +48,24 @@ topics:
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.options-tab %}
 4. Em "Dormancy threshold" (Limite de inatividade), use o menu suspenso e clique no limite de inatividade desejado.![Menu suspenso do limite de inatividade](/assets/images/enterprise/site-admin-settings/dormancy-threshold-menu.png)
 
 {% endif %}
 
 {% ifversion ghec %}
-
-{% data reusables.enterprise-accounts.dormant-user-release-phase %}
-
-{% warning %}
-
-**Observação:** Durante o beta privado, as melhorias constantes no recurso de download de relatório podem limitar a sua disponibilidade.
-
-{% endwarning %}
-
 ## Fazendo o download do relatório de usuários inativos da conta corporativa
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}
 1. Para fazer o download do seu relatório de usuários inativos (beta) como um arquivo CSV, em "Outro", clique em {% octicon "download" aria-label="The Download icon" %} **Download**. ![Botão Baixar em "Outro" na página de conformidade](/assets/images/help/business-accounts/dormant-users-download-button.png)
+
+{% tip %}
+
+**Dica:** Para fins de avaliação do usuário inativo, a atividade do usuário tem escopo para incluir apenas a atividade do usuário associada a organizações, repositórios ou eventos de logon associados à empresa. Por exemplo, se um usuário comentou recentemente sobre um problema em um repositório público não associado à empresa, ele poderá ser considerado inativo. No entanto, se ele comentou recentemente sobre um problema em um repositório público associado a uma organização da sua empresa, ele não será considerado inativo e não aparecerá no relatório do de usuário inativo.
+
+No caso de eventos de logon na web, somente eventos de login por meio de um domínio SSO associado à sua empresa são consideradas atividade de usuário associada à empresa.
+
+{% endtip %}
 
 {% endif %}

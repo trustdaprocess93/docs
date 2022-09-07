@@ -4,6 +4,9 @@ intro: Aprenda maneiras diferentes de gerenciar chaves SSH em seus servidores ao
 redirect_from:
   - /guides/managing-deploy-keys
   - /v3/guides/managing-deploy-keys
+  - /deploy-keys
+  - /articles/managing-deploy-keys
+  - /multiple-keys
 versions:
   fpt: '*'
   ghes: '*'
@@ -34,11 +37,11 @@ Em muitos casos, especialmente no início de um projeto, o encaminhamento de age
 #### Configuração
 
 1. Ativar o encaminhamento do agente localmente. Consulte o [nosso guia sobre o encaminhamento de agentes SSH][ssh-agent-forwarding] para obter mais informações.
-2. Defina seus scripts de implantação para usar o encaminhamento de agentes. For example, on a bash script, enabling agent forwarding would look something like this: `ssh -A serverA 'bash -s' < deploy.sh`
+2. Defina seus scripts de implantação para usar o encaminhamento de agentes. Por exemplo, em um script bash, permitir o encaminhamento de agentes seria algo como isto: `ssh -A serverA 'bash -s' < deploy.sh`
 
 ## Clonagem de HTTPS com tokens do OAuth
 
-If you don't want to use SSH keys, you can use HTTPS with OAuth tokens.
+Se você não quiser usar chaves SSH, você poderá usar HTTPS com tokens OAuth.
 
 #### Prós
 
@@ -57,7 +60,7 @@ If you don't want to use SSH keys, you can use HTTPS with OAuth tokens.
 
 #### Configuração
 
-See [our guide on creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+Consulte [nosso guia sobre a criação de um token de acesso pessoal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 ## Chaves de implantação
 
@@ -78,7 +81,7 @@ See [our guide on creating a personal access token](/authentication/keeping-your
 
 #### Configuração
 
-1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public and private rsa key pair key pair.
+1. [Execute o procedimento `ssh-keygen` no seu servidor ][generating-ssh-keys] e lembre-se do local onde você salva o par de chaves RSA públicas e privadas gerado.
 2. No canto superior direito de qualquer página do {% data variables.product.product_name %}, clique na sua foto do perfil e, em seguida, clique em **Seu perfil**. ![Navegação para o perfil](/assets/images/profile-page.png)
 3. Na sua página de perfil, clique em **Repositórios** e, em seguida, clique no nome do seu repositório. ![Link dos repositórios](/assets/images/repos.png)
 4. No seu repositório, clique em **Configurações**. ![Configurações do repositório](/assets/images/repo-settings.png)
@@ -117,7 +120,7 @@ $ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.c
 
 Se seu servidor precisar acessar repositórios em uma ou mais organizações, você poderá usar um aplicativo GitHub para definir o acesso que você precisa e, em seguida, gerar tokens de _escopo limitado_, _servidor para servidor_ a partir daquele aplicativo GitHub. Os tokens do servidor para servidor podem ter escopo de repositório único ou múltiplo e podem ter permissões refinadas. Por exemplo, você pode gerar um token com acesso somente leitura para o conteúdo de um repositório.
 
-Uma vez que os aplicativos GitHub são um ator de primeira classe em  {% data variables.product.product_name %}, os tokens do servidor para servidor são dissociados de qualquer usuário do GitHub, o que os torna comparáveis aos "tokens de serviço". Além disso, tokens de servidor para servidor têm limites de taxa dedicados que escalam com o tamanho das organizações sobre as quais eles atuam. Para obter mais informações, consulte [Limites de taxa para os aplicativos Github](/developers/apps/rate-limits-for-github-apps).
+Uma vez que os aplicativos GitHub são um ator de primeira classe em  {% data variables.product.product_name %}, os tokens do servidor para servidor são dissociados de qualquer usuário do GitHub, o que os torna comparáveis aos "tokens de serviço". Além disso, tokens de servidor para servidor têm limites de taxa dedicados que escalam com o tamanho das organizações sobre as quais eles atuam. Para obter mais informações, consulte [Limites de taxa para {% data variables.product.prodname_github_apps %}](/developers/apps/rate-limits-for-github-apps).
 
 #### Prós
 

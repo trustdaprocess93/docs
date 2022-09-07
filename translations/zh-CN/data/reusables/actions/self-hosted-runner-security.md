@@ -1,0 +1,1 @@
+建议仅将自托管运行器用于私有仓库。 This is because forks of your public repository can potentially run dangerous code on your self-hosted runner machine by creating a pull request that executes the code in a workflow.

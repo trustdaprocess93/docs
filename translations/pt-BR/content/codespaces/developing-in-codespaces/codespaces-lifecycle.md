@@ -23,6 +23,8 @@ Se você escolher criar um novo codespace, sempre que você trabalhar em um proj
 
 Se você optar por usar um codespace de longo prazo para o seu projeto, você deverá retirá-lo do branch padrão do repositório cada vez que começar a trabalhar no seu codespace para que seu ambiente tenha os commits mais recentes. Esse fluxo de trabalho é muito parecido como se você estivesse trabalhando com um projeto na sua máquina local.
 
+{% data reusables.codespaces.prebuilds-crossreference %}
+
 ## Salvar alterações em um codespace
 
 Ao conectar-se a um código através da web, a gravação automática é habilitada automaticamente para o editor da web e configurada para salvar as alterações após um atraso. Ao conectar-se a um codespace por meio de {% data variables.product.prodname_vscode %} em execução no seu computador, você deverá habilitar o salvamento automático. Para obter mais informações, consulte [Salvar/Salvar Automaticamente](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save) na documentação de {% data variables.product.prodname_vscode %}.
@@ -33,7 +35,7 @@ Se você tiver alterações não salvas, seu editor solicitará que você as sal
 
 ## Tempo limite de codespaces
 
-Se você não interagir com o seu codespace em execução ou se você sair do seu codespace sem pará-lo explicitamente, ele irá expirar após um determinado tempo de inatividade e irá parar de executar. Por padrão, um código irá expirar após 30 minutos de inatividade. No entanto, você pode personalizar a duração do período de tempo limite para novos codespaces que você criar. Para obter mais informações sobre a definição do período de tempo limite padrão para seus códigos, consulte "[Definindo seu período de tempo limite para os codespaces](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces)". Para obter mais informações sobre como interromper um codespace, consulte "[Interrompendo um codespace](#stopping-a-codespace)".
+Se você não interagir com o seu codespace em execução ou se você sair do seu codespace sem pará-lo explicitamente, ele irá expirar após um determinado tempo de inatividade e irá parar de executar. Por padrão, um código irá expirar após 30 minutos de inatividade. No entanto, você pode personalizar a duração do período de tempo limite para novos codespaces que você criar. Para obter mais informações sobre como definir o período de tempo limite padrão para seus codespaces, consulte "[Definindo seu período de tempo limite para {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)". Para obter mais informações sobre como interromper um codespace, consulte "[Interrompendo um codespace](#stopping-a-codespace)".
 
 Quando o tempo de um codespace chega ao limite, os seus dados são preservados da última vez que suas alterações foram salvas. Para obter mais informações, consulte "[Salvando alterações em um codespace](#saving-changes-in-a-codespace)".
 

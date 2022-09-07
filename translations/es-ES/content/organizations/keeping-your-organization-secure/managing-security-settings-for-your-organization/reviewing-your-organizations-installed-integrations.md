@@ -19,9 +19,9 @@ shortTitle: Revisar las integraciones instaladas
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
-1. In the "Integrations" section of the sidebar, click **{% octicon "apps" aria-label="The apps icon" %} {% data variables.product.prodname_github_apps %}**.
-{% elsif ghae or ghes < 3.4 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+1. En la sección de "Integraciones" de la barra lateral, haz clic en **{% octicon "apps" aria-label="The apps icon" %} {% data variables.product.prodname_github_apps %}**.
+{% else %}
 1. En la barra lateral izquierda, haz clic en **{% data variables.product.prodname_github_apps %} Instaladas**. ![Pestaña de {% data variables.product.prodname_github_apps %} instaladas en la barra lateral de parámetros de la organización](/assets/images/help/organizations/org-settings-installed-github-apps.png)
 {% endif %}
 2. Al lado de la {% data variables.product.prodname_github_app %} que quieras revisar, haz clic en **Configure** (Configurar). ![Botón Configure (Configurar)](/assets/images/help/organizations/configure-installed-integration-button.png)

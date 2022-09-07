@@ -28,7 +28,7 @@ Para proprietários e contribuidores, as diretrizes de contribuição economizam
 
 {% ifversion fpt or ghes or ghec %}
 
-Você pode criar diretrizes de contribuição padrão para sua organização{% ifversion fpt or ghes or ghec %} ou conta de usuário{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Você pode criar diretrizes de contribuição padrão para sua organização{% ifversion fpt or ghes or ghec %} ou conta pessoal{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
@@ -59,7 +59,7 @@ Você pode criar diretrizes de contribuição padrão para sua organização{% i
 Caso tenha dúvidas, estes são alguns bons exemplos de diretrizes de contribuição:
 
 - [Diretrizes de contribuição](https://github.com/atom/atom/blob/master/CONTRIBUTING.md) do editor Atom.
-- [Diretrizes de contribuição](https://github.com/rails/rails/blob/master/CONTRIBUTING.md) do Ruby on Rails.
+- [Diretrizes de contribuição](https://github.com/rails/rails/blob/main/CONTRIBUTING.md) do Ruby on Rails.
 - [Diretrizes de contribuição](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md) do Open Government.
 
 ## Leia mais

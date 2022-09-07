@@ -34,22 +34,22 @@ Cuando bloqueas a un usuario:
 - Se te elimina como colaborador en sus repositorios
 - Ya no contarás con su patrocinio
 - Cualquier invitación de sucesor de una cuenta o repositorio que se haga a o que provenga del usuario bloqueado se cancela
-- El usuario se eliminó como colaborador en todos los tableros de proyecto & proyectos (beta) que te pertenecen
-- Se te eliminó como colaborador de todos los tableros de proyecto & proyectos (beta) que le pertenecen al usuario
+- El usuario se eliminó como un colaborador de todos los proyectos y {% data variables.projects.projects_v1_boards %} que te pertenecen
+- Se te eliminó como colaborador de todos los proyectos y {% data variables.projects.projects_v1_boards %} que le pertenecen al usuario
 
 Después de que hayas bloqueado a un usuario, no podrá:
 - Enviarte notificaciones, incluso al [@mencionar](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) tu nombre de usuario
-- Los comentarios o ediciones a los informes de problemas o solicitudes de extracción que has creado
+- Comentar en o editar las propuestas o solicitudes de cambios que hayas creado
 - Reaccionar a tus comentarios en reportes de problemas, solicitudes de extracción y confirmaciones
 - Seguir o ver tu contenido en el feed de sus actividades
-- Se te asigna a los informes de problemas o solicitudes de extracción
+- Asignarte a las propuestas o solicitudes de cambios
 - Invitarte para que seas colaborador en sus repositorios
 - Invitarte como colaborador en una asesoría de seguridad
 - Realizar referencias cruzadas con tus repositorios en comentarios
 - Bifurcar, observar, fijar o marcar con estrella a tus repositorios
 - Patrocinarte
-- Te agregó como colaborador en sus tableros de proyecto & proyectos (beta)
-- Haz cambios en tus tableros de proyecto & proyectos (beta)
+- Agregarte como colaborador en sus proyectos y {% data variables.projects.projects_v1_boards %}
+- Hacer cambios a tus proyectos públicos y {% data variables.projects.projects_v1_boards %}
 
 En los repositorios que te pertenecen, los usuarios bloqueados tampoco podrán:
 - Abrir propuestas
@@ -59,8 +59,8 @@ En los repositorios que te pertenecen, los usuarios bloqueados tampoco podrán:
 
 ## Bloquear a un usuario en tus parámetros de cuenta
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.blocked_users %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.blocked_users %}
 3. En "Block a user" (Bloquear a un usuario), escribe el nombre de usuario del usuario que deseas bloquear, luego haz clic en **Block user** (Bloquear usuario). ![Campo Username (Nombre de usuario) y botón Block (Bloquear)](/assets/images/help/settings/user-settings-block-user.png)
 4. Opcionalmente, para mostrar una advertencia al visitar un repositorio donde un usuario bloqueado es un colaborador, selecciona **Warn me when blocked user is a prior contributor to a repository** (Advertirme cuando un usuario bloqueado es un colaborador anterior del repositorio). ![Opción para advertir sobre usuarios bloqueados](/assets/images/help/settings/warn-block-user.png)
 

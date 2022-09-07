@@ -12,7 +12,7 @@ topics:
 shortTitle: IAM con el SSO de SAML
 ---
 
-{% data reusables.enterprise-accounts.emu-saml-note %}
+{% data reusables.saml.ghec-only %}
 
 ## Acerca de SAML SSO
 
@@ -24,7 +24,7 @@ Los propietarios de las organizaciones pueden requerir el SSO de SAML para una o
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
-Antes de habilitar el SSO de SAML para tu organización, necesitarás conectar tu IdP a la misma. Para obtener más información, consulta "[Conectar tu proveedor de identidad a tu organización](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)."
+Antes de habilitar el SSO de SAML para tu organización, necesitarás conectar tu IdP a la misma. Para obtener más información, consulta la sección "[Conectar a tu proveedor de identidad con tu organización](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)."
 
 En una organización, el SSO de SAML puede inhabilitarse, habilitarse pero no requerirse, o habilitarse y requerirse. Después de habilitar exitosamente el SSO de SAML para tu organización y que sus miembros se autentiquen exitosamente con tu IdP, puedes requerir la configuración del SSO de SAML. Para obtener más información acerca de requerir el SSO de SAML para tu organización en {% data variables.product.prodname_dotcom %}, consulta la sección "[Requerir el inicio de sesión único de SAML para tu organización](/articles/enforcing-saml-single-sign-on-for-your-organization)".
 
@@ -44,7 +44,9 @@ Los miembros de una organización también deben contar con una sesión activa d
 
 {% data reusables.saml.saml-supported-idps %}
 
-Algunos IdP admiten acceso de suministro a una organización de {% data variables.product.prodname_dotcom %} a través de SCIM. {% data reusables.scim.enterprise-account-scim %} Para obtener más información, consulta la sección "[Acerca de SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
+Algunos IdP admiten acceso de suministro a una organización de {% data variables.product.prodname_dotcom %} a través de SCIM. Para obtener más información, consulta la sección "[SCIM para las organizaciones](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)".
+
+{% data reusables.scim.enterprise-account-scim %}
 
 ## Agregar miembros a una organización usando SAML SSO
 
@@ -52,7 +54,7 @@ Una vez que activas SAML SSO, hay varias maneras de poder agregar nuevos miembro
 
 Para aprovisionar nuevos usuarios sin una invitación de un propietario de la organización, puedes usar la URL `https://github.com/orgs/ORGANIZATION/sso/sign_up`, reemplazando _ORGANIZATION_ con el nombre de tu organización. Por ejemplo, puedes configurar tu IdP para que cualquiera con acceso al IdP pueda hacer clic en el tablero del IdP para unirse a tu organización de {% data variables.product.prodname_dotcom %}.
 
-Si tu IdP admite SCIM, {% data variables.product.prodname_dotcom %} puede invitar automáticamente a los miembros para que se unan a tu organización cuando les otorgas acceso en tu IdP. Si eliminas el acceso de un miembro a tu organización de {% data variables.product.prodname_dotcom %} en tu IdP de SAML, éste se eliminará automáticamente de la organización de{% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Acerca de SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
+Si tu IdP admite SCIM, {% data variables.product.prodname_dotcom %} puede invitar automáticamente a los miembros para que se unan a tu organización cuando les otorgas acceso en tu IdP. Si eliminas el acceso de un miembro a tu organización de {% data variables.product.prodname_dotcom %} en tu IdP de SAML, éste se eliminará automáticamente de la organización de{% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[SCIM para las organizaciones](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)".
 
 {% data reusables.organizations.team-synchronization %}
 
@@ -60,5 +62,6 @@ Si tu IdP admite SCIM, {% data variables.product.prodname_dotcom %} puede invita
 
 ## Leer más
 
+- "[Referencia de configuración de SAML](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)"
 - "[Acerca de la autenticación de dos factores y el inicio de sesión único de SAML ](/articles/about-two-factor-authentication-and-saml-single-sign-on)"
 - "[Acerca de la autenticación con el inicio de sesión único de SAML](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)"

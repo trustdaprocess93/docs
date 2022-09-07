@@ -44,24 +44,14 @@ curl -u my_user:my_password https://api.github.com/user/repos
 相反，在测试端点或进行本地开发时使用[个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)：
 
 ```bash
-curl -H 'Authorization: token my_access_token' https://api.github.com/user/repos
+curl -H 'Authorization: Bearer my_access_token' https://api.github.com/user/repos
 ```
 
 对于 OAuth 应用程序，您应该使用 [web 应用程序流程](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow)生成 OAuth 令牌以用于 API 调用的标头：
 
 ```bash
-curl -H 'Authorization: token my-oauth-token' https://api.github.com/user/repos
+curl -H 'Authorization: Bearer my-oauth-token' https://api.github.com/user/repos
 ```
-
-### 调用 OAuth 授权 API
-
-如果要调用 [OAuth 授权 API](/enterprise-server/rest/reference/oauth-authorizations) 来管理 OAuth 应用的授权或生成访问令牌，类似于以下示例：
-
-```bash
-curl -u my_username:my_password -X POST "https://api.github.com/authorizations" -d '{"scopes":["public_repo"], "note":"my token", "client_id":"my_client_id", "client_secret":"my_client_secret"}'
-```
-
-然后您必须切换到 [web 应用程序流程](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow)来生成访问令牌。
 
 ## 超时
 

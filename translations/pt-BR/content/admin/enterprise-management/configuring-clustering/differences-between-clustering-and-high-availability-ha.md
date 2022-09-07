@@ -35,12 +35,12 @@ Tanto a alta disponibilidade (High Availability, HA) quanto o cluster fornecem r
 
 ## Backups e recuperação de desastre
 
-Neither HA nor Clustering should be considered a replacement for regular backups. Para obter mais informações, consulte "[Configurar backups no appliance](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance)".
+Nem o clustering nem a HA devem ser considerados como substitutos para as medidas regulares de backup. Para obter mais informações, consulte "[Configurar backups no appliance](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance)".
 
 ## Monitoramento
 
-Os recursos de disponibilidade, especialmente os que têm failover automático, como clustering, podem mascarar falhas porque geralmente o serviço não é interrompido em caso de falha. Seja qual for a opção em uso (HA ou cluster), é importante monitorar a integridade de cada instância para você se manter a par das possíveis falhas. Para obter mais informações sobre monitoramento, consulte "[Limites recomendados de alerta](/enterprise/{{ currentVersion }}/admin/guides/installation/recommended-alert-thresholds/)" e "[Monitoramento de nós de cluster](/enterprise/{{ currentVersion}}/admin/guides/clustering/monitoring-cluster-nodes/)."
+Os recursos de disponibilidade, especialmente os que têm failover automático, como clustering, podem mascarar falhas porque geralmente o serviço não é interrompido em caso de falha. Seja qual for a opção em uso (HA ou cluster), é importante monitorar a integridade de cada instância para você se manter a par das possíveis falhas. Para obter mais informações sobre monitoramento, consulte "[Limites de alerta recomendados](/enterprise/admin/guides/installation/recommended-alert-thresholds/)" e "[Monitorando nós de cluster](/enterprise/{{ currentVersion}}/admin/guides/clustering/monitoring-cluster-nodes/)".
 
 ## Leia mais
 - Para obter mais informações sobre clustering no {% data variables.product.prodname_ghe_server %}, consulte "[Sobre clustering](/enterprise/{{ currentVersion}}/admin/guides/clustering/about-clustering/)".
-- Para obter mais informações sobre HA, consulte "[Configurar o {% data variables.product.prodname_ghe_server %} para alta disponibilidade](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".
+- Para obter mais informações sobre HA, consulte "[Configurar o {% data variables.product.prodname_ghe_server %} para alta disponibilidade](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".

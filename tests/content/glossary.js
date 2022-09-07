@@ -1,10 +1,7 @@
 import loadSiteData from '../../lib/site-data.js'
 
 describe('glossaries', () => {
-  let glossaries
-  beforeAll(async () => {
-    glossaries = (await loadSiteData()).en.site.data.glossaries
-  })
+  const glossaries = loadSiteData().en.site.data.glossaries
 
   test('are broken into external, internal, and candidates', async () => {
     const keys = Object.keys(glossaries)
@@ -37,13 +34,6 @@ describe('glossaries', () => {
     glossaries.internal.forEach((entry) => {
       const message = `entry '${entry.term}' is missing a description`
       expect(entry.description && entry.description.length > 0, message).toBe(true)
-    })
-  })
-
-  test('non-English external glossary is in correct order', async () => {
-    const vals = (await loadSiteData()).ja.site.data.glossaries.external
-    vals.forEach((val, i) => {
-      expect(val.term.localeCompare(vals[i + 1], 'ja')).toBeGreaterThan(0)
     })
   })
 

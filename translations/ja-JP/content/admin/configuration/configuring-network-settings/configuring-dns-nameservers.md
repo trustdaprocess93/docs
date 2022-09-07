@@ -30,14 +30,16 @@ shortTitle: Configure DNS servers
 ## 管理シェルを使ったネームサーバの設定
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. ネームサーバーを編集するには、次を入力します:
+
+2. To edit your nameservers, use the `ghe-setup-network` command in visual mode. 詳しい情報については、「[コマンドラインユーティリティ](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-setup-network)」を参照してください。
+
   ```shell
-  $ sudo vim /etc/resolvconf/resolv.conf.d/head
+  ghe-setup-network -v
   ```
-3. `nameserver` エントリを追加し、続いてファイルを保存します。
-4. 変更を確認したら、ファイルを保存します。
+
 5. To add your new nameserver entries to {% data variables.product.product_location %}, run the following:
+
   ```shell
-  $ sudo service resolvconf restart
-  $ sudo service dnsmasq restart
+  sudo service resolvconf restart
+  sudo service dnsmasq restart
   ```

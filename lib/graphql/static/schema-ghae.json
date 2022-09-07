@@ -1,581 +1,593 @@
 {
-  "queries": {
-    "connections": [
-      {
-        "name": "organizations",
-        "type": "OrganizationConnection!",
-        "kind": "objects",
-        "id": "organizationconnection",
-        "href": "/graphql/reference/objects#organizationconnection",
-        "description": "<p>A list of organizations.</p>",
-        "args": [
-          {
-            "name": "after",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
-          },
-          {
-            "name": "before",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
-          },
-          {
-            "name": "first",
-            "type": "Int",
-            "id": "int",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#int",
-            "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
-          },
-          {
-            "name": "last",
-            "type": "Int",
-            "id": "int",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#int",
-            "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
-          }
-        ]
-      },
-      {
-        "name": "search",
-        "type": "SearchResultItemConnection!",
-        "kind": "objects",
-        "id": "searchresultitemconnection",
-        "href": "/graphql/reference/objects#searchresultitemconnection",
-        "description": "<p>Perform a search across resources.</p>",
-        "args": [
-          {
-            "name": "after",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
-          },
-          {
-            "name": "before",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
-          },
-          {
-            "name": "first",
-            "type": "Int",
-            "id": "int",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#int",
-            "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
-          },
-          {
-            "name": "last",
-            "type": "Int",
-            "id": "int",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#int",
-            "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
-          },
-          {
-            "name": "query",
-            "type": "String!",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>The search string to look for.</p>"
-          },
-          {
-            "name": "type",
-            "type": "SearchType!",
-            "id": "searchtype",
-            "kind": "enums",
-            "href": "/graphql/reference/enums#searchtype",
-            "description": "<p>The types of search items to search within.</p>"
-          }
-        ]
-      },
-      {
-        "name": "securityAdvisories",
-        "type": "SecurityAdvisoryConnection!",
-        "kind": "objects",
-        "id": "securityadvisoryconnection",
-        "href": "/graphql/reference/objects#securityadvisoryconnection",
-        "description": "<p>GitHub Security Advisories.</p>",
-        "args": [
-          {
-            "name": "after",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
-          },
-          {
-            "name": "before",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
-          },
-          {
-            "name": "first",
-            "type": "Int",
-            "id": "int",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#int",
-            "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
-          },
-          {
-            "name": "last",
-            "type": "Int",
-            "id": "int",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#int",
-            "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
-          },
-          {
-            "name": "publishedSince",
-            "type": "DateTime",
-            "id": "datetime",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#datetime",
-            "description": "<p>Filter advisories to those published since a time in the past.</p>"
-          },
-          {
-            "name": "updatedSince",
-            "type": "DateTime",
-            "id": "datetime",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#datetime",
-            "description": "<p>Filter advisories to those updated since a time in the past.</p>"
-          }
-        ]
-      },
-      {
-        "name": "securityVulnerabilities",
-        "type": "SecurityVulnerabilityConnection!",
-        "kind": "objects",
-        "id": "securityvulnerabilityconnection",
-        "href": "/graphql/reference/objects#securityvulnerabilityconnection",
-        "description": "<p>Software Vulnerabilities documented by GitHub Security Advisories.</p>",
-        "args": [
-          {
-            "name": "after",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
-          },
-          {
-            "name": "before",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
-          },
-          {
-            "name": "ecosystem",
-            "type": "SecurityAdvisoryEcosystem",
-            "id": "securityadvisoryecosystem",
-            "kind": "enums",
-            "href": "/graphql/reference/enums#securityadvisoryecosystem",
-            "description": "<p>An ecosystem to filter vulnerabilities by.</p>"
-          },
-          {
-            "name": "first",
-            "type": "Int",
-            "id": "int",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#int",
-            "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
-          },
-          {
-            "name": "last",
-            "type": "Int",
-            "id": "int",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#int",
-            "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
-          },
-          {
-            "name": "package",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>A package name to filter vulnerabilities by.</p>"
-          },
-          {
-            "name": "severities",
-            "type": "[SecurityAdvisorySeverity!]",
-            "id": "securityadvisoryseverity",
-            "kind": "enums",
-            "href": "/graphql/reference/enums#securityadvisoryseverity",
-            "description": "<p>A list of severities to filter vulnerabilities by.</p>"
-          }
-        ]
-      },
-      {
-        "name": "users",
-        "type": "UserConnection!",
-        "kind": "objects",
-        "id": "userconnection",
-        "href": "/graphql/reference/objects#userconnection",
-        "description": "<p>A list of users.</p>",
-        "args": [
-          {
-            "name": "after",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
-          },
-          {
-            "name": "before",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
-          },
-          {
-            "name": "first",
-            "type": "Int",
-            "id": "int",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#int",
-            "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
-          },
-          {
-            "name": "last",
-            "type": "Int",
-            "id": "int",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#int",
-            "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
-          }
-        ]
-      }
-    ],
-    "fields": [
-      {
-        "name": "codeOfConduct",
-        "type": "CodeOfConduct",
-        "kind": "objects",
-        "id": "codeofconduct",
-        "href": "/graphql/reference/objects#codeofconduct",
-        "description": "<p>Look up a code of conduct by its key.</p>",
-        "args": [
-          {
-            "name": "key",
-            "type": "String!",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>The code of conduct's key.</p>"
-          }
-        ]
-      },
-      {
-        "name": "codesOfConduct",
-        "type": "[CodeOfConduct]",
-        "kind": "objects",
-        "id": "codeofconduct",
-        "href": "/graphql/reference/objects#codeofconduct",
-        "description": "<p>Look up a code of conduct by its key.</p>",
-        "args": []
-      },
-      {
-        "name": "enterprise",
-        "type": "Enterprise",
-        "kind": "objects",
-        "id": "enterprise",
-        "href": "/graphql/reference/objects#enterprise",
-        "description": "<p>Look up an enterprise by URL slug.</p>",
-        "args": [
-          {
-            "name": "invitationToken",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>The enterprise invitation token.</p>"
-          },
-          {
-            "name": "slug",
-            "type": "String!",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>The enterprise URL slug.</p>"
-          }
-        ]
-      },
-      {
-        "name": "license",
-        "type": "License",
-        "kind": "objects",
-        "id": "license",
-        "href": "/graphql/reference/objects#license",
-        "description": "<p>Look up an open source license by its key.</p>",
-        "args": [
-          {
-            "name": "key",
-            "type": "String!",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>The license's downcased SPDX ID.</p>"
-          }
-        ]
-      },
-      {
-        "name": "licenses",
-        "type": "[License]!",
-        "kind": "objects",
-        "id": "license",
-        "href": "/graphql/reference/objects#license",
-        "description": "<p>Return a list of known open source licenses.</p>",
-        "args": []
-      },
-      {
-        "name": "meta",
-        "type": "GitHubMetadata!",
-        "kind": "objects",
-        "id": "githubmetadata",
-        "href": "/graphql/reference/objects#githubmetadata",
-        "description": "<p>Return information about the GitHub instance.</p>",
-        "args": []
-      },
-      {
-        "name": "node",
-        "type": "Node",
-        "kind": "interfaces",
-        "id": "node",
-        "href": "/graphql/reference/interfaces#node",
-        "description": "<p>Fetches an object given its ID.</p>",
-        "args": [
-          {
-            "name": "id",
-            "type": "ID!",
-            "id": "id",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#id",
-            "description": "<p>ID of the object.</p>"
-          }
-        ]
-      },
-      {
-        "name": "nodes",
-        "type": "[Node]!",
-        "kind": "interfaces",
-        "id": "node",
-        "href": "/graphql/reference/interfaces#node",
-        "description": "<p>Lookup nodes by a list of IDs.</p>",
-        "args": [
-          {
-            "name": "ids",
-            "type": "[ID!]!",
-            "id": "id",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#id",
-            "description": "<p>The list of node IDs.</p>"
-          }
-        ]
-      },
-      {
-        "name": "organization",
-        "type": "Organization",
-        "kind": "objects",
-        "id": "organization",
-        "href": "/graphql/reference/objects#organization",
-        "description": "<p>Lookup a organization by login.</p>",
-        "args": [
-          {
-            "name": "login",
-            "type": "String!",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>The organization's login.</p>"
-          }
-        ]
-      },
-      {
-        "name": "rateLimit",
-        "type": "RateLimit",
-        "kind": "objects",
-        "id": "ratelimit",
-        "href": "/graphql/reference/objects#ratelimit",
-        "description": "<p>The client's rate limit information.</p>",
-        "args": [
-          {
-            "name": "dryRun",
-            "defaultValue": false,
-            "type": "Boolean",
-            "id": "boolean",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#boolean",
-            "description": "<p>If true, calculate the cost for the query without evaluating it.</p>"
-          }
-        ]
-      },
-      {
-        "name": "relay",
-        "type": "Query!",
-        "kind": "objects",
-        "id": "query",
-        "href": "/graphql/reference/objects#query",
-        "description": "<p>Hack to workaround <a href=\"https://github.com/facebook/relay/issues/112\">https://github.com/facebook/relay/issues/112</a> re-exposing the root query object.</p>",
-        "args": []
-      },
-      {
-        "name": "repository",
-        "type": "Repository",
-        "kind": "objects",
-        "id": "repository",
-        "href": "/graphql/reference/objects#repository",
-        "description": "<p>Lookup a given repository by the owner and repository name.</p>",
-        "args": [
-          {
-            "name": "followRenames",
-            "defaultValue": true,
-            "type": "Boolean",
-            "id": "boolean",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#boolean",
-            "description": "<p>Follow repository renames. If disabled, a repository referenced by its old name will return an error.</p>"
-          },
-          {
-            "name": "name",
-            "type": "String!",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>The name of the repository.</p>"
-          },
-          {
-            "name": "owner",
-            "type": "String!",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>The login field of a user or organization.</p>"
-          }
-        ]
-      },
-      {
-        "name": "repositoryOwner",
-        "type": "RepositoryOwner",
-        "kind": "interfaces",
-        "id": "repositoryowner",
-        "href": "/graphql/reference/interfaces#repositoryowner",
-        "description": "<p>Lookup a repository owner (ie. either a User or an Organization) by login.</p>",
-        "args": [
-          {
-            "name": "login",
-            "type": "String!",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>The username to lookup the owner by.</p>"
-          }
-        ]
-      },
-      {
-        "name": "resource",
-        "type": "UniformResourceLocatable",
-        "kind": "interfaces",
-        "id": "uniformresourcelocatable",
-        "href": "/graphql/reference/interfaces#uniformresourcelocatable",
-        "description": "<p>Lookup resource by a URL.</p>",
-        "args": [
-          {
-            "name": "url",
-            "type": "URI!",
-            "id": "uri",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#uri",
-            "description": "<p>The URL.</p>"
-          }
-        ]
-      },
-      {
-        "name": "securityAdvisory",
-        "type": "SecurityAdvisory",
-        "kind": "objects",
-        "id": "securityadvisory",
-        "href": "/graphql/reference/objects#securityadvisory",
-        "description": "<p>Fetch a Security Advisory by its GHSA ID.</p>",
-        "args": [
-          {
-            "name": "ghsaId",
-            "type": "String!",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>GitHub Security Advisory ID.</p>"
-          }
-        ]
-      },
-      {
-        "name": "topic",
-        "type": "Topic",
-        "kind": "objects",
-        "id": "topic",
-        "href": "/graphql/reference/objects#topic",
-        "description": "<p>Look up a topic by name.</p>",
-        "args": [
-          {
-            "name": "name",
-            "type": "String!",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>The topic's name.</p>"
-          }
-        ]
-      },
-      {
-        "name": "user",
-        "type": "User",
-        "kind": "objects",
-        "id": "user",
-        "href": "/graphql/reference/objects#user",
-        "description": "<p>Lookup a user by login.</p>",
-        "args": [
-          {
-            "name": "login",
-            "type": "String!",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>The user's login.</p>"
-          }
-        ]
-      },
-      {
-        "name": "viewer",
-        "type": "User!",
-        "kind": "objects",
-        "id": "user",
-        "href": "/graphql/reference/objects#user",
-        "description": "<p>The currently authenticated user.</p>",
-        "args": []
-      }
-    ]
-  },
+  "queries": [
+    {
+      "name": "codeOfConduct",
+      "type": "CodeOfConduct",
+      "kind": "objects",
+      "id": "codeofconduct",
+      "href": "/graphql/reference/objects#codeofconduct",
+      "description": "<p>Look up a code of conduct by its key.</p>",
+      "args": [
+        {
+          "name": "key",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The code of conduct's key.</p>"
+        }
+      ]
+    },
+    {
+      "name": "codesOfConduct",
+      "type": "[CodeOfConduct]",
+      "kind": "objects",
+      "id": "codeofconduct",
+      "href": "/graphql/reference/objects#codeofconduct",
+      "description": "<p>Look up a code of conduct by its key.</p>",
+      "args": []
+    },
+    {
+      "name": "enterprise",
+      "type": "Enterprise",
+      "kind": "objects",
+      "id": "enterprise",
+      "href": "/graphql/reference/objects#enterprise",
+      "description": "<p>Look up an enterprise by URL slug.</p>",
+      "args": [
+        {
+          "name": "invitationToken",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The enterprise invitation token.</p>"
+        },
+        {
+          "name": "slug",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The enterprise URL slug.</p>"
+        }
+      ]
+    },
+    {
+      "name": "license",
+      "type": "License",
+      "kind": "objects",
+      "id": "license",
+      "href": "/graphql/reference/objects#license",
+      "description": "<p>Look up an open source license by its key.</p>",
+      "args": [
+        {
+          "name": "key",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The license's downcased SPDX ID.</p>"
+        }
+      ]
+    },
+    {
+      "name": "licenses",
+      "type": "[License]!",
+      "kind": "objects",
+      "id": "license",
+      "href": "/graphql/reference/objects#license",
+      "description": "<p>Return a list of known open source licenses.</p>",
+      "args": []
+    },
+    {
+      "name": "meta",
+      "type": "GitHubMetadata!",
+      "kind": "objects",
+      "id": "githubmetadata",
+      "href": "/graphql/reference/objects#githubmetadata",
+      "description": "<p>Return information about the GitHub instance.</p>",
+      "args": []
+    },
+    {
+      "name": "node",
+      "type": "Node",
+      "kind": "interfaces",
+      "id": "node",
+      "href": "/graphql/reference/interfaces#node",
+      "description": "<p>Fetches an object given its ID.</p>",
+      "args": [
+        {
+          "name": "id",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "description": "<p>ID of the object.</p>"
+        }
+      ]
+    },
+    {
+      "name": "nodes",
+      "type": "[Node]!",
+      "kind": "interfaces",
+      "id": "node",
+      "href": "/graphql/reference/interfaces#node",
+      "description": "<p>Lookup nodes by a list of IDs.</p>",
+      "args": [
+        {
+          "name": "ids",
+          "type": "[ID!]!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "description": "<p>The list of node IDs.</p>"
+        }
+      ]
+    },
+    {
+      "name": "organization",
+      "type": "Organization",
+      "kind": "objects",
+      "id": "organization",
+      "href": "/graphql/reference/objects#organization",
+      "description": "<p>Lookup a organization by login.</p>",
+      "args": [
+        {
+          "name": "login",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The organization's login.</p>"
+        }
+      ]
+    },
+    {
+      "name": "organizations",
+      "type": "OrganizationConnection!",
+      "kind": "objects",
+      "id": "organizationconnection",
+      "href": "/graphql/reference/objects#organizationconnection",
+      "description": "<p>A list of organizations.</p>",
+      "args": [
+        {
+          "name": "after",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
+        },
+        {
+          "name": "before",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
+        },
+        {
+          "name": "first",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "last",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
+        }
+      ]
+    },
+    {
+      "name": "rateLimit",
+      "type": "RateLimit",
+      "kind": "objects",
+      "id": "ratelimit",
+      "href": "/graphql/reference/objects#ratelimit",
+      "description": "<p>The client's rate limit information.</p>",
+      "args": [
+        {
+          "name": "dryRun",
+          "defaultValue": false,
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "description": "<p>If true, calculate the cost for the query without evaluating it.</p>"
+        }
+      ]
+    },
+    {
+      "name": "relay",
+      "type": "Query!",
+      "kind": "objects",
+      "id": "query",
+      "href": "/graphql/reference/objects#query",
+      "description": "<p>Hack to workaround <a href=\"https://github.com/facebook/relay/issues/112\">https://github.com/facebook/relay/issues/112</a> re-exposing the root query object.</p>",
+      "args": []
+    },
+    {
+      "name": "repository",
+      "type": "Repository",
+      "kind": "objects",
+      "id": "repository",
+      "href": "/graphql/reference/objects#repository",
+      "description": "<p>Lookup a given repository by the owner and repository name.</p>",
+      "args": [
+        {
+          "name": "followRenames",
+          "defaultValue": true,
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "description": "<p>Follow repository renames. If disabled, a repository referenced by its old name will return an error.</p>"
+        },
+        {
+          "name": "name",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The name of the repository.</p>"
+        },
+        {
+          "name": "owner",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The login field of a user or organization.</p>"
+        }
+      ]
+    },
+    {
+      "name": "repositoryOwner",
+      "type": "RepositoryOwner",
+      "kind": "interfaces",
+      "id": "repositoryowner",
+      "href": "/graphql/reference/interfaces#repositoryowner",
+      "description": "<p>Lookup a repository owner (ie. either a User or an Organization) by login.</p>",
+      "args": [
+        {
+          "name": "login",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The username to lookup the owner by.</p>"
+        }
+      ]
+    },
+    {
+      "name": "resource",
+      "type": "UniformResourceLocatable",
+      "kind": "interfaces",
+      "id": "uniformresourcelocatable",
+      "href": "/graphql/reference/interfaces#uniformresourcelocatable",
+      "description": "<p>Lookup resource by a URL.</p>",
+      "args": [
+        {
+          "name": "url",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri",
+          "description": "<p>The URL.</p>"
+        }
+      ]
+    },
+    {
+      "name": "search",
+      "type": "SearchResultItemConnection!",
+      "kind": "objects",
+      "id": "searchresultitemconnection",
+      "href": "/graphql/reference/objects#searchresultitemconnection",
+      "description": "<p>Perform a search across resources.</p>",
+      "args": [
+        {
+          "name": "after",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
+        },
+        {
+          "name": "before",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
+        },
+        {
+          "name": "first",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "last",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "query",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The search string to look for.</p>"
+        },
+        {
+          "name": "type",
+          "type": "SearchType!",
+          "id": "searchtype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#searchtype",
+          "description": "<p>The types of search items to search within.</p>"
+        }
+      ]
+    },
+    {
+      "name": "securityAdvisories",
+      "type": "SecurityAdvisoryConnection!",
+      "kind": "objects",
+      "id": "securityadvisoryconnection",
+      "href": "/graphql/reference/objects#securityadvisoryconnection",
+      "description": "<p>GitHub Security Advisories.</p>",
+      "args": [
+        {
+          "name": "after",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
+        },
+        {
+          "name": "before",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
+        },
+        {
+          "name": "classifications",
+          "type": "[SecurityAdvisoryClassification!]",
+          "id": "securityadvisoryclassification",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#securityadvisoryclassification",
+          "description": "<p>A list of classifications to filter advisories by.</p>"
+        },
+        {
+          "name": "first",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "last",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "publishedSince",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime",
+          "description": "<p>Filter advisories to those published since a time in the past.</p>"
+        },
+        {
+          "name": "updatedSince",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime",
+          "description": "<p>Filter advisories to those updated since a time in the past.</p>"
+        }
+      ]
+    },
+    {
+      "name": "securityAdvisory",
+      "type": "SecurityAdvisory",
+      "kind": "objects",
+      "id": "securityadvisory",
+      "href": "/graphql/reference/objects#securityadvisory",
+      "description": "<p>Fetch a Security Advisory by its GHSA ID.</p>",
+      "args": [
+        {
+          "name": "ghsaId",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>GitHub Security Advisory ID.</p>"
+        }
+      ]
+    },
+    {
+      "name": "securityVulnerabilities",
+      "type": "SecurityVulnerabilityConnection!",
+      "kind": "objects",
+      "id": "securityvulnerabilityconnection",
+      "href": "/graphql/reference/objects#securityvulnerabilityconnection",
+      "description": "<p>Software Vulnerabilities documented by GitHub Security Advisories.</p>",
+      "args": [
+        {
+          "name": "after",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
+        },
+        {
+          "name": "before",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
+        },
+        {
+          "name": "classifications",
+          "type": "[SecurityAdvisoryClassification!]",
+          "id": "securityadvisoryclassification",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#securityadvisoryclassification",
+          "description": "<p>A list of advisory classifications to filter vulnerabilities by.</p>"
+        },
+        {
+          "name": "ecosystem",
+          "type": "SecurityAdvisoryEcosystem",
+          "id": "securityadvisoryecosystem",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#securityadvisoryecosystem",
+          "description": "<p>An ecosystem to filter vulnerabilities by.</p>"
+        },
+        {
+          "name": "first",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "last",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "package",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A package name to filter vulnerabilities by.</p>"
+        },
+        {
+          "name": "severities",
+          "type": "[SecurityAdvisorySeverity!]",
+          "id": "securityadvisoryseverity",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#securityadvisoryseverity",
+          "description": "<p>A list of severities to filter vulnerabilities by.</p>"
+        }
+      ]
+    },
+    {
+      "name": "topic",
+      "type": "Topic",
+      "kind": "objects",
+      "id": "topic",
+      "href": "/graphql/reference/objects#topic",
+      "description": "<p>Look up a topic by name.</p>",
+      "args": [
+        {
+          "name": "name",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The topic's name.</p>"
+        }
+      ]
+    },
+    {
+      "name": "user",
+      "type": "User",
+      "kind": "objects",
+      "id": "user",
+      "href": "/graphql/reference/objects#user",
+      "description": "<p>Lookup a user by login.</p>",
+      "args": [
+        {
+          "name": "login",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The user's login.</p>"
+        }
+      ]
+    },
+    {
+      "name": "users",
+      "type": "UserConnection!",
+      "kind": "objects",
+      "id": "userconnection",
+      "href": "/graphql/reference/objects#userconnection",
+      "description": "<p>A list of users.</p>",
+      "args": [
+        {
+          "name": "after",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
+        },
+        {
+          "name": "before",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
+        },
+        {
+          "name": "first",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "last",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
+        }
+      ]
+    },
+    {
+      "name": "viewer",
+      "type": "User!",
+      "kind": "objects",
+      "id": "user",
+      "href": "/graphql/reference/objects#user",
+      "description": "<p>The currently authenticated user.</p>",
+      "args": []
+    }
+  ],
   "mutations": [
     {
       "name": "abortQueuedMigrations",
@@ -2898,6 +2910,40 @@
       ]
     },
     {
+      "name": "followOrganization",
+      "kind": "mutations",
+      "id": "followorganization",
+      "href": "/graphql/reference/mutations#followorganization",
+      "description": "<p>Follow an organization.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "FollowOrganizationInput!",
+          "id": "followorganizationinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#followorganizationinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "organization",
+          "type": "Organization",
+          "id": "organization",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organization",
+          "description": "<p>The organization that was followed.</p>"
+        }
+      ]
+    },
+    {
       "name": "followUser",
       "kind": "mutations",
       "id": "followuser",
@@ -4140,6 +4186,40 @@
       ]
     },
     {
+      "name": "unfollowOrganization",
+      "kind": "mutations",
+      "id": "unfolloworganization",
+      "href": "/graphql/reference/mutations#unfolloworganization",
+      "description": "<p>Unfollow an organization.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UnfollowOrganizationInput!",
+          "id": "unfolloworganizationinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#unfolloworganizationinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "organization",
+          "type": "Organization",
+          "id": "organization",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organization",
+          "description": "<p>The organization that was unfollowed.</p>"
+        }
+      ]
+    },
+    {
       "name": "unfollowUser",
       "kind": "mutations",
       "id": "unfollowuser",
@@ -4466,7 +4546,7 @@
       "kind": "mutations",
       "id": "updatebranchprotectionrule",
       "href": "/graphql/reference/mutations#updatebranchprotectionrule",
-      "description": "<p>Create a new branch protection rule.</p>",
+      "description": "<p>Update a branch protection rule.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -5592,6 +5672,48 @@
       ]
     },
     {
+      "name": "updateOrganizationWebCommitSignoffSetting",
+      "kind": "mutations",
+      "id": "updateorganizationwebcommitsignoffsetting",
+      "href": "/graphql/reference/mutations#updateorganizationwebcommitsignoffsetting",
+      "description": "<p>Sets whether contributors are required to sign off on web-based commits for repositories in an organization.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateOrganizationWebCommitSignoffSettingInput!",
+          "id": "updateorganizationwebcommitsignoffsettinginput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateorganizationwebcommitsignoffsettinginput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "message",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A message confirming the result of updating the web commit signoff setting.</p>"
+        },
+        {
+          "name": "organization",
+          "type": "Organization",
+          "id": "organization",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organization",
+          "description": "<p>The organization with the updated web commit signoff setting.</p>"
+        }
+      ]
+    },
+    {
       "name": "updateProject",
       "kind": "mutations",
       "id": "updateproject",
@@ -5740,7 +5862,7 @@
       "kind": "mutations",
       "id": "updatepullrequestbranch",
       "href": "/graphql/reference/mutations#updatepullrequestbranch",
-      "description": "<p>Merge HEAD from upstream branch into pull request branch.</p>",
+      "description": "<p>Merge or Rebase HEAD from upstream branch into pull request branch.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -5948,6 +6070,48 @@
       ]
     },
     {
+      "name": "updateRepositoryWebCommitSignoffSetting",
+      "kind": "mutations",
+      "id": "updaterepositorywebcommitsignoffsetting",
+      "href": "/graphql/reference/mutations#updaterepositorywebcommitsignoffsetting",
+      "description": "<p>Sets whether contributors are required to sign off on web-based commits for a repository.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateRepositoryWebCommitSignoffSettingInput!",
+          "id": "updaterepositorywebcommitsignoffsettinginput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updaterepositorywebcommitsignoffsettinginput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "message",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A message confirming the result of updating the web commit signoff setting.</p>"
+        },
+        {
+          "name": "repository",
+          "type": "Repository",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository",
+          "description": "<p>The updated repository.</p>"
+        }
+      ]
+    },
+    {
       "name": "updateSubscription",
       "kind": "mutations",
       "id": "updatesubscription",
@@ -6099,6 +6263,48 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#team",
           "description": "<p>The team that was modified.</p>"
+        }
+      ]
+    },
+    {
+      "name": "updateTeamsRepository",
+      "kind": "mutations",
+      "id": "updateteamsrepository",
+      "href": "/graphql/reference/mutations#updateteamsrepository",
+      "description": "<p>Update team repository.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateTeamsRepositoryInput!",
+          "id": "updateteamsrepositoryinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateteamsrepositoryinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "repository",
+          "type": "Repository",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository",
+          "description": "<p>The repository that was updated.</p>"
+        },
+        {
+          "name": "teams",
+          "type": "[Team!]",
+          "id": "team",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#team",
+          "description": "<p>The teams granted permission on the repository.</p>"
         }
       ]
     },
@@ -6681,7 +6887,7 @@
         },
         {
           "name": "commitBody",
-          "description": "<p>The commit message of the auto-merge request.</p>",
+          "description": "<p>The commit message of the auto-merge request. If a merge queue is required by\nthe base branch, this value will be set by the merge queue when merging.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -6689,7 +6895,7 @@
         },
         {
           "name": "commitHeadline",
-          "description": "<p>The commit title of the auto-merge request.</p>",
+          "description": "<p>The commit title of the auto-merge request. If a merge queue is required by\nthe base branch, this value will be set by the merge queue when merging.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -6713,7 +6919,7 @@
         },
         {
           "name": "mergeMethod",
-          "description": "<p>The merge method of the auto-merge request.</p>",
+          "description": "<p>The merge method of the auto-merge request. If a merge queue is required by\nthe base branch, this value will be set by the merge queue when merging.</p>",
           "type": "PullRequestMergeMethod!",
           "id": "pullrequestmergemethod",
           "kind": "enums",
@@ -7389,6 +7595,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "blocksCreations",
+          "description": "<p>Is branch creation a protected operation.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "branchProtectionRuleConflicts",
           "description": "<p>A list of conflicts matching branches protection rule and other branch protection rules.</p>",
           "type": "BranchProtectionRuleConflictConnection!",
@@ -8014,7 +8228,7 @@
       "kind": "objects",
       "id": "bypassforcepushallowance",
       "href": "/graphql/reference/objects#bypassforcepushallowance",
-      "description": "<p>A team or user who has the ability to bypass a force push requirement on a protected branch.</p>",
+      "description": "<p>A user, team, or app who has the ability to bypass a force push requirement on a protected branch.</p>",
       "implements": [
         {
           "name": "Node",
@@ -8025,7 +8239,7 @@
       "fields": [
         {
           "name": "actor",
-          "description": "<p>The actor that can dismiss.</p>",
+          "description": "<p>The actor that can force push.</p>",
           "type": "BranchActorAllowanceActor",
           "id": "branchactorallowanceactor",
           "kind": "unions",
@@ -8033,7 +8247,7 @@
         },
         {
           "name": "branchProtectionRule",
-          "description": "<p>Identifies the branch protection rule associated with the allowed user or team.</p>",
+          "description": "<p>Identifies the branch protection rule associated with the allowed user, team, or app.</p>",
           "type": "BranchProtectionRule",
           "id": "branchprotectionrule",
           "kind": "objects",
@@ -8112,7 +8326,7 @@
       "kind": "objects",
       "id": "bypasspullrequestallowance",
       "href": "/graphql/reference/objects#bypasspullrequestallowance",
-      "description": "<p>A team or user who has the ability to bypass a pull request requirement on a protected branch.</p>",
+      "description": "<p>A user, team, or app who has the ability to bypass a pull request requirement on a protected branch.</p>",
       "implements": [
         {
           "name": "Node",
@@ -8123,7 +8337,7 @@
       "fields": [
         {
           "name": "actor",
-          "description": "<p>The actor that can dismiss.</p>",
+          "description": "<p>The actor that can bypass.</p>",
           "type": "BranchActorAllowanceActor",
           "id": "branchactorallowanceactor",
           "kind": "unions",
@@ -8131,7 +8345,7 @@
         },
         {
           "name": "branchProtectionRule",
-          "description": "<p>Identifies the branch protection rule associated with the allowed user or team.</p>",
+          "description": "<p>Identifies the branch protection rule associated with the allowed user, team, or app.</p>",
           "type": "BranchProtectionRule",
           "id": "branchprotectionrule",
           "kind": "objects",
@@ -9454,6 +9668,14 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "stateReason",
+          "description": "<p>The reason the issue state was changed to closed.</p>",
+          "type": "IssueStateReason",
+          "id": "issuestatereason",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuestatereason"
+        },
+        {
           "name": "url",
           "description": "<p>The HTTP URL for this closed event.</p>",
           "type": "URI!",
@@ -10537,7 +10759,7 @@
         },
         {
           "name": "minimizedReason",
-          "description": "<p>Returns why the comment was minimized.</p>",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -11790,7 +12012,7 @@
         },
         {
           "name": "pullRequestReviewContributions",
-          "description": "<p>Pull request review contributions made by the user.</p>",
+          "description": "<p>Pull request review contributions made by the user. Returns the most recently\nsubmitted review for each PR reviewed by the user.</p>",
           "type": "CreatedPullRequestReviewContributionConnection!",
           "id": "createdpullrequestreviewcontributionconnection",
           "kind": "objects",
@@ -13199,6 +13421,79 @@
           "id": "milestoneitem",
           "kind": "unions",
           "href": "/graphql/reference/unions#milestoneitem"
+        }
+      ]
+    },
+    {
+      "name": "DependabotUpdate",
+      "kind": "objects",
+      "id": "dependabotupdate",
+      "href": "/graphql/reference/objects#dependabotupdate",
+      "description": "<p>A Dependabot Update for a dependency in a repository.</p>",
+      "implements": [
+        {
+          "name": "RepositoryNode",
+          "id": "repositorynode",
+          "href": "/graphql/reference/interfaces#repositorynode"
+        }
+      ],
+      "fields": [
+        {
+          "name": "error",
+          "description": "<p>The error from a dependency update.</p>",
+          "type": "DependabotUpdateError",
+          "id": "dependabotupdateerror",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#dependabotupdateerror"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>The associated pull request.</p>",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository associated with this node.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository"
+        }
+      ]
+    },
+    {
+      "name": "DependabotUpdateError",
+      "kind": "objects",
+      "id": "dependabotupdateerror",
+      "href": "/graphql/reference/objects#dependabotupdateerror",
+      "description": "<p>An error produced from a Dependabot Update.</p>",
+      "fields": [
+        {
+          "name": "body",
+          "description": "<p>The body of the error.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "errorType",
+          "description": "<p>The error code.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "title",
+          "description": "<p>The title of the error.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -15097,6 +15392,14 @@
           "href": "/graphql/reference/objects#repository"
         },
         {
+          "name": "slug",
+          "description": "<p>The slug of this category.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "updatedAt",
           "description": "<p>Identifies the date and time when the object was last updated.</p>",
           "type": "DateTime!",
@@ -15343,7 +15646,7 @@
         },
         {
           "name": "minimizedReason",
-          "description": "<p>Returns why the comment was minimized.</p>",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -16092,56 +16395,6 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
-          "name": "userAccounts",
-          "description": "<p>A list of user accounts on this enterprise.</p>",
-          "type": "EnterpriseUserAccountConnection!",
-          "id": "enterpriseuseraccountconnection",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#enterpriseuseraccountconnection",
-          "arguments": [
-            {
-              "name": "after",
-              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            },
-            {
-              "name": "before",
-              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            },
-            {
-              "name": "first",
-              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
-              }
-            },
-            {
-              "name": "last",
-              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
-              }
-            }
-          ]
-        },
-        {
           "name": "viewerIsAdmin",
           "description": "<p>Is the current viewer an admin of this enterprise?.</p>",
           "type": "Boolean!",
@@ -16387,16 +16640,6 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
-          "name": "availableSeats",
-          "description": "<p>The number of available seats across all owned organizations based on the unique number of billable users.</p>",
-          "type": "Int!",
-          "id": "int",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#int",
-          "isDeprecated": true,
-          "deprecationReason": "<p><code>availableSeats</code> will be replaced with <code>totalAvailableLicenses</code> to provide more clarity on the value being returned Use EnterpriseBillingInfo.totalAvailableLicenses instead. Removal on 2020-01-01 UTC.</p>"
-        },
-        {
           "name": "bandwidthQuota",
           "description": "<p>The bandwidth quota in GB for all organizations owned by the enterprise.</p>",
           "type": "Float!",
@@ -16419,16 +16662,6 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
-        },
-        {
-          "name": "seats",
-          "description": "<p>The total seats across all organizations owned by the enterprise.</p>",
-          "type": "Int!",
-          "id": "int",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#int",
-          "isDeprecated": true,
-          "deprecationReason": "<p><code>seats</code> will be replaced with <code>totalLicenses</code> to provide more clarity on the value being returned Use EnterpriseBillingInfo.totalLicenses instead. Removal on 2020-01-01 UTC.</p>"
         },
         {
           "name": "storageQuota",
@@ -16681,16 +16914,6 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
-          "name": "isUnlicensed",
-          "description": "<p>Whether the user does not have a license for the enterprise.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "isDeprecated": true,
-          "deprecationReason": "<p>All members consume a license Removal on 2021-01-01 UTC.</p>"
-        },
-        {
           "name": "node",
           "description": "<p>The item at the end of the edge.</p>",
           "type": "EnterpriseMember",
@@ -16831,16 +17054,6 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
-          "name": "isUnlicensed",
-          "description": "<p>Whether the outside collaborator does not have a license for the enterprise.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "isDeprecated": true,
-          "deprecationReason": "<p>All outside collaborators consume a license Removal on 2021-01-01 UTC.</p>"
-        },
-        {
           "name": "node",
           "description": "<p>The item at the end of the edge.</p>",
           "type": "User",
@@ -16973,6 +17186,16 @@
                 "id": "enterprisememberorder",
                 "kind": "input-objects",
                 "href": "/graphql/reference/input-objects#enterprisememberorder"
+              }
+            },
+            {
+              "name": "organizationLogins",
+              "description": "<p>Only return members within the organizations with these logins.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
               }
             },
             {
@@ -17998,6 +18221,16 @@
               }
             },
             {
+              "name": "hasTwoFactorEnabled",
+              "description": "<p>Only return outside collaborators with this two-factor authentication status.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "last",
               "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
               "type": {
@@ -18025,6 +18258,16 @@
                 "id": "enterprisememberorder",
                 "kind": "input-objects",
                 "href": "/graphql/reference/input-objects#enterprisememberorder"
+              }
+            },
+            {
+              "name": "organizationLogins",
+              "description": "<p>Only return outside collaborators within the organizations with these logins.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
               }
             },
             {
@@ -18200,78 +18443,6 @@
           ]
         },
         {
-          "name": "pendingCollaborators",
-          "description": "<p>A list of pending collaborators across the repositories in the enterprise.</p>",
-          "type": "EnterprisePendingCollaboratorConnection!",
-          "id": "enterprisependingcollaboratorconnection",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#enterprisependingcollaboratorconnection",
-          "arguments": [
-            {
-              "name": "after",
-              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            },
-            {
-              "name": "before",
-              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            },
-            {
-              "name": "first",
-              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
-              }
-            },
-            {
-              "name": "last",
-              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
-              }
-            },
-            {
-              "name": "orderBy",
-              "description": "<p>Ordering options for pending repository collaborator invitations returned from the connection.</p>",
-              "type": {
-                "name": "RepositoryInvitationOrder",
-                "id": "repositoryinvitationorder",
-                "kind": "input-objects",
-                "href": "/graphql/reference/input-objects#repositoryinvitationorder"
-              }
-            },
-            {
-              "name": "query",
-              "description": "<p>The search string to look for.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            }
-          ],
-          "isDeprecated": true,
-          "deprecationReason": "<p>Repository invitations can now be associated with an email, not only an invitee. Use the <code>pendingCollaboratorInvitations</code> field instead. Removal on 2020-10-01 UTC.</p>"
-        },
-        {
           "name": "pendingMemberInvitations",
           "description": "<p>A list of pending member invitations for organizations in the enterprise.</p>",
           "type": "EnterprisePendingMemberInvitationConnection!",
@@ -18317,6 +18488,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "organizationLogins",
+              "description": "<p>Only return invitations within the organizations with these logins.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
               }
             },
             {
@@ -18411,7 +18592,7 @@
         },
         {
           "name": "samlIdentityProvider",
-          "description": "<p>The SAML Identity Provider for the enterprise.</p>",
+          "description": "<p>The SAML Identity Provider for the enterprise. When used by a GitHub App,\nrequires an installation token with read and write access to members.</p>",
           "type": "EnterpriseIdentityProvider",
           "id": "enterpriseidentityprovider",
           "kind": "objects",
@@ -18646,142 +18827,6 @@
       ]
     },
     {
-      "name": "EnterprisePendingCollaboratorConnection",
-      "kind": "objects",
-      "id": "enterprisependingcollaboratorconnection",
-      "href": "/graphql/reference/objects#enterprisependingcollaboratorconnection",
-      "description": "<p>The connection type for User.</p>",
-      "fields": [
-        {
-          "name": "edges",
-          "description": "<p>A list of edges.</p>",
-          "type": "[EnterprisePendingCollaboratorEdge]",
-          "id": "enterprisependingcollaboratoredge",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#enterprisependingcollaboratoredge"
-        },
-        {
-          "name": "nodes",
-          "description": "<p>A list of nodes.</p>",
-          "type": "[User]",
-          "id": "user",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#user"
-        },
-        {
-          "name": "pageInfo",
-          "description": "<p>Information to aid in pagination.</p>",
-          "type": "PageInfo!",
-          "id": "pageinfo",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#pageinfo"
-        },
-        {
-          "name": "totalCount",
-          "description": "<p>Identifies the total count of items in the connection.</p>",
-          "type": "Int!",
-          "id": "int",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
-        }
-      ]
-    },
-    {
-      "name": "EnterprisePendingCollaboratorEdge",
-      "kind": "objects",
-      "id": "enterprisependingcollaboratoredge",
-      "href": "/graphql/reference/objects#enterprisependingcollaboratoredge",
-      "description": "<p>A user with an invitation to be a collaborator on a repository owned by an organization in an enterprise.</p>",
-      "fields": [
-        {
-          "name": "cursor",
-          "description": "<p>A cursor for use in pagination.</p>",
-          "type": "String!",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "isUnlicensed",
-          "description": "<p>Whether the invited collaborator does not have a license for the enterprise.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "isDeprecated": true,
-          "deprecationReason": "<p>All pending collaborators consume a license Removal on 2021-01-01 UTC.</p>"
-        },
-        {
-          "name": "node",
-          "description": "<p>The item at the end of the edge.</p>",
-          "type": "User",
-          "id": "user",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#user"
-        },
-        {
-          "name": "repositories",
-          "description": "<p>The enterprise organization repositories this user is a member of.</p>",
-          "type": "EnterpriseRepositoryInfoConnection!",
-          "id": "enterpriserepositoryinfoconnection",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#enterpriserepositoryinfoconnection",
-          "arguments": [
-            {
-              "name": "after",
-              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            },
-            {
-              "name": "before",
-              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            },
-            {
-              "name": "first",
-              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
-              }
-            },
-            {
-              "name": "last",
-              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
-              }
-            },
-            {
-              "name": "orderBy",
-              "description": "<p>Ordering options for repositories.</p>",
-              "type": {
-                "name": "RepositoryOrder",
-                "id": "repositoryorder",
-                "kind": "input-objects",
-                "href": "/graphql/reference/input-objects#repositoryorder"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
       "name": "EnterprisePendingMemberInvitationConnection",
       "kind": "objects",
       "id": "enterprisependingmemberinvitationconnection",
@@ -18844,16 +18889,6 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "isUnlicensed",
-          "description": "<p>Whether the invitation has a license for the enterprise.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "isDeprecated": true,
-          "deprecationReason": "<p>All pending members consume a license Removal on 2020-07-01 UTC.</p>"
         },
         {
           "name": "node",
@@ -19791,72 +19826,6 @@
       ]
     },
     {
-      "name": "EnterpriseUserAccountConnection",
-      "kind": "objects",
-      "id": "enterpriseuseraccountconnection",
-      "href": "/graphql/reference/objects#enterpriseuseraccountconnection",
-      "description": "<p>The connection type for EnterpriseUserAccount.</p>",
-      "fields": [
-        {
-          "name": "edges",
-          "description": "<p>A list of edges.</p>",
-          "type": "[EnterpriseUserAccountEdge]",
-          "id": "enterpriseuseraccountedge",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#enterpriseuseraccountedge"
-        },
-        {
-          "name": "nodes",
-          "description": "<p>A list of nodes.</p>",
-          "type": "[EnterpriseUserAccount]",
-          "id": "enterpriseuseraccount",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#enterpriseuseraccount"
-        },
-        {
-          "name": "pageInfo",
-          "description": "<p>Information to aid in pagination.</p>",
-          "type": "PageInfo!",
-          "id": "pageinfo",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#pageinfo"
-        },
-        {
-          "name": "totalCount",
-          "description": "<p>Identifies the total count of items in the connection.</p>",
-          "type": "Int!",
-          "id": "int",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
-        }
-      ]
-    },
-    {
-      "name": "EnterpriseUserAccountEdge",
-      "kind": "objects",
-      "id": "enterpriseuseraccountedge",
-      "href": "/graphql/reference/objects#enterpriseuseraccountedge",
-      "description": "<p>An edge in a connection.</p>",
-      "fields": [
-        {
-          "name": "cursor",
-          "description": "<p>A cursor for use in pagination.</p>",
-          "type": "String!",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "node",
-          "description": "<p>The item at the end of the edge.</p>",
-          "type": "EnterpriseUserAccount",
-          "id": "enterpriseuseraccount",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#enterpriseuseraccount"
-        }
-      ]
-    },
-    {
       "name": "Environment",
       "kind": "objects",
       "id": "environment",
@@ -20061,6 +20030,39 @@
       ]
     },
     {
+      "name": "ExternalIdentityAttribute",
+      "kind": "objects",
+      "id": "externalidentityattribute",
+      "href": "/graphql/reference/objects#externalidentityattribute",
+      "description": "<p>An attribute for the External Identity attributes collection.</p>",
+      "fields": [
+        {
+          "name": "metadata",
+          "description": "<p>The attribute metadata as JSON.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The attribute name.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "value",
+          "description": "<p>The attribute value.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "ExternalIdentityConnection",
       "kind": "objects",
       "id": "externalidentityconnection",
@@ -20133,6 +20135,14 @@
       "href": "/graphql/reference/objects#externalidentitysamlattributes",
       "description": "<p>SAML attributes for the External Identity.</p>",
       "fields": [
+        {
+          "name": "attributes",
+          "description": "<p>SAML Identity attributes.</p>",
+          "type": "[ExternalIdentityAttribute!]!",
+          "id": "externalidentityattribute",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#externalidentityattribute"
+        },
         {
           "name": "emails",
           "description": "<p>The emails associated with the SAML identity.</p>",
@@ -20814,7 +20824,7 @@
         },
         {
           "name": "minimizedReason",
-          "description": "<p>Returns why the comment was minimized.</p>",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -21559,98 +21569,6 @@
           "id": "hovercardcontext",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#hovercardcontext"
-        }
-      ]
-    },
-    {
-      "name": "Import",
-      "kind": "objects",
-      "id": "import",
-      "href": "/graphql/reference/objects#import",
-      "description": "<p>An import to GitHub.</p>",
-      "implements": [
-        {
-          "name": "Node",
-          "id": "node",
-          "href": "/graphql/reference/interfaces#node"
-        }
-      ],
-      "fields": [
-        {
-          "name": "createdAt",
-          "description": "<p>Identifies the date and time when the object was created.</p>",
-          "type": "DateTime!",
-          "id": "datetime",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#datetime"
-        },
-        {
-          "name": "creator",
-          "description": "<p>The user that created the Import.</p>",
-          "type": "Actor!",
-          "id": "actor",
-          "kind": "interfaces",
-          "href": "/graphql/reference/interfaces#actor"
-        },
-        {
-          "name": "repositories",
-          "description": "<p>The repositories associated with this Import.</p>",
-          "type": "RepositoryConnection!",
-          "id": "repositoryconnection",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#repositoryconnection",
-          "arguments": [
-            {
-              "name": "after",
-              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            },
-            {
-              "name": "before",
-              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            },
-            {
-              "name": "first",
-              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
-              }
-            },
-            {
-              "name": "last",
-              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
-              }
-            },
-            {
-              "name": "orderBy",
-              "description": "<p>Ordering options for repository.</p>",
-              "type": {
-                "name": "RepositoryOrder",
-                "id": "repositoryorder",
-                "kind": "input-objects",
-                "href": "/graphql/reference/input-objects#repositoryorder"
-              }
-            }
-          ]
         }
       ]
     },
@@ -22433,6 +22351,14 @@
           "href": "/graphql/reference/enums#issuestate"
         },
         {
+          "name": "stateReason",
+          "description": "<p>Identifies the reason for the issue state.</p>",
+          "type": "IssueStateReason",
+          "id": "issuestatereason",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuestatereason"
+        },
+        {
           "name": "timeline",
           "description": "<p>A list of events, comments, commits, etc. associated with the issue.</p>",
           "type": "IssueTimelineConnection!",
@@ -22861,7 +22787,7 @@
         },
         {
           "name": "minimizedReason",
-          "description": "<p>Returns why the comment was minimized.</p>",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -31966,6 +31892,16 @@
               }
             },
             {
+              "name": "repositoryName",
+              "description": "<p>Filter repository migrations by repository name.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
               "name": "state",
               "description": "<p>Filter repository migrations by state.</p>",
               "type": {
@@ -32225,6 +32161,22 @@
         {
           "name": "viewerIsAMember",
           "description": "<p>Viewer is an active member of this organization.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerIsFollowing",
+          "description": "<p>Whether or not this Organization is followed by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "webCommitSignoffRequired",
+          "description": "<p>Whether contributors are required to sign off on web-based commits for repositories in this organization.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -35226,6 +35178,17 @@
                 "kind": "input-objects",
                 "href": "/graphql/reference/input-objects#issueorder"
               }
+            },
+            {
+              "name": "userLinkedOnly",
+              "defaultValue": false,
+              "description": "<p>Return only manually linked Issues.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
             }
           ]
         },
@@ -36483,8 +36446,24 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerCanEditFiles",
+          "description": "<p>Can the viewer edit files within this pull request.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "viewerCanEnableAutoMerge",
           "description": "<p>Whether or not the viewer can enable auto-merge.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanMergeAsAdmin",
+          "description": "<p>Indicates whether the viewer can bypass branch protections and merge the pull request immediately.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -36610,6 +36589,14 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "changeType",
+          "description": "<p>How the file was changed in this PullRequest.</p>",
+          "type": "PatchStatus!",
+          "id": "patchstatus",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#patchstatus"
         },
         {
           "name": "deletions",
@@ -37729,7 +37716,7 @@
         },
         {
           "name": "minimizedReason",
-          "description": "<p>Returns why the comment was minimized.</p>",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -38571,6 +38558,154 @@
       ]
     },
     {
+      "name": "PullRequestThread",
+      "kind": "objects",
+      "id": "pullrequestthread",
+      "href": "/graphql/reference/objects#pullrequestthread",
+      "description": "<p>A threaded list of comments for a given pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "comments",
+          "description": "<p>A list of pull request comments associated with the thread.</p>",
+          "type": "PullRequestReviewCommentConnection!",
+          "id": "pullrequestreviewcommentconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequestreviewcommentconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "skip",
+              "description": "<p>Skips the first <em>n</em> elements in the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "isCollapsed",
+          "description": "<p>Whether or not the thread has been collapsed (resolved).</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isOutdated",
+          "description": "<p>Indicates whether this thread was outdated by newer changes.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isResolved",
+          "description": "<p>Whether this thread has been resolved.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>Identifies the pull request associated with this thread.</p>",
+          "type": "PullRequest!",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
+        },
+        {
+          "name": "repository",
+          "description": "<p>Identifies the repository associated with this thread.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository"
+        },
+        {
+          "name": "resolvedBy",
+          "description": "<p>The user who resolved this thread.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "viewerCanReply",
+          "description": "<p>Indicates whether the current viewer can reply to this thread.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanResolve",
+          "description": "<p>Whether or not the viewer can resolve this thread.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanUnresolve",
+          "description": "<p>Whether or not the viewer can unresolve this thread.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
       "name": "PullRequestTimelineConnection",
       "kind": "objects",
       "id": "pullrequesttimelineconnection",
@@ -38787,7 +38922,7 @@
       "kind": "objects",
       "id": "pushallowance",
       "href": "/graphql/reference/objects#pushallowance",
-      "description": "<p>A team, user or app who has the ability to push to a protected branch.</p>",
+      "description": "<p>A team, user, or app who has the ability to push to a protected branch.</p>",
       "implements": [
         {
           "name": "Node",
@@ -38806,7 +38941,7 @@
         },
         {
           "name": "branchProtectionRule",
-          "description": "<p>Identifies the branch protection rule associated with the allowed user or team.</p>",
+          "description": "<p>Identifies the branch protection rule associated with the allowed user, team, or app.</p>",
           "type": "BranchProtectionRule",
           "id": "branchprotectionrule",
           "kind": "objects",
@@ -39659,6 +39794,14 @@
         {
           "name": "allowsForcePushes",
           "description": "<p>Are force pushes allowed on this branch.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "blocksCreations",
+          "description": "<p>Can matching branches be created.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -40616,6 +40759,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "stateReason",
+          "description": "<p>The reason the issue state was changed to open.</p>",
+          "type": "IssueStateReason",
+          "id": "issuestatereason",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuestatereason"
         }
       ]
     },
@@ -44562,6 +44713,14 @@
       ],
       "fields": [
         {
+          "name": "allowUpdateBranch",
+          "description": "<p>Whether or not a pull request head branch that is behind its base branch can\nalways be updated even if it is not required to be up to date before merging.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "assignableUsers",
           "description": "<p>A list of users that can be assigned to issues in this repository.</p>",
           "type": "UserConnection!",
@@ -44686,6 +44845,26 @@
           "id": "codeofconduct",
           "kind": "objects",
           "href": "/graphql/reference/objects#codeofconduct"
+        },
+        {
+          "name": "codeowners",
+          "description": "<p>Information extracted from the repository's <code>CODEOWNERS</code> file.</p>",
+          "type": "RepositoryCodeowners",
+          "id": "repositorycodeowners",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositorycodeowners",
+          "arguments": [
+            {
+              "name": "refName",
+              "description": "<p>The ref name used to return the associated <code>CODEOWNERS</code> file.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
         },
         {
           "name": "collaborators",
@@ -45060,6 +45239,26 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "discussionCategory",
+          "description": "<p>A discussion category by slug.</p>",
+          "type": "DiscussionCategory",
+          "id": "discussioncategory",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#discussioncategory",
+          "arguments": [
+            {
+              "name": "slug",
+              "description": "<p>The slug of the discussion category to be returned.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
               }
             }
           ]
@@ -45843,6 +46042,22 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "mergeCommitMessage",
+          "description": "<p>How the default commit message will be generated when merging a pull request.</p>",
+          "type": "MergeCommitMessage!",
+          "id": "mergecommitmessage",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#mergecommitmessage"
+        },
+        {
+          "name": "mergeCommitTitle",
+          "description": "<p>How the default commit title will be generated when merging a pull request.</p>",
+          "type": "MergeCommitTitle!",
+          "id": "mergecommittitle",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#mergecommittitle"
         },
         {
           "name": "milestone",
@@ -46676,6 +46891,30 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "squashMergeCommitMessage",
+          "description": "<p>How the default commit message will be generated when squash merging a pull request.</p>",
+          "type": "SquashMergeCommitMessage!",
+          "id": "squashmergecommitmessage",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#squashmergecommitmessage"
+        },
+        {
+          "name": "squashMergeCommitTitle",
+          "description": "<p>How the default commit title will be generated when squash merging a pull request.</p>",
+          "type": "SquashMergeCommitTitle!",
+          "id": "squashmergecommittitle",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#squashmergecommittitle"
+        },
+        {
+          "name": "squashPrTitleUsedAsDefault",
+          "description": "<p>Whether a squash merge commit can use the pull request title as default.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "sshUrl",
           "description": "<p>The SSH URL to clone this repository.</p>",
           "type": "GitSSHRemote!",
@@ -46958,6 +47197,16 @@
               }
             },
             {
+              "name": "dependencyScopes",
+              "description": "<p>Filter by the scope of the alert's dependency.</p>",
+              "type": {
+                "name": "[RepositoryVulnerabilityAlertDependencyScope!]",
+                "id": "repositoryvulnerabilityalertdependencyscope",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryvulnerabilityalertdependencyscope"
+              }
+            },
+            {
               "name": "first",
               "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
               "type": {
@@ -46975,6 +47224,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "states",
+              "description": "<p>Filter by the state of the alert.</p>",
+              "type": {
+                "name": "[RepositoryVulnerabilityAlertState!]",
+                "id": "repositoryvulnerabilityalertstate",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryvulnerabilityalertstate"
               }
             }
           ]
@@ -47028,6 +47287,96 @@
               }
             }
           ]
+        },
+        {
+          "name": "webCommitSignoffRequired",
+          "description": "<p>Whether contributors are required to sign off on web-based commits in this repository.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryCodeowners",
+      "kind": "objects",
+      "id": "repositorycodeowners",
+      "href": "/graphql/reference/objects#repositorycodeowners",
+      "description": "<p>Information extracted from a repository's <code>CODEOWNERS</code> file.</p>",
+      "fields": [
+        {
+          "name": "errors",
+          "description": "<p>Any problems that were encountered while parsing the <code>CODEOWNERS</code> file.</p>",
+          "type": "[RepositoryCodeownersError!]!",
+          "id": "repositorycodeownerserror",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositorycodeownerserror"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryCodeownersError",
+      "kind": "objects",
+      "id": "repositorycodeownerserror",
+      "href": "/graphql/reference/objects#repositorycodeownerserror",
+      "description": "<p>An error in a <code>CODEOWNERS</code> file.</p>",
+      "fields": [
+        {
+          "name": "column",
+          "description": "<p>The column number where the error occurs.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "kind",
+          "description": "<p>A short string describing the type of error.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "line",
+          "description": "<p>The line number where the error occurs.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "message",
+          "description": "<p>A complete description of the error, combining information from other fields.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "path",
+          "description": "<p>The path to the file when the error occurs.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "source",
+          "description": "<p>The content of the line where the error occurs.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "suggestion",
+          "description": "<p>A suggestion of how to fix the error.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -47281,7 +47630,7 @@
       "kind": "objects",
       "id": "repositoryinvitationconnection",
       "href": "/graphql/reference/objects#repositoryinvitationconnection",
-      "description": "<p>The connection type for RepositoryInvitation.</p>",
+      "description": "<p>A list of repository invitations.</p>",
       "fields": [
         {
           "name": "edges",
@@ -47386,12 +47735,28 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "migrationLogUrl",
+          "description": "<p>The URL for the migration log (expires 1 day after migration completes).</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
           "name": "migrationSource",
           "description": "<p>The Octoshift migration source.</p>",
           "type": "MigrationSource!",
           "id": "migrationsource",
           "kind": "objects",
           "href": "/graphql/reference/objects#migrationsource"
+        },
+        {
+          "name": "repositoryName",
+          "description": "<p>The target repository name.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         },
         {
           "name": "sourceUrl",
@@ -47998,6 +48363,30 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "dependabotUpdate",
+          "description": "<p>The associated Dependabot update.</p>",
+          "type": "DependabotUpdate",
+          "id": "dependabotupdate",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#dependabotupdate"
+        },
+        {
+          "name": "dependencyScope",
+          "description": "<p>The scope of an alert's dependency.</p>",
+          "type": "RepositoryVulnerabilityAlertDependencyScope",
+          "id": "repositoryvulnerabilityalertdependencyscope",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryvulnerabilityalertdependencyscope"
+        },
+        {
+          "name": "dismissComment",
+          "description": "<p>Comment explaining the reason the alert was dismissed.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "dismissReason",
           "description": "<p>The reason the alert was dismissed.</p>",
           "type": "String",
@@ -48022,6 +48411,32 @@
           "href": "/graphql/reference/objects#user"
         },
         {
+          "name": "fixReason",
+          "description": "<p>The reason the alert was marked as fixed.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>. Removal on 2022-10-01 UTC.</p>"
+        },
+        {
+          "name": "fixedAt",
+          "description": "<p>When was the alert fixed?.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "number",
+          "description": "<p>Identifies the alert number.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "repository",
           "description": "<p>The associated repository.</p>",
           "type": "Repository!",
@@ -48044,6 +48459,14 @@
           "id": "securityvulnerability",
           "kind": "objects",
           "href": "/graphql/reference/objects#securityvulnerability"
+        },
+        {
+          "name": "state",
+          "description": "<p>Identifies the state of the alert.</p>",
+          "type": "RepositoryVulnerabilityAlertState!",
+          "id": "repositoryvulnerabilityalertstate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryvulnerabilityalertstate"
         },
         {
           "name": "vulnerableManifestFilename",
@@ -48223,7 +48646,7 @@
       "kind": "objects",
       "id": "reviewdismissalallowance",
       "href": "/graphql/reference/objects#reviewdismissalallowance",
-      "description": "<p>A team or user who has the ability to dismiss a review on a protected branch.</p>",
+      "description": "<p>A user, team, or app who has the ability to dismiss a review on a protected branch.</p>",
       "implements": [
         {
           "name": "Node",
@@ -48242,7 +48665,7 @@
         },
         {
           "name": "branchProtectionRule",
-          "description": "<p>Identifies the branch protection rule associated with the allowed user or team.</p>",
+          "description": "<p>Identifies the branch protection rule associated with the allowed user, team, or app.</p>",
           "type": "BranchProtectionRule",
           "id": "branchprotectionrule",
           "kind": "objects",
@@ -48926,6 +49349,14 @@
       ],
       "fields": [
         {
+          "name": "classification",
+          "description": "<p>The classification of the advisory.</p>",
+          "type": "SecurityAdvisoryClassification!",
+          "id": "securityadvisoryclassification",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#securityadvisoryclassification"
+        },
+        {
           "name": "cvss",
           "description": "<p>The CVSS associated with this advisory.</p>",
           "type": "CVSS!",
@@ -49105,6 +49536,16 @@
                 "id": "string",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "classifications",
+              "description": "<p>A list of advisory classifications to filter vulnerabilities by.</p>",
+              "type": {
+                "name": "[SecurityAdvisoryClassification!]",
+                "id": "securityadvisoryclassification",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#securityadvisoryclassification"
               }
             },
             {
@@ -50976,7 +51417,7 @@
             },
             {
               "name": "query",
-              "description": "<p>The search string to look for.</p>",
+              "description": "<p>The search string to look for. Repositories will be returned where the name contains your search string.</p>",
               "type": {
                 "name": "String",
                 "id": "string",
@@ -53991,6 +54432,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "lineCount",
+          "description": "<p>Number of lines in the file.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "mode",
           "description": "<p>Entry file mode.</p>",
           "type": "Int!",
@@ -54037,6 +54486,14 @@
           "id": "repository",
           "kind": "objects",
           "href": "/graphql/reference/objects#repository"
+        },
+        {
+          "name": "size",
+          "description": "<p>Entry byte size.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         },
         {
           "name": "submodule",
@@ -58000,12 +58457,28 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "migrationLogUrl",
+          "description": "<p>The URL for the migration log (expires 1 day after migration completes).</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
           "name": "migrationSource",
           "description": "<p>The Octoshift migration source.</p>",
           "type": "MigrationSource!",
           "id": "migrationsource",
           "kind": "objects",
           "href": "/graphql/reference/objects#migrationsource"
+        },
+        {
+          "name": "repositoryName",
+          "description": "<p>The target repository name.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         },
         {
           "name": "sourceUrl",
@@ -58042,7 +58515,7 @@
         },
         {
           "name": "minimizedReason",
-          "description": "<p>Returns why the comment was minimized.</p>",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -60339,11 +60812,11 @@
       "values": [
         {
           "name": "MEMBER",
-          "description": "<p>The user is a member of the enterprise membership.</p>"
+          "description": "<p>The user is a member of an organization in the enterprise.</p>"
         },
         {
           "name": "OWNER",
-          "description": "<p>The user is an owner of the enterprise membership.</p>"
+          "description": "<p>The user is an owner of an organization in the enterprise.</p>"
         }
       ]
     },
@@ -60577,6 +61050,23 @@
       ]
     },
     {
+      "name": "IssueClosedStateReason",
+      "kind": "enums",
+      "id": "issueclosedstatereason",
+      "href": "/graphql/reference/enums#issueclosedstatereason",
+      "description": "<p>The possible state reasons of a closed issue.</p>",
+      "values": [
+        {
+          "name": "COMPLETED",
+          "description": "<p>An issue that has been closed as completed.</p>"
+        },
+        {
+          "name": "NOT_PLANNED",
+          "description": "<p>An issue that has been closed as not planned.</p>"
+        }
+      ]
+    },
+    {
       "name": "IssueCommentOrderField",
       "kind": "enums",
       "id": "issuecommentorderfield",
@@ -60624,6 +61114,27 @@
         {
           "name": "OPEN",
           "description": "<p>An issue that is still open.</p>"
+        }
+      ]
+    },
+    {
+      "name": "IssueStateReason",
+      "kind": "enums",
+      "id": "issuestatereason",
+      "href": "/graphql/reference/enums#issuestatereason",
+      "description": "<p>The possible state reasons of an issue.</p>",
+      "values": [
+        {
+          "name": "COMPLETED",
+          "description": "<p>An issue that has been closed as completed.</p>"
+        },
+        {
+          "name": "NOT_PLANNED",
+          "description": "<p>An issue that has been closed as not planned.</p>"
+        },
+        {
+          "name": "REOPENED",
+          "description": "<p>An issue that has been reopened.</p>"
         }
       ]
     },
@@ -60816,6 +61327,44 @@
       ]
     },
     {
+      "name": "MergeCommitMessage",
+      "kind": "enums",
+      "id": "mergecommitmessage",
+      "href": "/graphql/reference/enums#mergecommitmessage",
+      "description": "<p>The possible default commit messages for merges.</p>",
+      "values": [
+        {
+          "name": "BLANK",
+          "description": "<p>Default to a blank commit message.</p>"
+        },
+        {
+          "name": "PR_BODY",
+          "description": "<p>Default to the pull request's body.</p>"
+        },
+        {
+          "name": "PR_TITLE",
+          "description": "<p>Default to the pull request's title.</p>"
+        }
+      ]
+    },
+    {
+      "name": "MergeCommitTitle",
+      "kind": "enums",
+      "id": "mergecommittitle",
+      "href": "/graphql/reference/enums#mergecommittitle",
+      "description": "<p>The possible default commit titles for merges.</p>",
+      "values": [
+        {
+          "name": "MERGE_MESSAGE",
+          "description": "<p>Default to the classic title for a merge message (e.g., Merge pull request #123 from branch-name).</p>"
+        },
+        {
+          "name": "PR_TITLE",
+          "description": "<p>Default to the pull request's title.</p>"
+        }
+      ]
+    },
+    {
       "name": "MergeStateStatus",
       "kind": "enums",
       "id": "mergestatestatus",
@@ -60893,16 +61442,8 @@
           "description": "<p>A Bitbucket Server migration source.</p>"
         },
         {
-          "name": "GITHUB",
-          "description": "<p>A GitHub migration source.</p>"
-        },
-        {
           "name": "GITHUB_ARCHIVE",
           "description": "<p>A GitHub Migration API source.</p>"
-        },
-        {
-          "name": "GITLAB",
-          "description": "<p>A GitLab migration source.</p>"
         }
       ]
     },
@@ -60918,12 +61459,20 @@
           "description": "<p>The Octoshift migration has failed.</p>"
         },
         {
+          "name": "FAILED_VALIDATION",
+          "description": "<p>The Octoshift migration has invalid credentials.</p>"
+        },
+        {
           "name": "IN_PROGRESS",
           "description": "<p>The Octoshift migration is in progress.</p>"
         },
         {
           "name": "NOT_STARTED",
           "description": "<p>The Octoshift migration has not started.</p>"
+        },
+        {
+          "name": "PENDING_VALIDATION",
+          "description": "<p>The Octoshift migration needs to have its credentials validated.</p>"
         },
         {
           "name": "QUEUED",
@@ -61154,6 +61703,10 @@
         {
           "name": "OUTSIDE_COLLABORATOR",
           "description": "<p>An outside collaborator is a person who isn't explicitly a member of the\nOrganization, but who has Read, Write, or Admin permissions to one or more\nrepositories in the organization.</p>"
+        },
+        {
+          "name": "SUSPENDED",
+          "description": "<p>A suspended member.</p>"
         },
         {
           "name": "UNAFFILIATED",
@@ -61409,6 +61962,39 @@
         {
           "name": "LOGIN",
           "description": "<p>Order organizations by login.</p>"
+        }
+      ]
+    },
+    {
+      "name": "PatchStatus",
+      "kind": "enums",
+      "id": "patchstatus",
+      "href": "/graphql/reference/enums#patchstatus",
+      "description": "<p>The possible types of patch statuses.</p>",
+      "values": [
+        {
+          "name": "ADDED",
+          "description": "<p>The file was added. Git status 'A'.</p>"
+        },
+        {
+          "name": "CHANGED",
+          "description": "<p>The file's type was changed. Git status 'T'.</p>"
+        },
+        {
+          "name": "COPIED",
+          "description": "<p>The file was copied. Git status 'C'.</p>"
+        },
+        {
+          "name": "DELETED",
+          "description": "<p>The file was deleted. Git status 'D'.</p>"
+        },
+        {
+          "name": "MODIFIED",
+          "description": "<p>The file's contents were changed. Git status 'M'.</p>"
+        },
+        {
+          "name": "RENAMED",
+          "description": "<p>The file was renamed. Git status 'R'.</p>"
         }
       ]
     },
@@ -62366,10 +62952,6 @@
         {
           "name": "CREATED_AT",
           "description": "<p>Order repository invitations by creation time.</p>"
-        },
-        {
-          "name": "INVITEE_LOGIN",
-          "description": "<p>Order repository invitations by invitee login.</p>"
         }
       ]
     },
@@ -62525,6 +63107,44 @@
       ]
     },
     {
+      "name": "RepositoryVulnerabilityAlertDependencyScope",
+      "kind": "enums",
+      "id": "repositoryvulnerabilityalertdependencyscope",
+      "href": "/graphql/reference/enums#repositoryvulnerabilityalertdependencyscope",
+      "description": "<p>The possible scopes of an alert's dependency.</p>",
+      "values": [
+        {
+          "name": "DEVELOPMENT",
+          "description": "<p>A dependency that is only used in development.</p>"
+        },
+        {
+          "name": "RUNTIME",
+          "description": "<p>A dependency that is leveraged during application runtime.</p>"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryVulnerabilityAlertState",
+      "kind": "enums",
+      "id": "repositoryvulnerabilityalertstate",
+      "href": "/graphql/reference/enums#repositoryvulnerabilityalertstate",
+      "description": "<p>The possible states of an alert.</p>",
+      "values": [
+        {
+          "name": "DISMISSED",
+          "description": "<p>An alert that has been manually closed by a user.</p>"
+        },
+        {
+          "name": "FIXED",
+          "description": "<p>An alert that has been resolved by a code change.</p>"
+        },
+        {
+          "name": "OPEN",
+          "description": "<p>An alert that is still open.</p>"
+        }
+      ]
+    },
+    {
       "name": "RequestableCheckStatusState",
       "kind": "enums",
       "id": "requestablecheckstatusstate",
@@ -62663,6 +63283,23 @@
       ]
     },
     {
+      "name": "SecurityAdvisoryClassification",
+      "kind": "enums",
+      "id": "securityadvisoryclassification",
+      "href": "/graphql/reference/enums#securityadvisoryclassification",
+      "description": "<p>Classification of the advisory.</p>",
+      "values": [
+        {
+          "name": "GENERAL",
+          "description": "<p>Classification of general advisories.</p>"
+        },
+        {
+          "name": "MALWARE",
+          "description": "<p>Classification of malware advisories.</p>"
+        }
+      ]
+    },
+    {
       "name": "SecurityAdvisoryEcosystem",
       "kind": "enums",
       "id": "securityadvisoryecosystem",
@@ -62670,8 +63307,16 @@
       "description": "<p>The possible ecosystems of a security vulnerability's package.</p>",
       "values": [
         {
+          "name": "ACTIONS",
+          "description": "<p>GitHub Actions.</p>"
+        },
+        {
           "name": "COMPOSER",
           "description": "<p>PHP packages hosted at packagist.org.</p>"
+        },
+        {
+          "name": "ERLANG",
+          "description": "<p>Erlang/Elixir packages hosted at hex.pm.</p>"
         },
         {
           "name": "GO",
@@ -62725,6 +63370,44 @@
         {
           "name": "MODERATE",
           "description": "<p>Moderate.</p>"
+        }
+      ]
+    },
+    {
+      "name": "SquashMergeCommitMessage",
+      "kind": "enums",
+      "id": "squashmergecommitmessage",
+      "href": "/graphql/reference/enums#squashmergecommitmessage",
+      "description": "<p>The possible default commit messages for squash merges.</p>",
+      "values": [
+        {
+          "name": "BLANK",
+          "description": "<p>Default to a blank commit message.</p>"
+        },
+        {
+          "name": "COMMIT_MESSAGES",
+          "description": "<p>Default to the branch's commit messages.</p>"
+        },
+        {
+          "name": "PR_BODY",
+          "description": "<p>Default to the pull request's body.</p>"
+        }
+      ]
+    },
+    {
+      "name": "SquashMergeCommitTitle",
+      "kind": "enums",
+      "id": "squashmergecommittitle",
+      "href": "/graphql/reference/enums#squashmergecommittitle",
+      "description": "<p>The possible default commit titles for squash merges.</p>",
+      "values": [
+        {
+          "name": "COMMIT_OR_PR_TITLE",
+          "description": "<p>Default to the commit's title (if only one commit) or the pull request's title (when more than one commit).</p>"
+        },
+        {
+          "name": "PR_TITLE",
+          "description": "<p>Default to the pull request's title.</p>"
         }
       ]
     },
@@ -63092,6 +63775,11 @@
       "href": "/graphql/reference/unions#branchactorallowanceactor",
       "description": "<p>Types which can be actors for <code>BranchActorAllowance</code> objects.</p>",
       "possibleTypes": [
+        {
+          "name": "App",
+          "id": "app",
+          "href": "/graphql/reference/objects#app"
+        },
         {
           "name": "Team",
           "id": "team",
@@ -64519,6 +65207,11 @@
       "description": "<p>Types that can be an actor.</p>",
       "possibleTypes": [
         {
+          "name": "App",
+          "id": "app",
+          "href": "/graphql/reference/objects#app"
+        },
+        {
           "name": "Team",
           "id": "team",
           "href": "/graphql/reference/objects#team"
@@ -65828,6 +66521,14 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        },
+        {
+          "name": "stateReason",
+          "description": "<p>The reason the issue is to be closed.</p>",
+          "type": "IssueClosedStateReason",
+          "id": "issueclosedstatereason",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issueclosedstatereason"
         }
       ]
     },
@@ -65937,7 +66638,7 @@
       "kind": "inputObjects",
       "id": "committablebranch",
       "href": "/graphql/reference/input-objects#committablebranch",
-      "description": "<p>A git ref for a commit to be appended to.</p>\n<p>The ref must be a branch, i.e. its fully qualified name must start\nwith <code>refs/heads/</code> (although the input is not required to be fully\nqualified).</p>\n<p>The Ref may be specified by its global node ID or by the\nrepository nameWithOwner and branch name.</p>\n<h3 id=\"examples\"><a aria-hidden=\"\" tabindex=\"-1\" class=\"doctocat-link\" href=\"#examples\"><svg aria-hidden=\"\" role=\"img\" class=\"octicon-link\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\" style=\"display:inline-block;user-select:none;vertical-align:middle\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Examples</h3>\n<p>Specify a branch using a global node ID:</p>\n<pre><code>{ \"id\": \"MDM6UmVmMTpyZWZzL2hlYWRzL21haW4=\" }\n</code></pre>\n<p>Specify a branch using nameWithOwner and branch name:</p>\n<pre><code>{\n  \"nameWithOwner\": \"github/graphql-client\",\n  \"branchName\": \"main\"\n}.\n</code></pre>",
+      "description": "<p>A git ref for a commit to be appended to.</p>\n<p>The ref must be a branch, i.e. its fully qualified name must start\nwith <code>refs/heads/</code> (although the input is not required to be fully\nqualified).</p>\n<p>The Ref may be specified by its global node ID or by the\n<code>repositoryNameWithOwner</code> and <code>branchName</code>.</p>\n<h3 id=\"examples\"><a aria-hidden=\"\" tabindex=\"-1\" class=\"doctocat-link\" href=\"#examples\"><svg aria-hidden=\"\" role=\"img\" class=\"octicon-link\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\" style=\"display:inline-block;user-select:none;vertical-align:middle\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Examples</h3>\n<p>Specify a branch using a global node ID:</p>\n<pre><code>{ \"id\": \"MDM6UmVmMTpyZWZzL2hlYWRzL21haW4=\" }\n</code></pre>\n<p>Specify a branch using <code>repositoryNameWithOwner</code> and <code>branchName</code>:</p>\n<pre><code>{\n  \"repositoryNameWithOwner\": \"github/graphql-client\",\n  \"branchName\": \"main\"\n}.\n</code></pre>",
       "inputFields": [
         {
           "name": "branchName",
@@ -66083,8 +66784,16 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "blocksCreations",
+          "description": "<p>Is branch creation a protected operation.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "bypassForcePushActorIds",
-          "description": "<p>A list of User or Team IDs allowed to bypass force push targeting matching branches.</p>",
+          "description": "<p>A list of User, Team, or App IDs allowed to bypass force push targeting matching branches.</p>",
           "type": "[ID!]",
           "id": "id",
           "kind": "scalars",
@@ -66092,7 +66801,7 @@
         },
         {
           "name": "bypassPullRequestActorIds",
-          "description": "<p>A list of User or Team IDs allowed to bypass pull requests targeting matching branches.</p>",
+          "description": "<p>A list of User, Team, or App IDs allowed to bypass pull requests targeting matching branches.</p>",
           "type": "[ID!]",
           "id": "id",
           "kind": "scalars",
@@ -66132,7 +66841,7 @@
         },
         {
           "name": "pushActorIds",
-          "description": "<p>A list of User, Team or App IDs allowed to push to matching branches.</p>",
+          "description": "<p>A list of User, Team, or App IDs allowed to push to matching branches.</p>",
           "type": "[ID!]",
           "id": "id",
           "kind": "scalars",
@@ -66245,7 +66954,7 @@
         },
         {
           "name": "reviewDismissalActorIds",
-          "description": "<p>A list of User or Team IDs allowed to dismiss reviews on pull requests targeting matching branches.</p>",
+          "description": "<p>A list of User, Team, or App IDs allowed to dismiss reviews on pull requests targeting matching branches.</p>",
           "type": "[ID!]",
           "id": "id",
           "kind": "scalars",
@@ -66986,7 +67695,7 @@
         {
           "name": "accessToken",
           "description": "<p>The Octoshift migration source access token.</p>",
-          "type": "String!",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -68125,7 +68834,7 @@
         },
         {
           "name": "mergeMethod",
-          "description": "<p>The merge method to use. If omitted, defaults to 'MERGE'.</p>",
+          "description": "<p>The merge method to use. If omitted, defaults to <code>MERGE</code>.</p>",
           "type": "PullRequestMergeMethod",
           "id": "pullrequestmergemethod",
           "kind": "enums",
@@ -68331,6 +69040,32 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "FollowOrganizationInput",
+      "kind": "inputObjects",
+      "id": "followorganizationinput",
+      "href": "/graphql/reference/input-objects#followorganizationinput",
+      "description": "<p>Autogenerated input type of FollowOrganization.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "organizationId",
+          "description": "<p>ID of the organization to follow.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },
@@ -68609,6 +69344,14 @@
         },
         {
           "name": "milestone",
+          "description": "<p>List issues by given milestone argument. If an string representation of an\ninteger is passed, it should refer to a milestone by its database ID. Pass in\n<code>null</code> for issues with no milestone, and <code>*</code> for issues that are assigned to any milestone.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "milestoneNumber",
           "description": "<p>List issues by given milestone argument. If an string representation of an\ninteger is passed, it should refer to a milestone by its number field. Pass in\n<code>null</code> for issues with no milestone, and <code>*</code> for issues that are assigned to any milestone.</p>",
           "type": "String",
           "id": "string",
@@ -70107,6 +70850,14 @@
       "description": "<p>Autogenerated input type of StartRepositoryMigration.</p>",
       "inputFields": [
         {
+          "name": "accessToken",
+          "description": "<p>The Octoshift migration source access token.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "clientMutationId",
           "description": "<p>A unique identifier for the client performing the mutation.</p>",
           "type": "String",
@@ -70121,6 +70872,38 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "gitArchiveUrl",
+          "description": "<p>The signed URL to access the user-uploaded git archive.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "githubPat",
+          "description": "<p>The GitHub personal access token of the user importing to the target repository.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "lockSource",
+          "description": "<p>Whether to lock the source repository.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "metadataArchiveUrl",
+          "description": "<p>The signed URL to access the user-uploaded metadata archive.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         },
         {
           "name": "ownerId",
@@ -70140,6 +70923,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "skipReleases",
+          "description": "<p>Whether to skip migrating releases for the repository.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "sourceId",
           "description": "<p>The ID of the Octoshift migration source.</p>",
           "type": "ID!",
@@ -70155,6 +70946,14 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "targetRepoVisibility",
+          "description": "<p>The visibility of the imported repository.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -70350,6 +71149,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "createLabelsIfMissing",
+          "description": "<p>Whether to create labels if they don't exist in the target repository (matched by name).</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "issueId",
           "description": "<p>The Node ID of the issue to be transferred.</p>",
           "type": "ID!",
@@ -70387,6 +71194,32 @@
         {
           "name": "repositoryId",
           "description": "<p>The ID of the repository to unarchive.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "UnfollowOrganizationInput",
+      "kind": "inputObjects",
+      "id": "unfolloworganizationinput",
+      "href": "/graphql/reference/input-objects#unfolloworganizationinput",
+      "description": "<p>Autogenerated input type of UnfollowOrganization.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "organizationId",
+          "description": "<p>ID of the organization to unfollow.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -70679,6 +71512,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "blocksCreations",
+          "description": "<p>Is branch creation a protected operation.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "branchProtectionRuleId",
           "description": "<p>The global relay id of the branch protection rule to be updated.</p>",
           "type": "ID!",
@@ -70689,7 +71530,7 @@
         },
         {
           "name": "bypassForcePushActorIds",
-          "description": "<p>A list of User or Team IDs allowed to bypass force push targeting matching branches.</p>",
+          "description": "<p>A list of User, Team, or App IDs allowed to bypass force push targeting matching branches.</p>",
           "type": "[ID!]",
           "id": "id",
           "kind": "scalars",
@@ -70697,7 +71538,7 @@
         },
         {
           "name": "bypassPullRequestActorIds",
-          "description": "<p>A list of User or Team IDs allowed to bypass pull requests targeting matching branches.</p>",
+          "description": "<p>A list of User, Team, or App IDs allowed to bypass pull requests targeting matching branches.</p>",
           "type": "[ID!]",
           "id": "id",
           "kind": "scalars",
@@ -70737,7 +71578,7 @@
         },
         {
           "name": "pushActorIds",
-          "description": "<p>A list of User, Team or App IDs allowed to push to matching branches.</p>",
+          "description": "<p>A list of User, Team, or App IDs allowed to push to matching branches.</p>",
           "type": "[ID!]",
           "id": "id",
           "kind": "scalars",
@@ -70841,7 +71682,7 @@
         },
         {
           "name": "reviewDismissalActorIds",
-          "description": "<p>A list of User or Team IDs allowed to dismiss reviews on pull requests targeting matching branches.</p>",
+          "description": "<p>A list of User, Team, or App IDs allowed to dismiss reviews on pull requests targeting matching branches.</p>",
           "type": "[ID!]",
           "id": "id",
           "kind": "scalars",
@@ -72064,6 +72905,40 @@
       ]
     },
     {
+      "name": "UpdateOrganizationWebCommitSignoffSettingInput",
+      "kind": "inputObjects",
+      "id": "updateorganizationwebcommitsignoffsettinginput",
+      "href": "/graphql/reference/input-objects#updateorganizationwebcommitsignoffsettinginput",
+      "description": "<p>Autogenerated input type of UpdateOrganizationWebCommitSignoffSetting.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "organizationId",
+          "description": "<p>The ID of the organization on which to set the web commit signoff setting.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "webCommitSignoffRequired",
+          "description": "<p>Enable signoff on web-based commits for repositories in the organization?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
       "name": "UpdateProjectCardInput",
       "kind": "inputObjects",
       "id": "updateprojectcardinput",
@@ -72575,6 +73450,40 @@
       ]
     },
     {
+      "name": "UpdateRepositoryWebCommitSignoffSettingInput",
+      "kind": "inputObjects",
+      "id": "updaterepositorywebcommitsignoffsettinginput",
+      "href": "/graphql/reference/input-objects#updaterepositorywebcommitsignoffsettinginput",
+      "description": "<p>Autogenerated input type of UpdateRepositoryWebCommitSignoffSetting.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The ID of the repository to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "webCommitSignoffRequired",
+          "description": "<p>Indicates if the repository should require signoff on web-based commits.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
       "name": "UpdateSubscriptionInput",
       "kind": "inputObjects",
       "id": "updatesubscriptioninput",
@@ -72795,6 +73704,49 @@
       ]
     },
     {
+      "name": "UpdateTeamsRepositoryInput",
+      "kind": "inputObjects",
+      "id": "updateteamsrepositoryinput",
+      "href": "/graphql/reference/input-objects#updateteamsrepositoryinput",
+      "description": "<p>Autogenerated input type of UpdateTeamsRepository.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "permission",
+          "description": "<p>Permission that should be granted to the teams.</p>",
+          "type": "RepositoryPermission!",
+          "id": "repositorypermission",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositorypermission"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>Repository ID being granted access to.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "teamIds",
+          "description": "<p>A list of teams being granted access. Limit: 10.</p>",
+          "type": "[ID!]!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "UpdateTopicsInput",
       "kind": "inputObjects",
       "id": "updatetopicsinput",
@@ -72864,7 +73816,7 @@
     },
     {
       "name": "Boolean",
-      "description": "Represents `true` or `false` values.",
+      "description": "<p>Represents <code>true</code> or <code>false</code> values.</p>",
       "id": "boolean",
       "href": "/graphql/reference/scalars#boolean"
     },
@@ -72884,7 +73836,7 @@
     },
     {
       "name": "Float",
-      "description": "Represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point).",
+      "description": "<p>Represents signed double-precision fractional values as specified by <a href=\"https://en.wikipedia.org/wiki/IEEE_floating_point\">IEEE 754</a>.</p>",
       "id": "float",
       "href": "/graphql/reference/scalars#float"
     },
@@ -72941,13 +73893,13 @@
     },
     {
       "name": "ID",
-      "description": "Represents a unique identifier that is Base64 obfuscated. It is often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"VXNlci0xMA==\"`) or integer (such as `4`) input value will be accepted as an ID.",
+      "description": "<p>Represents a unique identifier that is Base64 obfuscated. It is often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as <code>\"VXNlci0xMA==\"</code>) or integer (such as <code>4</code>) input value will be accepted as an ID.</p>",
       "id": "id",
       "href": "/graphql/reference/scalars#id"
     },
     {
       "name": "Int",
-      "description": "Represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.",
+      "description": "<p>Represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.</p>",
       "id": "int",
       "href": "/graphql/reference/scalars#int"
     },
@@ -72960,7 +73912,7 @@
     },
     {
       "name": "String",
-      "description": "Represents textual data as UTF-8 character sequences. This type is most often used by GraphQL to represent free-form human-readable text.",
+      "description": "<p>Represents textual data as UTF-8 character sequences. This type is most often used by GraphQL to represent free-form human-readable text.</p>",
       "id": "string",
       "href": "/graphql/reference/scalars#string"
     },

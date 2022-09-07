@@ -20,6 +20,8 @@ shortTitle: Atividade individual
 
 Para uma demonstração vídeo da criação de uma atividade individual, consulte "[Fundamentos da configuração de {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)".
 
+{% data reusables.classroom.reuse-assignment-link %}
+
 ## Pré-requisitos
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}
@@ -76,6 +78,8 @@ Por padrão, uma nova atividade criará um repositório vazio para cada aluno na
 
 {% data reusables.classroom.about-online-ides %} Para obter mais informações, consulte "[Integrar {% data variables.product.prodname_classroom %} com um IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
 
+{% data reusables.classroom.classroom-codespaces-link %}
+
 {% data reusables.classroom.assignments-guide-choose-an-online-ide %}
 
 ## Fornecer feedback para uma atividade
@@ -126,5 +130,5 @@ A página de visão geral do trabalho fornece uma visão geral das suas aceitaç
 
 ## Leia mais
 
-- "[Use {% data variables.product.prodname_dotcom %} na sua sala de aula e pesquisa](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
+- "[{% data variables.product.prodname_global_campus %} fpara professores](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)"
 - "[Conecte um sistema de gerenciamento de aprendizagem para {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"

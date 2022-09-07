@@ -20,7 +20,7 @@ API で不可解な問題が発生した場合、発生したと思われる問�
 
 通常、クライアントが正しく認証されていない場合、`404` エラーが送信されます。 このような場合、`403 Forbidden` が表示されるはずであると考えるかもしれません。 しかし、プライベートリポジトリに関する_いずれの_情報も提供されないため、API は代わりに `404` エラーを返します。
 
-To troubleshoot, ensure [you're authenticating correctly](/guides/getting-started/), [your OAuth access token has the required scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), [third-party application restrictions][oap-guide] are not blocking access, and that [the token has not expired or been revoked](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).
+トラブルシューティングを行うには、[正しく認証されていること](/guides/getting-started/)、[OAuth アクセストークンに必要なスコープがあること](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/)、[サードパーティアプリケーションの制限][oap-guide]によってアクセスがブロックされていないこと、そして[トークンが期限切れになっていたり取り消されたりしてない](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)ことを確認してください。
 
 ## 表示されない結果がある
 
@@ -44,28 +44,18 @@ curl -u my_user:my_password https://api.github.com/user/repos
 エンドポイントをテストするとき、またはローカル開発を実行するときには、かわりに[個人アクセストークン](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)を使用してください。
 
 ```bash
-curl -H 'Authorization: token my_access_token' https://api.github.com/user/repos
+curl -H 'Authorization: Bearer my_access_token' https://api.github.com/user/repos
 ```
 
 OAuth App の場合は、[Web アプリケーションフロー](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow)を使用して、API 呼び出しのヘッダーで使用する OAuth トークンを生成する必要があります。
 
 ```bash
-curl -H 'Authorization: token my-oauth-token' https://api.github.com/user/repos
+curl -H 'Authorization: Bearer my-oauth-token' https://api.github.com/user/repos
 ```
 
-### OAuth 認証 API の呼び出し
+## タイムアウト
 
-[OAuth 認証 API](/enterprise-server/rest/reference/oauth-authorizations) を呼び出して OAuth アプリの認証を管理する、あるいはアクセストークンを生成する場合は、次の例のようにします。
-
-```bash
-curl -u my_username:my_password -X POST "https://api.github.com/authorizations" -d '{"scopes":["public_repo"], "note":"my token", "client_id":"my_client_id", "client_secret":"my_client_secret"}'
-```
-
-次に、[Web アプリケーションフロー](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow)に切り替えて、アクセストークンを生成します。
-
-## Timeouts
-
-If  {% data variables.product.product_name %} takes more than 10 seconds to process an API request, {% data variables.product.product_name %} will terminate the request and you will receive a timeout response.
+{% data variables.product.product_name %}がAPIを処理するのに10秒以上かかると、{% data variables.product.product_name %}はリクエストを終了させ、タイムアウトのレスポンスが返されます。
 
 {% endif %}
 

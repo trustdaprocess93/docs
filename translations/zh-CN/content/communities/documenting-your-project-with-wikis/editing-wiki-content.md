@@ -26,7 +26,7 @@ topics:
 您可以使用页面支持的标准标记或使用 MediaWiki 语法在 wiki 中创建链接。 例如：
 
 - 如果您的页面使用 Markdown 渲染，则链接语法为 `[链接文本](wiki 页面的完整 URL)`。
-- 使用 MediaWiki 语法，链接语法为 `[[链接文本|wiki 页面的名称]]`。
+- With MediaWiki syntax, the link syntax is `[[nameofwikipage|Link Text]]`.
 
 ## 添加图像
 
@@ -45,10 +45,15 @@ Wikis 可显示 PNG、JPEG 和 GIF 图片。
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 
+{% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7647 %}
+## Adding mathematical expressions and diagrams{% endif %}
+
+{% data reusables.getting-started.math-and-diagrams %}
+
 ## 受支持的 MediaWiki 格式
 
 无论您的 wiki 页面以哪种标记语言编写，始终可使用某些 MediaWiki 语法。
-- Links ([except AsciiDoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
+- 链接（[AsciiDoc 除外](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b)）
 - 水平规则通过 `---`
 - 简明符号实体（例如 `&delta;` 或 `&euro;`）
 

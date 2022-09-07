@@ -6,6 +6,7 @@ redirect_from:
   - /articles/adding-a-jekyll-theme-to-your-github-pages-site
   - /articles/adding-a-theme-to-your-github-pages-site-using-jekyll
   - /github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-using-jekyll
+  - /pages/getting-started-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
@@ -49,7 +50,7 @@ shortTitle: 将主题添加到 Pages 站点
   ---
   ---
 
-  @import "{{ site.theme }}";
+  @import "{% raw %}{{ site.theme }}{% endraw %}";
   ```
 3. 在 `@import` 行的后面直接添加您喜欢的任何自定义 CSS 或 Sass（包括导入）。
 

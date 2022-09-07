@@ -37,11 +37,13 @@ shortTitle: Trabalhar com arquivos que não envolvem código
 
 ## Renderizar e comparar imagens
 
-O {% data variables.product.product_name %} pode exibir diversos formatos comuns de imagem, incluindo PNG, JPG, GIF, PSD e SVG. Além de exibir as imagens, existem diversas formas de comparara as diferenças entre as versões desses formatos de imagem.'
+O {% data variables.product.product_name %} pode exibir diversos formatos comuns de imagem, incluindo PNG, JPG, GIF, PSD e SVG. Além de exibir as imagens, existem diversas formas de comparara as diferenças entre as versões desses formatos de imagem.
 
 {% note %}
 
-**Observação:** os arquivos SVGs no {% data variables.product.prodname_dotcom %} podem não renderizar no navegador Firefox.
+**Observação:**
+- {% data variables.product.prodname_dotcom %} não é compatível com a comparação de diferenças entre arquivos PSD.
+- Se você estiver utilizando o navegador Firefox, os SVGs em {% data variables.product.prodname_dotcom %} não poderão ser interpretados.
 
 {% endnote %}
 
@@ -116,7 +118,7 @@ Para exibir o arquivo 3D em outro lugar na Internet, modifique esse modelo e col
 <script src="https://embed.github.com/view/3d/<username>/<repo>/<ref>/<path_to_file>"></script>
 ```
 
-For example, if your model's URL is [`github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl`](https://github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl), your embed code would be:
+Por exemplo, se o URL do seu modelo for [`github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl`](https://github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl), seu código incorporado seria:
 
 ```html
 <script src="https://embed.github.com/view/3d/skalnik/secret-bear-clip/master/stl/clip.stl"></script>
@@ -129,6 +131,12 @@ Por padrão, o renderizador incorporado tem 420 pixels de largura por 620 pixels
 **Observação**: `ref` pode ser um branch ou o hash para um commit individual (como `2391ae`).
 
 {% endtip %}
+
+{% ifversion mermaid %}
+### Interpretação em Markdown
+
+Você pode incorporar a sintaxe do ASCII STL diretamente ao Markdown. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)".
+{% endif %}
 
 ## Renderizar dados CSV e TSV
 
@@ -225,21 +233,22 @@ Não oferecemos suporte direto a exibições renderizadas de commits para docume
 
 Em geral, as exibições renderizadas de alterações em um documento que contém HTML integrado mostrarão as alterações nos elementos que são compatíveis com a exibição do {% data variables.product.product_name %} do documento. As alterações em documentos que contém HTML integrado devem sempre ser confirmadas nas exibições original e renderizada.
 
-## Mapeando arquivos geJSON em {% data variables.product.prodname_dotcom %}
+## Mapeando arquivos do GeoJSON/TopoJSON em {% data variables.product.prodname_dotcom %}
 
-O {% data variables.product.product_name %} é compatível com a renderização de arquivos de mapas geoJSON e topoJSON nos repositórios do {% data variables.product.product_name %}. Simplesmente faça o commit do arquivo como você faria normalmente usando uma extensão `.geojson` ou `.topojson`. Arquivos com a extensão `.json` também são compatíveis, mas somente se o `type` (tipo) for configurado para `FeatureCollection` (Coleção de elementos gráficos), `GeometryCollection` (Coleções geométricas) ou `topology` (topologia). Depois, navegue para o caminho do arquivo geoJSON em GitHub.com.
+{% data variables.product.product_name %} é compatível com a renderização de arquivos do GeoJSON e TopoJSON em repositórios de {% data variables.product.product_name %}. Simplesmente faça o commit do arquivo como você faria normalmente usando uma extensão `.geojson` ou `.topojson`. Arquivos com a extensão `.json` também são compatíveis, mas somente se o `type` (tipo) for configurado para `FeatureCollection` (Coleção de elementos gráficos), `GeometryCollection` (Coleções geométricas) ou `topology` (topologia). Em seguida, acesse o caminho do arquivo GeoJSON/TopoJSON no GitHub.com.
 
 Quando você clicar no ícone de folha de papel à direita, também verá as alterações feitas naquele arquivo como parte de um commit.
 
 ![Captura de tela seletor Source Render (Renderizar fonte)](/assets/images/help/repository/source-render-toggle-geojson.png)
 
-### Tipos geométricos
+### Tipos de geometria
 
-Os mapas no {% data variables.product.product_name %} usam [Leaflet.js](http://leafletjs.com) e são compatíveis com todos os tipos geométricos descritos nas [especificações geoJSON](http://www.geojson.org/geojson-spec.html) (Ponto, LineString, Polígono, Múltiplos Pontos, MultiLineString, MultiPolygon e GeometryCollection). Os arquivos TopoJSON devem ser do tipo "Topology" (Topologia) e estar de acordo com as [especificações topoJSON](https://github.com/mbostock/topojson/wiki/Specification).
+Os mapas no {% data variables.product.product_name %} usam [Leaflet.js](http://leafletjs.com) e são compatíveis com todos os tipos geométricos descritos nas [especificações geoJSON](http://www.geojson.org/geojson-spec.html) (Ponto, LineString, Polígono, Múltiplos Pontos, MultiLineString, MultiPolygon e GeometryCollection). Os arquivos TopoJSON devem ser do tipo "Topologia" e aderir às especificações do [TopoJSON](https://github.com/mbostock/topojson/wiki/Specification).
 
+{% ifversion geoJSON-with-MapBox %}
 ### Estilos de elementos gráficos
 
-Você pode personalizar a maneira como os elementos gráficos são exibidos, como especificar uma cor ou adicionar um ícone descritivo, transmitindo metadados adicionais nas propriedades do objeto geoJSON. As opções são:
+Você pode personalizar a maneira como os elementos gráficos são exibidos, como especificar uma cor ou adicionar um ícone descritivo, transmitindo metadados adicionais nas propriedades do objeto GeoJSON. As opções são:
 
 * `marker-size` (marcador de tamanho) - `small` (pequeno), `medium` (médio) ou `large` (grande)
 * `marker-color` (marcador de cores) Válido para cores RGB e hexadecimal
@@ -251,10 +260,11 @@ Você pode personalizar a maneira como os elementos gráficos são exibidos, com
 * `fill-opacity` (opacidade do preenchimento) - opacidade do interior de um polígono (0,0 - 1,0)
 
 Consulte a [ versão 1.1.0 do simplestyle especificações de código aberto](https://github.com/mapbox/simplestyle-spec/tree/master/1.1.0) para obter mais informações.
+{% endif %}
 
 ### Incorporar o mapa em outro lugar
 
-Você quer deixar o seu mapa geoJSON disponível em outro lugar além do {% data variables.product.product_name %}? Simplesmente modifique este modelo e coloque-o em qualquer página HTML compatível com javascript (por exemplo, [{% data variables.product.prodname_pages %}](http://pages.github.com)):
+Você quer deixar o seu mapa GeoJSON disponível em outro lugar além do {% data variables.product.product_name %}? Simplesmente modifique este modelo e coloque-o em qualquer página HTML compatível com JavaScript (por exemplo, [{% data variables.product.prodname_pages %}](http://pages.github.com)):
 
 ```html
 <script src="https://embed.github.com/view/geojson/<username>/<repo>/<ref>/<path_to_file>"></script>
@@ -274,6 +284,12 @@ Por padrão, o mapa incorporado tem 420px x 620px, mas é possível personalizar
 
 {% endtip %}
 
+{% ifversion mermaid %}
+### Mapeamento em Markdown
+
+Você pode incorporar o GeoJSON e o TopoJSON diretamente ao Markdown. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)".
+{% endif %}
+
 ### Clustering
 
 Se o seu mapa contém um número grande de marcadores (aproximadamente mais de 750), em níveis de zoom maiores, o GitHub automaticamente fará cluster de marcadores próximos. Simplesmente clique em cluster ou aumentar o zoom para ver os marcadores individuais.
@@ -284,7 +300,7 @@ Os dados do mapa de base (nomes de ruas, estradas etc) são determinados pelo [O
 
 ### Solução de Problemas
 
-Se você está com problemas para renderizar arquivos geoJSON, certifique-se de que tem um arquivo geoJSON válido, executando-o por meio de um [linter geoJSON](http://geojsonlint.com/). Se os pontos não estão aparecendo onde deveriam (<em>por exemplo</em>, no meio do oceano), é provável que os dados estejam em uma projeção que não é compatível atualmente. No momento, o {% data variables.product.product_name %} somente é compatível com a projeção `urn:ogc:def:crs:OGC:1.3:CRS84`.
+Se você estiver com problemas para renderizar os arquivos do GeoJSON, certifique-se de que você tenha um arquivo do GeoJSON válido executando-o por meio de um [linter do GeoJSON](http://geojsonlint.com/). Se os pontos não estão aparecendo onde deveriam (<em>por exemplo</em>, no meio do oceano), é provável que os dados estejam em uma projeção que não é compatível atualmente. No momento, o {% data variables.product.product_name %} somente é compatível com a projeção `urn:ogc:def:crs:OGC:1.3:CRS84`.
 
 Além disso, se o seu arquivo `.geojson` for particularmente grande (acima de 10 MB), não é possível renderizar no navegador. Se esse for o caso, você normalmente verá uma mensagem parecida com esta:
 
@@ -292,10 +308,14 @@ Além disso, se o seu arquivo `.geojson` for particularmente grande (acima de 10
 
 Ainda pode ser possível renderizar os dados convertendo o arquivo `.geojson` em [TopoJSON](https://github.com/mbostock/topojson), um formato compactado que pode reduzir o tamanho dos arquivos em até 80%, em alguns casos. Claro que você sempre pode quebrar os arquivos em pedaços menores (como por estado ou por ano) e armazenar os dados em vários arquivos no repositório.
 
-### Recursos adicionais
+### Leia mais
 
-* [Documentação geojson Leaflet.js](http://leafletjs.com/examples/geojson.html)
+{% ifversion geoJSON-with-MapBox %}
+* [Documentação do Leaflet.js](https://leafletjs.com/)
 * [Documentação MapBox marcadores de estilo](http://www.mapbox.com/developers/simplestyle/)
+{%- else %}
+* [Documentação do Azure Maps](https://docs.microsoft.com/en-us/azure/azure-maps/)
+{%- endif %}
 * [Wiki TopoJSON](https://github.com/mbostock/topojson/wiki)
 
 ## Trabalhando com arquivos do Jupyter Notebook no {% data variables.product.prodname_dotcom %}
@@ -319,4 +339,45 @@ $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 ### Leia mais
 
 - [Repositório do GitHub do Jupyter Notebook](https://github.com/jupyter/jupyter_notebook)
-- [Galeria de Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
+- [Galeria de Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki)
+
+{% ifversion mermaid %}
+## Exibindo arquivos do Mermaid em {% data variables.product.prodname_dotcom %}
+
+{% data variables.product.product_name %} é compatível com os arquivos de interpretação do Mermaid dentro dos repositórios. Faça o commit do arquivo como você faria normalmente, usando a extensão `.mermaid` ou `.mmd`. Em seguida, acesse o caminho do arquivo do Mermaid em {% data variables.product.prodname_dotcom %}.
+
+Por exemplo, se você adicionar um arquivo `.mmd` com o seguinte conteúdo para o repositório:
+
+```
+graph TD
+    A[Friend's Birthday] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D["Cool <br> Laptop"]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]
+```
+
+Ao visualizar o arquivo no repositório, ele é interpretado como um gráfico de fluxo. ![Diagrama de arquivo do mermaid interpretado](/assets/images/help/repository/mermaid-file-diagram.png)
+
+### Solução de Problemas
+
+Se o seu gráfico não faz nenhuma interpretação, verifique se ele contém uma sintaxe válida do Markdown do Mermaid, verificando sua carta com [editor ativo do Mermaid](https://mermaid.live/edit).
+
+Se o gráfico for exibido, mas não aparecer como você esperara, você poderá uma nova [discussão de {% data variables.product.prodname_github_community %} discussão](https://github.com/orgs/community/discussions/categories/general) e adicionar a etiqueta `Mermaid`.
+
+#### Problemas conhecidos
+
+* O gráfico do diagrama de sequência é frequentemente interpretado com preenchimento adicional abaixo do gráfico, com preenchimento adicional acrescentado à medida que o tamanho do gráfico aumenta. Este é um problema conhecido com a biblioteca do Mermaid.
+* Os nós do ator com menus popover não funcionam como esperado dentro de gráficos de diagrama de sequência. Isto se deve uma discrepância na forma como eventos do JavaScript são adicionados a um gráfico quando a API da biblioteca do Mermaid é usada para interpretar um gráfico.
+* Nem todos os gráficos são conformes com a11y. Isso pode afetar os usuários que dependem de um leitor de tela.
+
+### Mermaid no Markdown
+
+Você pode incorporar a sintaxe do Mermaid diretamente no Markdown. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)".
+
+### Leia mais
+
+* [Documentação do Mermaid.js](https://mermaid-js.github.io/mermaid/#/)
+* [Editor ativo do Mermaid.js](https://mermaid.live/edit)
+{% endif %}
+

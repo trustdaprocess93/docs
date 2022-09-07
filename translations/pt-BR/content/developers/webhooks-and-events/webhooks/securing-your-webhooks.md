@@ -37,12 +37,12 @@ $ export SECRET_TOKEN=<em>your_token</em>
 
 ## Validar cargas do GitHub
 
-Quando seu token secreto está definido, {% data variables.product.product_name %} o utiliza para criar uma assinatura de hash com cada carga. Esta assinatura de hash está incluída com os cabeçalhos de cada solicitação como `X-Hub-Signature-256`.
+Quando seu token secreto está definido, {% data variables.product.product_name %} o utiliza para criar uma assinatura de hash com cada carga. Esta assinatura hash está incluída nos cabeçalhos de cada solicitação como `x-hub-signature-256`.
 
 {% ifversion fpt or ghes or ghec %}
 {% note %}
 
-**Observação:** Para compatibilidade com versões anteriores, também incluímos o cabeçalho `X-Hub-Signature` gerado usando a função de hash SHA-1. Se possível, recomendamos que você use o cabeçalho `X-Hub-Signature-256` para melhorar a segurança. O exemplo abaixo demonstra o uso do cabeçalho `X-Hub-Signature-256`.
+**Observação:** Para compatibilidade regressiva, também incluímos o cabeçalho `x-hub-signature` que é gerado usando a função hash SHA-1. Se possível, recomendamos que você use o cabeçalho `x-hub-signature-256` para melhorar a segurança. O exemplo abaixo demonstra o uso do cabeçalho `x-hub-sigre-256`.
 
 {% endnote %}
 {% endif %}
@@ -89,4 +89,4 @@ A sua linguagem e implementações do servidor podem ser diferentes deste códig
 
 * Não **se recomenda** usar um operador simples de`==`. Um método como [`secure_compare`][secure_compare] executa uma comparação de strings "tempo constante", o que ajuda a mitigar certos ataques de tempo contra operadores de igualdade regular.
 
-[secure_compare]: https://rubydoc.info/github/rack/rack/master/Rack/Utils:secure_compare
+[secure_compare]: https://rubydoc.info/github/rack/rack/main/Rack/Utils:secure_compare

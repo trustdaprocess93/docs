@@ -28,7 +28,7 @@ shortTitle: 参与指南
 
 {% ifversion fpt or ghes or ghec %}
 
-您可以为组织{% ifversion fpt or ghes or ghec %}或用户帐户{% endif %}创建默认的参与指南。 更多信息请参阅“[创建默认社区健康文件](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)”。
+您可以为组织{% ifversion fpt or ghes or ghec %} 或个人帐户{% endif %} 创建默认的参与指南。 更多信息请参阅“[创建默认社区健康文件](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)”。
 
 {% endif %}
 
@@ -59,7 +59,7 @@ shortTitle: 参与指南
 如果您觉得难以着手，以下是参与指南的一些良好示例：
 
 - Atom 编辑器[参与指南](https://github.com/atom/atom/blob/master/CONTRIBUTING.md)。
-- Ruby on Rails [参与指南](https://github.com/rails/rails/blob/master/CONTRIBUTING.md)。
+- Ruby on Rails [参与指南](https://github.com/rails/rails/blob/main/CONTRIBUTING.md)。
 - Open Government [参与指南](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md)。
 
 ## 延伸阅读

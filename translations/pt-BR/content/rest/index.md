@@ -1,9 +1,10 @@
 ---
 title: API de REST do GitHub
 shortTitle: API REST
-intro: 'To create integrations, retrieve data, and automate your workflows, build with the {% data variables.product.prodname_dotcom %} REST API.'
+intro: 'Para criar integrações, recuperar dados e automatizar seus fluxos de trabalho, crie com a API REST de {% data variables.product.prodname_dotcom %}.'
 introLinks:
-  quickstart: /rest/guides/getting-started-with-the-rest-api
+  quickstart: /rest/quickstart
+  overview: /rest/guides/getting-started-with-the-rest-api
 featuredLinks:
   guides:
     - /rest/guides/getting-started-with-the-rest-api
@@ -24,14 +25,58 @@ changelog:
 layout: product-landing
 redirect_from:
   - /v3
+  - /rest/reference
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 children:
+  - /quickstart
   - /overview
-  - /reference
   - /guides
+  - /actions
+  - /activity
+  - /apps
+  - /billing
+  - /branches
+  - /checks
+  - /codes-of-conduct
+  - /code-scanning
+  - /codespaces
+  - /collaborators
+  - /commits
+  - /dependabot
+  - /dependency-graph
+  - /deploy-keys
+  - /deployments
+  - /emojis
+  - /enterprise-admin
+  - /gists
+  - /git
+  - /gitignore
+  - /interactions
+  - /issues
+  - /licenses
+  - /markdown
+  - /meta
+  - /metrics
+  - /migrations
+  - /oauth-authorizations
+  - /orgs
+  - /packages
+  - /pages
+  - /projects
+  - /pulls
+  - /rate-limit
+  - /reactions
+  - /releases
+  - /repos
+  - /scim
+  - /search
+  - /secret-scanning
+  - /teams
+  - /users
+  - /webhooks
 ---
 

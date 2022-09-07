@@ -21,8 +21,14 @@ shortTitle: 配置提交压缩
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Under {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}"Pull Requests"{% else %}"Merge button"{% endif %}, optionally select **Allow merge commits**. 这将允许贡献者合并具有完整提交历史记录的拉取请求。 ![allow_standard_merge_commits](/assets/images/help/repository/pr-merge-full-commits.png)
-4. Under {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select **Allow squash merging**. 这将允许贡献者通过将所有提交压缩到单个提交中来合并拉取请求。 如果除了 **Allow squash merging（允许压缩合并）**之外，您还选择了另一种合并方法，则贡献者在合并拉取请求时能够选择合并提交的类型。 {% data reusables.repositories.squash-and-rebase-linear-commit-hisitory %} ![拉取请求压缩提交](/assets/images/help/repository/pr-merge-squash.png)
+1. 在 {% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6069 %}“拉取请求”{% else %}“合并按钮”{% endif %} 下，选择 **Allow squash merging（允许压缩合并）**。 这将允许贡献者通过将所有提交压缩到单个提交中来合并拉取请求。 The default commit message presented to contributors when merging is the commit title and message if the pull request contains only 1 commit, or the pull request title and list of commits if the pull request contains 2 or more commits. {% ifversion ghes = 3.6 %} To always use the title of the pull request regardless of the number of commits in the pull request select **Default to PR title for squash merge commits**.{% endif %}{% ifversion default-merge-squash-commit-message %} ![Pull request squashed commits](/assets/images/help/repository/allow-squash-merging.png){% endif %}{% ifversion ghes = 3.6 %} ![Screenshot of Pull Request settings with allow merge commits checkbox emphasized](/assets/images/help/repository/allow-squash-merging-no-dropdown.png){% endif %}
+{% ifversion ghes < 3.6  %}
+ ![拉取请求压缩提交](/assets/images/enterprise/3.5/repository/pr-merge-squash.png){% endif %}
+{% ifversion default-merge-squash-commit-message %}
+1. Optionally, under **Allow squash merging**, use the dropdown to choose the format of the default squash commit message presented to contributors when merging. The default message uses the commit title and message if the pull request contains only 1 commit, or the pull request title and list of commits if the pull request contains 2 or more commits. You can also choose to use just the pull request title, the pull request title and commit details, or the pull request title and description. ![Screenshot of emphasized default squash message dropdown](/assets/images/help/repository/default-squash-message-dropdown.png)
+{% endif %}
+
+如果选择多种合并方法，则协作者可以选择在合并拉取请求时要使用的合并提交类型。 {% data reusables.repositories.squash-and-rebase-linear-commit-history %}
 
 ## 延伸阅读
 

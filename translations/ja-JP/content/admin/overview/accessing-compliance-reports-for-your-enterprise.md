@@ -9,10 +9,10 @@ topics:
   - Enterprise
   - Fundamentals
 permissions: Enterprise owners can access compliance reports for the enterprise.
-shortTitle: Access compliance reports
+shortTitle: コンプライアンスレポートへのアクセス
 ---
 
-## About {% data variables.product.company_short %}'s compliance reports
+## {% data variables.product.company_short %}のコンプライアンスレポートについて
 
 You can access {% data variables.product.company_short %}'s compliance reports in your enterprise settings.
 
@@ -28,4 +28,4 @@ You can access {% data variables.product.company_short %}'s compliance reports i
 
 ## 参考リンク
 
-- "[Accessing compliance reports for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/accessing-compliance-reports-for-your-organization)"
+- 「[Organizationのコンプライアンレポートへのアクセス](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/accessing-compliance-reports-for-your-organization)」

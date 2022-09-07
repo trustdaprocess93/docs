@@ -31,7 +31,7 @@ Puedes poblar el caché de la herramienta del ejecutor si ejecutas un flujo de t
 
 {% note %}
 
-**Nota:** Solo puedes utilizar un caché de la herramienta del ejecutor hospedado en {% data variables.product.prodname_dotcom %} para un ejecutor auto-hospedado que tenga un sistema operativo y arquitectura idénticos. Por ejemplo, si estás utilizando un ejecutor hospedado en {% data variables.product.prodname_dotcom %} con `ubuntu-18.04` para generar un caché de la herramienta, tu ejecutor auto-hospedado también debe ser una máquina con Ubuntu 18.04 de 64 bits. Para obtener más información sobre los ejecutores hospedados en {% data variables.product.prodname_dotcom %}, consulta la sección "<a href="/actions/reference/virtual-environments-for-github-hosted-runners#supported-runners-and-hardware-resources" class="dotcom-only">Ambientes virtuales para los ejecutores hospedados en GitHub</a>".
+**Nota:** Solo puedes utilizar un caché de la herramienta del ejecutor hospedado en {% data variables.product.prodname_dotcom %} para un ejecutor auto-hospedado que tenga un sistema operativo y arquitectura idénticos. Por ejemplo, si estás utilizando un ejecutor hospedado en {% data variables.product.prodname_dotcom %} con `ubuntu-22.04` para generar un caché de la herramienta, tu ejecutor auto-hospedado también debe ser una máquina con Ubuntu 22.04 de 64 bits. Para obtener más información sobre los ejecutores hospedados en {% data variables.product.prodname_dotcom %}, consulta la sección "[Acerca de los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/free-pro-team@latest/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)".
 
 {% endnote %}
 
@@ -46,38 +46,36 @@ Puedes poblar el caché de la herramienta del ejecutor si ejecutas un flujo de t
 1. En {% data variables.product.prodname_dotcom_the_website %}, navega a un repositorio que puedas utilizar para ejecutar un flujo de trabajo de {% data variables.product.prodname_actions %}.
 1. Crea un archivo de flujo de trabajo nuevo en la carpeta `.github/workflows` del repositorio, el cual cargue un artefacto que contenga el caché de la herramienta del ejecutor hospedado en {% data variables.product.prodname_dotcom %}.
 
-   El siguiente ejemplo muestra un flujo de trabajo que carga el caché de la herramienta para un ambiente de Ubuntu 18.04 utilizando la acción `setup-node` con las versiones 10 y 12 de Node.js.
+   El siguiente ejemplo muestra un flujo de trabajo que carga el caché de la herramienta para un ambiente de Ubuntu 22.04 utilizando la acción `setup-node` con las versiones 10 y 12 de Node.js.
 
-   {% raw %}
    ```yaml
    name: Upload Node.js 10 and 12 tool cache
    on: push
    jobs:
      upload_tool_cache:
-       runs-on: ubuntu-18.04
+       runs-on: ubuntu-22.04
        steps:
          - name: Clear any existing tool cache
            run: |
-             mv "${{ runner.tool_cache }}" "${{ runner.tool_cache }}.old"
-             mkdir -p "${{ runner.tool_cache }}"
+             mv "{% raw %}${{ runner.tool_cache }}" "${{ runner.tool_cache }}.old"{% endraw %}
+             mkdir -p "{% raw %}${{ runner.tool_cache }}{% endraw %}"
          - name: Setup Node 10
-           uses: actions/setup-node@v2
+           uses: {% data reusables.actions.action-setup-node %}
            with:
              node-version: 10.x
          - name: Setup Node 12
-           uses: actions/setup-node@v2
+           uses: {% data reusables.actions.action-setup-node %}
            with:
              node-version: 12.x
          - name: Archive tool cache
            run: |
-             cd "${{ runner.tool_cache }}"
+             cd "{% raw %}${{ runner.tool_cache }}{% endraw %}"
              tar -czf tool_cache.tar.gz *
          - name: Upload tool cache artifact
-           uses: actions/upload-artifact@v2
+           uses: {% data reusables.actions.action-upload-artifact %}
            with:
-             path: ${{runner.tool_cache}}/tool_cache.tar.gz
+             path: {% raw %}${{runner.tool_cache}}/tool_cache.tar.gz{% endraw %}
    ```
-   {% endraw %}
 1. Descarga el artefacto del caché de la herramienta desde la ejecución del flujo de trabajo. Para obtener instrucciones sobre còmo descargar artefactos, consulta la secciòn "[Descargar artefactos de los flujos de trabajo](/actions/managing-workflow-runs/downloading-workflow-artifacts)".
 1. Transfiere el artefacto del caché de la herramienta a tu ejecutor auto-hospedado y extráelo al directorio local del caché de la herramienta. El directorio predeterminado del caché de la herramienta es `RUNNER_DIR/_work/_tool`. Si el ejecutor no ha procesado ningún job aún, podrías necesitar crear los directorios `_work/_tool`.
 

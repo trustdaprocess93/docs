@@ -1,6 +1,6 @@
 ---
 title: 将您的签名密钥告知 Git
-intro: 要在本地对提交签名，您需要通知 Git 您想要使用的 GPG 或 X.509 密钥。
+intro: 'To sign commits locally, you need to inform Git that there''s a GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or X.509 key you''d like to use.'
 redirect_from:
   - /articles/telling-git-about-your-gpg-key
   - /articles/telling-git-about-your-signing-key
@@ -21,7 +21,7 @@ shortTitle: 将您的签名密钥告诉 Git
 
 ## 将您的 GPG 密钥告知 Git
 
-If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then you can begin signing commits and signing tags.
+如果您使用与您的提交者身份以及 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}上帐户关联的已验证电子邮件地址相匹配的 GPG 密钥，则可以开始对提交和标签进行签名。
 
 {% note %}
 
@@ -45,8 +45,12 @@ If you're using a GPG key that matches your committer identity and your verified
   $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
     else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
   ```
-
-{% data reusables.gpg.x-509-key %}
+1. （可选）若要在需要时提示您输入 PIN 或密码，请安装 `pinentry-mac`。 例如，使用 [Homebrew](https://brew.sh/)：
+  ```shell
+  $ brew install pinentry-mac
+  $ echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
+  $ killall gpg-agent
+  ```
 
 {% endmac %}
 
@@ -54,7 +58,7 @@ If you're using a GPG key that matches your committer identity and your verified
 
 ## 将您的 GPG 密钥告知 Git
 
-If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then you can begin signing commits and signing tags.
+如果您使用与您的提交者身份以及 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}上帐户关联的已验证电子邮件地址相匹配的 GPG 密钥，则可以开始对提交和标签进行签名。
 
 {% note %}
 
@@ -68,8 +72,6 @@ If you're using a GPG key that matches your committer identity and your verified
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-
-{% data reusables.gpg.x-509-key %}
 
 {% endwindows %}
 
@@ -77,7 +79,7 @@ If you're using a GPG key that matches your committer identity and your verified
 
 ## 将您的 GPG 密钥告知 Git
 
-If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then you can begin signing commits and signing tags.
+如果您使用与您的提交者身份以及 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}上帐户关联的已验证电子邮件地址相匹配的 GPG 密钥，则可以开始对提交和标签进行签名。
 
 {% note %}
 
@@ -91,25 +93,29 @@ If you're using a GPG key that matches your committer identity and your verified
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. 要将 GPG 密钥添加到您的 bash 配置文件中，请运行以下命令：
-  ```shell
-  $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
-    else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
+1. 要将 GPG 密钥添加到您的 `.bashrc` 配置文件中，请运行以下命令：
+  ```bash
+  $ [ -f ~/.bashrc ] && echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
   ```
-  {% note %}
-
-  **注：**如果您没有 `.bash_profile`，此命令会将 GPG 密钥添加到 `.profile`。
-
-  {% endnote %}
-
 {% endlinux %}
+{% ifversion ssh-commit-verification %}
 
+## Telling Git about your SSH key
+
+You can use an existing SSH key to sign commits and tags, or generate a new one specifically for signing. 更多信息请参阅“[生成新的 SSH 密钥并添加到 ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。
+
+{% data reusables.gpg.ssh-git-version %}
+
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.configure-ssh-signing %}
+{% data reusables.gpg.copy-ssh-public-key %}
+{% data reusables.gpg.paste-ssh-public-key %}
+
+{% endif %}
+
+{% data reusables.gpg.x-509-key %}
 ## 延伸阅读
 
-- "[检查现有 GPG 密钥](/articles/checking-for-existing-gpg-keys)"
-- "[生成新 GPG 密钥](/articles/generating-a-new-gpg-key)"
-- "[在 GPG 密钥中使用经验证的电子邮件地址](/articles/using-a-verified-email-address-in-your-gpg-key)"
-- "[添加新 GPG 密钥到 GitHub 帐户](/articles/adding-a-new-gpg-key-to-your-github-account)"
-- "[将电子邮件与 GPG 密钥关联](/articles/associating-an-email-with-your-gpg-key)"
+- "[Adding a new SSH key to your GitHub account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
 - "[对提交签名](/articles/signing-commits)"
 - "[对标记签名](/articles/signing-tags)"

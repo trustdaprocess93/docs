@@ -23,15 +23,15 @@ versions:
 
 A sua capacidade de visualizar um pacote depende de vários fatores. Por padrão, você pode visualizar todos os pacotes que você publicou.
 
-Pacotes com escopo de repositórios herdam suas permissões e visibilidade do repositório que possui o pacote. Os registros abaixo usam este tipo de permissões:{% ifversion not fpt or ghec %}
+Pacotes com escopo de repositórios herdam suas permissões e visibilidade do repositório que possui o pacote. Os registros abaixo **apenas** usam este tipo de permissões:{% ifversion not fpt or ghec %}
 - Registro Docker (`docker.pkg.github.com`){% endif %}
-- Registro de npm
+{% ifversion packages-npm-v2 %}{% else %}- npm registry{% endif %}
 - Registro do Rubygems
 - Registro do Apache Maven
 - Registro do NuGet
 
 {% ifversion fpt or ghec %}
-O registro do contêiner oferece a opção de permissões e configurações de visibilidade granulares que podem ser personalizadas para cada pacote de propriedade de um usuário pessoal ou de uma conta de organização. Você pode optar por usar permissões granulares ou conectar o pacote a um repositório e herdar suas permissões. Para obter mais informações, consulte "[Conectar um repositório a um pacote](/packages/learn-github-packages/connecting-a-repository-to-a-package)".
+O {% data variables.product.prodname_ghcr_and_npm_registry %} oferece a opção de permissões e configurações de visibilidade granulares que podem ser personalizadas para cada pacote de propriedade de uma conta pessoal ou da conta de uma organização. Você pode optar por usar permissões granulares ou conectar o pacote a um repositório e herdar suas permissões. Para obter mais informações, consulte "[Conectar um repositório a um pacote](/packages/learn-github-packages/connecting-a-repository-to-a-package)".
 {% endif %}
 
 Para obter mais informações consulte "[Sobre permissões para o GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages){% ifversion fpt or ghec %}" e[Configurando controle de acesso e visibilidade de um pacote](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility){% endif %}."
@@ -51,7 +51,7 @@ Você pode encontrar e visualizar um pacote localizado em um repositório espec�
 Você pode encontrar e visualizar um pacote localizado nos repositórios de uma organização a que pertence.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 3. No nome da sua organização, clique em {% octicon "package" aria-label="The package icon" %} **Pacotes**.
 {% data reusables.package_registry.navigate-to-packages %}
 

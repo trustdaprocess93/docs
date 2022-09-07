@@ -1,10 +1,10 @@
 import fs from 'fs'
 import path from 'path'
 
-import { expect } from '@jest/globals'
+import { jest, expect } from '@jest/globals'
 
-import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
-import { get } from '../helpers/supertest.js'
+import { get } from '../helpers/e2etest.js'
+import { checkCachingHeaders } from '../helpers/caching-headers.js'
 
 function getNextStaticAsset(directory) {
   const root = path.join('.next', 'static', directory)
@@ -13,20 +13,9 @@ function getNextStaticAsset(directory) {
   return path.join(root, files[0])
 }
 
-function checkCachingHeaders(res, defaultSurrogateKey = false, minMaxAge = 60 * 60) {
-  expect(res.headers['set-cookie']).toBeUndefined()
-  expect(res.headers['cache-control']).toContain('public')
-  const maxAgeSeconds = parseInt(res.header['cache-control'].match(/max-age=(\d+)/)[1], 10)
-  // Let's not be too specific in the tests, just as long as it's testing
-  // that it's a reasonably large number of seconds.
-  expect(maxAgeSeconds).toBeGreaterThanOrEqual(minMaxAge)
-  // Because it doesn't have have a unique URL
-  expect(res.headers['surrogate-key']).toBe(
-    defaultSurrogateKey ? SURROGATE_ENUMS.DEFAULT : SURROGATE_ENUMS.MANUAL
-  )
-}
-
 describe('static assets', () => {
+  jest.setTimeout(60 * 1000)
+
   it('should serve /assets/cb-* with optimal headers', async () => {
     const res = await get('/assets/cb-1234/images/site/logo.png')
     expect(res.statusCode).toBe(200)

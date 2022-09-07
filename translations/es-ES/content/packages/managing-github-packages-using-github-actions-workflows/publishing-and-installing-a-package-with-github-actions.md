@@ -24,15 +24,15 @@ shortTitle: Publicar & instalar con acciones
 Puedes ampliar las capacidades de CI y CD de tu repositorio publicando o instalando paquetes como parte de tu flujo de trabajo.
 
 {% ifversion fpt or ghec %}
-### Autenticarse en el {% data variables.product.prodname_container_registry %}
+### Authenticating to the {% data variables.product.prodname_ghcr_and_npm_registry %}
 
-{% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
+{% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
 
 {% endif %}
 
 ### Autenticarse en los registros de paquetes en {% data variables.product.prodname_dotcom %}
 
-{% ifversion fpt or ghec %}Si quieres que tu flujo de trabajo se autentique en el {% data variables.product.prodname_registry %} para acceder a un registro de paquete diferente al de {% data variables.product.prodname_container_registry %} en {% data variables.product.product_location %}, entonces{% else %} Para autenticarte en los registros de paquetes en {% data variables.product.product_name %},{% endif %} te recomendamos utilizar el `GITHUB_TOKEN` que crea {% data variables.product.product_name %} automáticamente para tu repositorio cuando habilitas las {% data variables.product.prodname_actions %} en vez de un token de acceso personal para autenticación. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}Debes configurar los permisos para este token de acceso en el archivo del flujo de trabajo para otorgar acceso de lectura para el alcance `contents` y acceso de escritura para el de `packages`. {% else %}Tiene permisos de lectura y escritura para los paquetes del repositorio en donde se ejecuta el flujo de trabajo. {% endif %}Para las bifurcaciones, se otorga acceso de lectura al `GITHUB_TOKEN` en el repositorio padre. Para obtener más información, consulta "[Autenticar con el GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
+{% ifversion fpt or ghec %}Si quieres que tu flujo de trabajo se autentique en el {% data variables.product.prodname_registry %} para acceder a un registro de paquete diferente al de {% data variables.product.prodname_container_registry %} en {% data variables.product.product_location %}, entonces{% else %} Para autenticarte en los registros de paquetes en {% data variables.product.product_name %},{% endif %} te recomendamos utilizar el `GITHUB_TOKEN` que crea {% data variables.product.product_name %} automáticamente para tu repositorio cuando habilitas las {% data variables.product.prodname_actions %} en vez de un token de acceso personal para autenticación. Debes configurar los permisos para este token de acceso en el archivo de flujo de trabajo para otorgar acceso de lectura para el alcance `contents` y de escritura para el alcance `packages`. Para las bifurcaciones, al `GITHUB_TOKEN` se le otorga acceso de lectura para el repositorio padre. Para obtener más información, consulta "[Autenticar con el GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
 
 Puedes hacer referencia al `GITHUB_TOKEN` en tu archivo de flujo de trabajo mediante el contexto {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %}. Para más información, consulta "[Autenticando con el GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
 
@@ -40,7 +40,7 @@ Puedes hacer referencia al `GITHUB_TOKEN` en tu archivo de flujo de trabajo medi
 
 {% note %}
 
-**Nota:** Los paquetes que pertenecen a repositorios incluyen RubyGems, npm, Apache Maven, NuGet, {% ifversion fpt or ghec %}y Gradle. {% else %}Los paquetes de Gradle y de Docker que utilizan el designador de nombre del paquete `docker.pkg.github.com`.{% endif %}
+**Note:** Some registries, such as RubyGems, {% ifversion packages-npm-v2 %}{% else %}npm, {% endif %}Apache Maven, NuGet, {% ifversion fpt or ghec %}and Gradle{% else %}Gradle, and Docker packages that use the package namespace `docker.pkg.github.com`{% endif %}, only allow repository-owned packages. With {% data variables.product.prodname_ghcr_and_npm_registry_full %} you can choose to allow packages to be owned by a user, an organization, or linked to a repository.
 
 {% endnote %}
 
@@ -49,11 +49,11 @@ Cuando habilitas las Acciones de GitHub, GitHub instala una App GitHub en tu rep
 El {% data variables.product.prodname_registry %} te permite subir y extraer paquetes mediante el `GITHUB_TOKEN` que está disponible para un flujo de trabajo de {% data variables.product.prodname_actions %}.
 
 {% ifversion fpt or ghec %}
-## Acerca de los permisos y el acceso de paquetes para el {% data variables.product.prodname_container_registry %}
+## About permissions and package access for {% data variables.product.prodname_ghcr_and_npm_registry %}
 
-El {% data variables.product.prodname_container_registry %} (`ghcr.io`) permite a los usuarios crear y administrar contenedores como recursos independientes a nivel organizacional. Los contenedores pueden pertenecer a una organización o a una cuenta de usuario personal y puedes personalizar el acceso para cada uno de tus contenedores por aparte de los permisos del repositorio.
+The {% data variables.product.prodname_ghcr_and_npm_registry_full %} allows users to create and administer packages as free-standing resources at the organization level. Packages can be owned by an organization or personal account and you can customize access to each of your packages separately from repository permissions.
 
-Todos los flujos de trabajo que accedan al {% data variables.product.prodname_container_registry %} deben utilizar el `GITHUB_TOKEN` en vez de un token de acceso personal. Para obtener más información acerca de las mejores prácticas de seguridad, consulta la sección "[Fortalecimiento de seguridad para las GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)".
+All workflows accessing the {% data variables.product.prodname_ghcr_and_npm_registry %} should use the `GITHUB_TOKEN` instead of a personal access token. Para obtener más información acerca de las mejores prácticas de seguridad, consulta la sección "[Fortalecimiento de seguridad para las GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)".
 
 ## Configuración de acceso y permisos predeterminados para los contenedores que se modifican a través de los flujos de trabajo
 
@@ -89,10 +89,13 @@ Crea un archivo de flujo de trabajo nuevo en tu repositorio (tal como `.github/w
 {% data reusables.package_registry.publish-docker-image %}
 
 {% else %}
-```yaml{:copy}
-name: Create and publish a Docker image
 
+```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
+name: Create and publish a Docker image
 
 on:
   push:
@@ -102,12 +105,12 @@ jobs:
   run-npm-build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: npm install and build webpack
         run: |
           npm install
           npm run build
-      - uses: actions/upload-artifact@main
+      - uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: webpack artifacts
           path: public/
@@ -119,13 +122,13 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         node-version: [12.x, 14.x]
-    steps: {% raw %}
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - name: Use Node.js {% raw %}${{ matrix.node-version }}{% endraw %}
+        uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: ${{ matrix.node-version }}{% endraw %}
-      - uses: actions/download-artifact@main
+          node-version: {% raw %}${{ matrix.node-version }}{% endraw %}
+      - uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: webpack artifacts
           path: public
@@ -138,13 +141,13 @@ jobs:
 
   build-and-push-image:
     runs-on: ubuntu-latest
-    needs: run-npm-test {% ifversion ghes > 3.1 or ghae %}
+    needs: run-npm-test {% ifversion ghes or ghae %}
     permissions: 
       contents: read
       packages: write {% endif %}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Log in to GitHub Docker Registry
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
@@ -214,22 +217,22 @@ jobs:
 
 <tr>
 <td>
-{% raw %}
+
 ```yaml
 run-npm-build:
   runs-on: ubuntu-latest
   steps:
-    - uses: actions/checkout@v2
+    - uses: {% data reusables.actions.action-checkout %}
     - name: npm install and build webpack
       run: |
         npm install
         npm run build
-    - uses: actions/upload-artifact@main
+    - uses: {% data reusables.actions.action-upload-artifact %}
       with:
         name: webpack artifacts
         path: public/
 ```
-{% endraw %}
+
 </td>
 <td>
   Este job instala NPM y lo utiliza para crear la app.
@@ -238,7 +241,7 @@ run-npm-build:
 
 <tr>
 <td>
-{% raw %}
+
 ```yaml
 run-npm-test:
   runs-on: ubuntu-latest
@@ -248,12 +251,12 @@ run-npm-test:
       os: [ubuntu-latest]
       node-version: [12.x, 14.x]
   steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+    - uses: {% data reusables.actions.action-checkout %}
+    - name: Use Node.js {% raw %}${{ matrix.node-version }}{% endraw %}
+      uses: {% data reusables.actions.action-setup-node %}
       with:
-        node-version: ${{ matrix.node-version }}
-    - uses: actions/download-artifact@main
+        node-version: {% raw %}${{ matrix.node-version }}{% endraw %}
+    - uses: {% data reusables.actions.action-download-artifact %}
       with:
         name: webpack artifacts
         path: public
@@ -264,7 +267,7 @@ run-npm-test:
       env:
         CI: true
 ```
-{% endraw %}
+
 </td>
 <td>
   Este job utiliza <code>npm test</code> para probar el código. El comando <code>needs: run-npm-build</code> hace que este job dependa del job <code>run-npm-build</code>.
@@ -288,7 +291,6 @@ build-and-push-image:
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 <tr>
 <td>
 {% raw %}
@@ -303,7 +305,6 @@ permissions:
   Configura los permisos que se otorgan al <code>GITHUB_TOKEN</code> para las acciones en este job.
 </td>
 </tr> 
-{% endif %}
 
 {% ifversion fpt or ghec %}
 <tr>
@@ -474,7 +475,6 @@ Este flujo de trabajo nuevo se ejecutará automáticamente cada que subas un cam
 
 Unos minutos después de que se complete el flujo de trabajo, el paquete nuevo podrá visualizarse en tu repositorio. Para encontrar tus paquetes disponibles, consulta la sección "[Visualizar los paquetes de un repositorio](/packages/publishing-and-managing-packages/viewing-packages#viewing-a-repositorys-packages)".
 
-
 ## Instalar un paquete mediante una acción
 
 Puedes instalar paquetes como parte de tu flujo de CI mediante {% data variables.product.prodname_actions %}. Por ejemplo, podrías configurar un flujo de trabajo para que cada vez que un programador suba código a una solicitud de extracción, el flujo de trabajo resuelva las dependencias al descargar e instalar paquetes alojados por el {% data variables.product.prodname_registry %}. Luego, el flujo de trabajo puede ejecutar pruebas de CI que requieran las dependencias.
@@ -484,9 +484,9 @@ El instalar los paquetes que hospeda el {% data variables.product.prodname_regis
 {% data reusables.package_registry.actions-configuration %}
 
 {% ifversion fpt or ghec %}
-## Actualizar un flujo de trabajo que tiene acceso a `ghcr.io`
+## Upgrading a workflow that accesses a registry using a PAT
 
-El {% data variables.product.prodname_container_registry %} es compatible con el `GITHUB_TOKEN` para una autenticación más fácil y segura en tus flujos de trabajo. Si tu flujo de trabajo está utilizando un token de acceso personal (PAT) para autenticarse en `ghcr.io`, entonces te recomendamos ampliamente que actualices tu flujo de trabajo para utilizar el `GITHUB_TOKEN`.
+The {% data variables.product.prodname_ghcr_and_npm_registry %} support the `GITHUB_TOKEN` for easy and secure authentication in your workflows. If your workflow is using a personal access token (PAT) to authenticate to the registry, then we highly recommend you update your workflow to use the `GITHUB_TOKEN`.
 
 Para obtener más información sobre el `GITHUB_TOKEN`, consulta la sección "[Autenticación en un flujo de trabajo](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)".
 
@@ -501,9 +501,9 @@ El utilizar el `GITHUB_TOKEN` en vez de un PAT, el cual incluya el alcance de `r
 
   {% endnote %}
 1. Opcionalmente, utiliza el menú desplegable de "rol", selecciona el nivel de acceso predeterminado que te gustaría que tuviera el repositorio en tu imagen de contenedor. ![Niveles de acceso de permisos para otorgar a los repositorios](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
-1. Abre tu archivo de flujo de trabajo. En la línea en donde ingresas a `ghcr.io`, reemplaza tu PAT con {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}.
+1. Abre tu archivo de flujo de trabajo. On the line where you log in to the registry, replace your PAT with {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}.
 
-Por ejemplo, este flujo de trabajo publica una imagen de Docker utilizando {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} para autenticarse.
+For example, this workflow publishes a Docker image to the {% data variables.product.prodname_container_registry %} and uses {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} to authenticate.
 
 ```yaml{:copy}
 name: Demo Push
@@ -529,37 +529,37 @@ jobs:
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
   push:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest
     permissions:
       packages: write
-      contents: read{% endif %}
+      contents: read
 
-    {% raw %}steps:
-      - uses: actions/checkout@v2
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
 
       - name: Build image
         run: docker build . --file Dockerfile --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
 
       - name: Log in to registry
         # This is where you will update the PAT to GITHUB_TOKEN
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        run: echo "{% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Push image
         run: |
-          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
+          IMAGE_ID=ghcr.io/{% raw %}${{ github.repository_owner }}{% endraw %}/$IMAGE_NAME
 
           # Change all uppercase to lowercase
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
           # Strip git ref prefix from version
-          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+          VERSION=$(echo "{% raw %}${{ github.ref }}{% endraw %}" | sed -e 's,.*/\(.*\),\1,')
           # Strip "v" prefix from tag name
-          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+          [[ "{% raw %}${{ github.ref }}{% endraw %}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
           # Use Docker `latest` tag convention
           [ "$VERSION" == "master" ] && VERSION=latest
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION{% endraw %}
+          docker push $IMAGE_ID:$VERSION
 ```
 
 {% endif %}

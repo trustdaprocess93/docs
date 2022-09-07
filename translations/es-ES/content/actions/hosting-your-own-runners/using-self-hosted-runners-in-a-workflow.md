@@ -13,7 +13,6 @@ type: tutorial
 shortTitle: Utilizar ejecutores en un flujo de trabajo
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -23,9 +22,9 @@ Para obtener más información sobre cómo crear etiquetas personalizadas y pred
 
 Las etiquetas te permiten enviar jobs de flujo de trabajo a tipos específicos de ejecutores auto-hospedados, de acuerdo con sus características compartidas. Por ejemplo, si tu job requiere una componente de hardware o paquete de software específico, puedes asignar una etiqueta personalizada a un ejecutor y después configurar tu job para que solo se ejecute en los ejecutores con esta etiqueta.
 
-{% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
+{% data reusables.actions.self-hosted-runner-labels-runs-on %}
 
-Para obtener más información, consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
+Para obtener más información, consulta la sección "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)".
 
 ## Utilizar etiquetas predeterminadas para enrutar jobs
 
@@ -64,7 +63,7 @@ runs-on: [self-hosted, linux, x64, gpu]
 - `x64` - Utiliza únicamente un ejecutor basado en hardware x64.
 - `gpu` - Esta etiqueta personalizada se asignó manualmente a los ejecutores auto-hospedados con hardware de GPU instalado.
 
-Estas etiquetas operan acumulativamente, así que las etiquetas de un ejecutor auto-hospedado deberán empatar con los cuatro criterios para poder ser elegibles para procesar el job.
+Estas etiquetas operan acumulativamente, así que un ejecutor auto-hospedado debe tener las cuatro para poder ser elegible para procesar el job.
 
 ## Precedencia de enrutamiento para los ejecutores auto-hospedados
 

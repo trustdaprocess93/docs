@@ -24,7 +24,7 @@ topics:
 
 Las acciones que utilizas en tu flujo de trabajo pueden definirse en:
 
-- El mismo repositorio que tu archivo de flujo de trabajo{% if internal-actions %}
+- El mismo repositorio que tu archivo de flujo de trabajo{% ifversion internal-actions %}
 - Un repositorio interno con la mismo cuenta empresarial que se configuró para permitir el acceso a los flujos de trabajo{% endif %}
 - Cualquier repositorio público
 - Una imagen del contenedor Docker publicada en Docker Hub
@@ -47,7 +47,17 @@ Puedes buscar acciones manualmente o por coincidencia exacta directamente en el 
 
 Puedes agregar una acción a tu flujo de trabajo si la referencias en tu archivo de flujo de trabajo.
 
-You can view the actions referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
+Puedes ver las acciones referenciadas en tus flujos de trabajo de {% data variables.product.prodname_actions %} como dependencias en la gráfica de dependencias del repositorio que contiene tus flujos de trabajo. Para obtener más información, consulta la sección "[Acerca de la gráfica de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)".
+
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6269 %}
+
+{% note %}
+
+**Nota:** Para mejorar la seguridad, {% data variables.product.prodname_actions %} obsoletizará las redirecciones para las acciones. Esto significa que, cuando cambie el propietario o el nombre del repositorio de una acción, cualquier flujo de trabajo que la utilizara con el nombre anterior, fallará.
+
+{% endnote %}
+
+{% endif %}
 
 ### Agregar una acción desde {% data variables.product.prodname_marketplace %}
 
@@ -86,8 +96,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Este paso revisa una copia de tu repositorio.
-      - uses: actions/checkout@v2
-    # Este paso hace referencia al directorio que contiene la acción.
+      - uses: {% data reusables.actions.action-checkout %}
+      # This step references the directory that contains the action.
       - uses: ./.github/actions/hello-world-action
 ```
 
@@ -97,14 +107,14 @@ El archivo `action.yml` se utiliza para proporcionar metadatos para la acción. 
 
 Si se define una acción en un repositorio diferente del de tu archivo de flujo de trabajo, puedes referenciarla con la sintaxis `{owner}/{repo}@{ref}` en tu archivo de flujo de trabajo.
 
-La acción debe almacenarse en un repositorio público{% if internal-actions %} o interno que se configure para permitir el acceso a los flujos de trabajo. Para obtener más información, consulta la sección "[Compartir acciones y flujos de trabajo con tu empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)".{% else %}.{% endif %}
+La acción debe almacenarse en un repositorio público{% ifversion internal-actions %} o interno que se configure para permitir el acceso a los flujos de trabajo. Para obtener más información, consulta la sección "[Compartir acciones y flujos de trabajo con tu empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)".{% else %}.{% endif %}
 
 ```yaml
 jobs:
   my_first_job:
     steps:
       - name: My first step
-        uses: actions/setup-node@v1.1.0
+        uses: {% data reusables.actions.action-setup-node %}
 ```
 
 ### Hacer referencia a un contenedor en Docker Hub
@@ -145,7 +155,7 @@ steps:
 
 ### Utilizar SHAs
 
-Si necesitas utilizar un versionamiento más confiable, debes utilizar el valor de SHA asociado con la versión de la acción. Los SHA son inmutables y, por lo tanto, más confiables que las etiquetas o las ramas. Sin embargo, este acercamiento significa que no recibirás actualizaciones para una acción automáticamente, incluyendo las correcciones de errores y actualizaciones de seguridad. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Debes utiliza run valor completo del SHA de la confirmación y no un valor abreviado. {% endif %}Este ejemplo apunta al SHA de una acción:
+Si necesitas utilizar un versionamiento más confiable, debes utilizar el valor de SHA asociado con la versión de la acción. Los SHA son inmutables y, por lo tanto, más confiables que las etiquetas o las ramas. Sin embargo, este acercamiento significa que no recibirás actualizaciones para una acción automáticamente, incluyendo las correcciones de errores y actualizaciones de seguridad. Debes utilizar un valor SHA completo de la confirmación y no un valor abreviado. Este ejemplo apunta al SHA de una acción:
 
 ```yaml
 steps:

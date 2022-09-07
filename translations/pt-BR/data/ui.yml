@@ -1,12 +1,13 @@
 ---
+meta:
+  default_description: Get started, troubleshoot, and make the most of GitHub. Documentation for new users, developers, administrators, and all of GitHub's products.
 header:
   github_docs: GitHub Docs
   contact: Contato
   notices:
-    ghae_silent_launch: O GitHub AE está atualmente sob versão limitada. <a href="https://enterprise.github.com/contact">Entre em contato com nossa Equipe de Vendas</a> para saber mais.
+    ghae_silent_launch: GitHub AE is currently under limited release.
     release_candidate: '# O nome da versão é interpretado antes do texto abaixo por meio de includes/header-notification.html'' está atualmente disponível como candidato da versão. Para obter mais informações, consulte "<a href="/admin/overview/about-upgrades-to-new-releases">Sobre atualizações para novas versões</a>."'''
-    localization_complete: Publicamos atualizações frequentes em nossa documentação, e a tradução desta página ainda pode estar em andamento. Para obter as informações mais recentes, acesse a <a id="to-english-doc" href="/en">documentação em inglês</a>. Se houver problemas com a tradução desta página, <a href="https://github.com/contact?form[subject]=translation%20issue%20on%20docs.github.com&form[comments]=">entre em contato conosco</a>.
-    localization_in_progress: Olá! No momento, esta página ainda está sendo desenvolvida ou traduzida. Para obter as informações mais recentes, acesse a <a id="to-english-doc" href="/en">documentação em inglês</a>.
+    localization_complete: We publish frequent updates to our documentation, and translation of this page may still be in progress. For the most current information, please visit the <a id="to-english-doc" href="/en">English documentation</a>.
     early_access: '📣 <b>Não compartilhe</b> esta URL publicamente. Esta página contém conteúdo sobre um recurso de acesso antecipado.'
     release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
     #GHES release notes
@@ -22,16 +23,22 @@ release_notes:
   banner_text: GitHub began rolling these changes out to enterprises on
 search:
   need_help: Precisa de ajuda?
-  placeholder: Pesquisar tópicos, produtos...
+  placeholder: Search GitHub Docs
   loading: Carregando
   no_results: Nenhum resultado encontrado
   search_results_for: Search results for
   no_content: No content
   matches_displayed: Matches displayed
   search_error: An error occurred trying to perform the search.
+  description: Enter a search term to find it in the GitHub Documentation.
+  label: Search GitHub Docs
+  results_found: Found {n} results in {s}ms
+  results_page: This is page {page} of {pages}.
+  nothing_found: Nothing found 😿
 homepage:
   explore_by_product: Explorar por produto
   version_picker: Versão
+  description: Help for wherever you are on your GitHub journey.
 toc:
   getting_started: Introdução
   popular: Popular
@@ -44,6 +51,7 @@ pages:
   miniToc: Neste artigo
   contributor_callout: This article is contributed and maintained by
   all_enterprise_releases: All Enterprise Server releases
+  about_versions: About versions
 errors:
   oops: Ops!
   something_went_wrong: Parece que algo deu errado.
@@ -77,6 +85,7 @@ contribution_cta:
 products:
   graphql:
     reference:
+      implements: Implements
       fields: Campos
       arguments: Argumentos
       name: Nome
@@ -89,10 +98,25 @@ products:
       possible_types: Tipos possíveis
       preview_notice: Aviso de pré-visualização
       deprecation_notice: Aviso de descontinuação
+      preview_period: During the preview period, the API may change without notice.
+    overview:
+      preview_header: 'To toggle this preview and access the following schema members, you must provide a custom media type in the `Accept` header:'
+      preview_schema_members: 'Integrantes do esquema pré-visualizados'
+      announced: Announced
+      updates: Atualizações
   rest:
     reference:
+      default: Padrão
+      name: Nome
+      in: In
+      type: Tipo
+      description: Descrição
+      notes: Observações
       parameters: Parâmetros
       response: Resposta
+      example_response: Example response
+      status_code: Status code
+      http_status_code: HTTP response status codes
       code_sample: Amostra de código
       code_samples: Amostras de código
       preview_notice: Aviso de pré-visualização
@@ -100,6 +124,15 @@ products:
       see_preview_notice: Ver aviso de pré-visualização
       see_preview_notices: Ver avisos de pré-visualização
       preview_header_is_required: Este cabeçalho é <strong>obrigatório</strong>
+      preview_notice_to_change: This API is under preview and subject to change
+      works_with: Works with
+      api_reference: REST API reference
+      enum_description_title: Pode ser uma das ações a seguir
+      required: Obrigatório
+      headers: Headers
+      query: Parâmetros de consulta
+      path: Path parameters
+      body: Body parameters
 footer:
   all_rights_reserved: Todos os direitos reservados
   terms: Termos
@@ -154,7 +187,7 @@ product_landing:
   try_another: Try another filter or add your code example.
   no_result: Sorry, there are no guides that match your filter.
   learn: Learn how to add a code example
-  communities_using_discussions: Comunidades que usam discussões
+  communities_using_discussions: Communities on GitHub.com using discussions
   add_your_community: Add your community
   sponsor_community: GitHub Sponsors community
   supported_releases: Supported releases

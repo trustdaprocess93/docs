@@ -22,7 +22,6 @@ shortTitle: Recover an account with 2FA
 **Warnings**: 
 
 - {% data reusables.two_fa.support-may-not-help %}
-- {% data reusables.accounts.you-must-know-your-password %}
 
 {% endwarning %}
 
@@ -32,7 +31,13 @@ shortTitle: Recover an account with 2FA
 
 Use one of your recovery codes to automatically regain entry into your account. You may have saved your recovery codes to a password manager or your computer's downloads folder. The default filename for recovery codes is `github-recovery-codes.txt`. For more information about recovery codes, see "[Configuring two-factor authentication recovery methods](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
 
-{% data reusables.two_fa.username-password %}
+1. Type your username and password to prompt authentication.
+
+    {% warning %}
+
+    **Warning**: {% data reusables.accounts.you-must-know-your-password %}
+    
+    {% endwarning %}
 
 {% ifversion fpt or ghec %}
 1. Under "Having problems?", click **Use a recovery code or request a reset**.
@@ -63,7 +68,7 @@ If you know your password for {% data variables.product.product_location %} but 
 
 {% note %}
 
-**Note**: For security reasons, regaining access to your account by authenticating with a one-time password can take 1-3 business days. {% data variables.product.company_short %} will not review additional requests submitted during this time.
+**Note**: For security reasons, regaining access to your account by authenticating with a one-time password can take up to three business days. {% data variables.product.company_short %} will not review additional requests submitted during this time.
 
 {% endnote %}
 
@@ -100,6 +105,6 @@ You can use your two-factor authentication credentials or two-factor authenticat
     - If you've previously set up a personal access token and would like to use the personal access token for verification, click **Personal access token**.
 
    ![Screenshot of buttons for alternative verification](/assets/images/help/2fa/alt-verifications.png)
-1. A member of {% data variables.contact.github_support %} will review your request and email you within 1-3 business days. If your request is approved, you'll receive a link to complete your account recovery process. If your request is denied, the email will include a way to contact support with any additional questions.
+1. A member of {% data variables.contact.github_support %} will review your request and email you within three business days. If your request is approved, you'll receive a link to complete your account recovery process. If your request is denied, the email will include a way to contact support with any additional questions.
 
 {% endif %}

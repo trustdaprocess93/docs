@@ -12,10 +12,6 @@ topics:
 
 GitHubと統合されるアプリケーションを構築しますか？ 弊社の開発者プログラムに登録してください！ 可能性は無限であり、栄誉を楽しんでください。 [今すぐ登録を](https://github.com/developer/register)
 
-## 把握し続けてください
-
-[開発者ブログ](https://developer.github.com/changes/)でAPIの変更について最初に知り、公開されるより先に新機能を試してください。
-
 ## かゆいところに手を届ける
 
 毎日コードをプッシュするところとシームレスに統合される独自のツールを構築してください。
@@ -24,15 +20,14 @@ GitHubと統合されるアプリケーションを構築しますか？ 弊社�
 
 Email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request developer licenses to build and test your application against {% data variables.product.prodname_ghe_server %}.
 
-
 ## GitHubと連携するインテグレーションがありますか？
 
 素晴らしいです！ プログラムに参加していただければ嬉しく思います。 以下のようにすれば、情報を展開できます。</p>
-* [あなたのインテグレーションについてお知らせください。](https://github.com/contact?form[subject]=New+GitHub+Integration)
-* [OctocatもしくはGitHubロゴ](https://github.com/logos)を使って、あなたの製品がGitHubと動作することを示してください。
-* Webサイトにインテグレーションに関するビデオあるいはブログをポストしてください。
+* [Let us know about your integration](https://support.github.com/contact?tags=rr-general-technical&form[subject]=New+GitHub+Integration).
+* Use the [Octocat or GitHub logo](https://github.com/logos) to identify that your product works with GitHub.
+* Post a video or a blog on your website about your integration.
 
-## GitHub開発者プログラムに参加する準備はできましたか？</h3>
+## GitHub開発者プログラムに参加する準備はできましたか？
 
 メンバーシップは、以下をお持ちの個人開発者及び企業に対して開かれています。
 

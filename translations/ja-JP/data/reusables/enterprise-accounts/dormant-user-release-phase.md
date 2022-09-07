@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** The Dormant Users report is currently in private beta so admins only have access to this feature with a special invite. To join the private beta, receive support, or address your questions, contact the {% data variables.product.company_short %} representative who helps manage your account.
+**ノート:** 休眠ユーザレポートは現在ベータであり、変更されることがあります。 ベータの期間中、レポートダウンロード機能への継続的な改善により、その可能性が制限されることがあります。
 
 {% endnote %}

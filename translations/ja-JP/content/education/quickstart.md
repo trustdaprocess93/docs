@@ -15,29 +15,29 @@ shortTitle: クイックスタート
 
 {% tip %}
 
-**ヒント**: アカデミック割引を利用したい学生の方は、「 [学生向け開発者パックに応募する](/github/teaching-and-learning-with-github-education/applying-for-a-student-developer-pack)」を参照してください。
+**Tip**: If you're a student and you'd like to take advantage of an academic discount, see "[Apply to {% data variables.product.prodname_global_campus %} as a student](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)."
 
 {% endtip %}
 
 ## {% data variables.product.product_name %}でアカウントを作成する
 
-まず、{% data variables.product.product_name %}で無料ユーザアカウントを作成する必要があります。
+First, you'll need to create a free personal account on {% data variables.product.product_name %}.
 
 {% data reusables.accounts.create-account %}
-1. プロンプトに従って、無料ユーザアカウントを作成します。
+1. Follow the prompts to create your free personal account.
 
-ユーザアカウントを作成した後は、無料Organizationアカウントを作成します。 {% data variables.product.prodname_classroom %}でクラスルームを作成および管理するには、Organizationアカウントを使用します。
+After you create your personal account, create a free organization account. {% data variables.product.prodname_classroom %}でクラスルームを作成および管理するには、Organizationアカウントを使用します。
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.organizations %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.organizations %}
 {% data reusables.organizations.new-organization %}
 4. プロンプトに従って無料Organizationを作成します。
 
 詳しい情報については、「[{% data variables.product.prodname_dotcom %}アカウントの種類](/github/getting-started-with-github/types-of-github-accounts)」を参照してください。"
 
-## 教育者割引に応募する
+## Applying for teacher benefits
 
-次に、{% data variables.product.company_short %}からの割引およびサービスにサインアップします。 {% data reusables.education.educator-requirements %}
+Next, you'll sign up for teacher benefits and resources from {% data variables.product.company_short %} by applying to {% data variables.product.prodname_global_campus %}, a portal that allows you to access your education benefits all in one place.  {% data reusables.education.educator-requirements %}
 
 {% tip %}
 
@@ -53,12 +53,14 @@ shortTitle: クイックスタート
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
 
+Once you are a verified {% data variables.product.prodname_global_campus %} educator, you can access {% data variables.product.prodname_global_campus %} anytime by going to the [{% data variables.product.prodname_education %} website](https://education.github.com).
+
 ## {% data variables.product.prodname_classroom %}をセットアップする
 
-ユーザアカウントとOrganizationアカウントがあれば、{% data variables.product.prodname_classroom %}に取りかかる準備が整っています。 {% data variables.product.prodname_classroom %}の使用は無料です。 課題の追跡および管理、課題の自動採点、および学生へのフィードバックを行うことができます。
+With your personal account and organization account, you're ready to get started with {% data variables.product.prodname_classroom %}. {% data variables.product.prodname_classroom %}の使用は無料です。 課題の追跡および管理、課題の自動採点、および学生へのフィードバックを行うことができます。
 
 {% data reusables.classroom.sign-into-github-classroom %}
-1. {% data variables.product.prodname_classroom %}を認可して{% data variables.product.prodname_dotcom %}のユーザアカウントにアクセスするには、表示されている情報を確認してから、[**Authorize {% data variables.product.prodname_classroom %}**] をクリックします。 ![ユーザアカウント用の [Authorize {% data variables.product.prodname_classroom %}] ボタン](/assets/images/help/classroom/setup-click-authorize-github-classroom.png)
+1. To authorize {% data variables.product.prodname_classroom %} to access your personal account on {% data variables.product.prodname_dotcom %}, review the information, then click **Authorize {% data variables.product.prodname_classroom %}**. !["Authorize {% data variables.product.prodname_classroom %}" button for personal account](/assets/images/help/classroom/setup-click-authorize-github-classroom.png)
 1. 情報を確認します。 {% data variables.product.prodname_classroom %}を認可して{% data variables.product.prodname_dotcom %}のOrganizationアカウントにアクセスするには、[**Allow**] をクリックします。 ![Organization用の [Grant] ボタン](/assets/images/help/classroom/setup-click-grant.png)
 
   {% tip %}

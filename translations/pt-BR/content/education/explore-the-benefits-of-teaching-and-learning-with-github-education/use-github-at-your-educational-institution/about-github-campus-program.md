@@ -7,6 +7,7 @@ redirect_from:
   - /articles/about-github-education
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-education
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-campus-program
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-campus-advisors
 versions:
   fpt: '*'
 shortTitle: Programa de campus do GitHub
@@ -16,11 +17,11 @@ shortTitle: Programa de campus do GitHub
 
 - Acesso sem custo a {% data variables.product.prodname_ghe_cloud %} e {% data variables.product.prodname_ghe_server %} para todos os seus departamentos técnicos e acadêmicos
 - 50.000 {% data variables.product.prodname_actions %} minutos e 50 GB {% data variables.product.prodname_registry %} de armazenamento
-- Treinamento do professor para dominar o Git e {% data variables.product.prodname_dotcom %} com o nosso [Programa de Consultor de Campus](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors)
+- Professor treinando para dominar o Git e {% data variables.product.prodname_dotcom %}
 - Acesso exclusivo a novas funcionalidades, swage específico do GitHub Education e ferramentas grátis de desenvolvedor dos parceiros de {% data variables.product.prodname_dotcom %}
 - Acesso automatizado a recursos premium do {% data variables.product.prodname_education %}, como o {% data variables.product.prodname_student_pack %}
 
-Para ler sobre como o GitHub é usado pelos educadores, consulte [histórias do GitHub Education](https://education.github.com/stories).
+Para ler sobre como o GitHub é usado pelos educadores, consulte [Histórias do GitHub Education](https://education.github.com/stories).
 
 ## Termos e condições de {% data variables.product.prodname_campus_program %}
 
@@ -33,7 +34,7 @@ Para ler sobre como o GitHub é usado pelos educadores, consulte [histórias do 
 - Novas organizações da empresa são automaticamente adicionadas à sua conta corporativa. Para adicionar organizações que existiam antes de sua escola juntar-se à {% data variables.product.prodname_campus_program %}, entre em contato com o [suporte do GitHub Education](https://support.github.com/contact/education). Para obter mais informações sobre como administrar sua empresa, consulte a documentação de [administradores da empresa ](/admin). Novas organizações da empresa são automaticamente adicionadas à sua conta corporativa. Para adicionar organizações que existiam antes de sua escola juntar-se à {% data variables.product.prodname_campus_program %}, entre em contato com o suporte do GitHub Education.
 
 
-Para ler mais sobre as práticas de privacidade de {% data variables.product.prodname_dotcom %}, consulte ["Práticas Globais de Privacidade"](/github/site-policy/global-privacy-practices)
+Para ler mais sobre as práticas de privacidade de {% data variables.product.prodname_dotcom %}, consulte ["Práticas Globais de Privacidade"](/github/site-policy/global-privacy-practices)."
 
 ## Elegibilidade do aplicativo de {% data variables.product.prodname_campus_program %}
 

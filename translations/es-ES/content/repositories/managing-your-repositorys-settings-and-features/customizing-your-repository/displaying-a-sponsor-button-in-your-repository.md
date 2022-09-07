@@ -18,7 +18,7 @@ shortTitle: Mostrar el botón del patrocinador
 
 Puedes configurar tu botón de patrocinador editando un archivo _FUNDING.yml_ en la carpeta `.github` de tu repositorio, o bien en la rama predeterminada. Puedes configurar el botón para que incluya programadores patrocinados en {% data variables.product.prodname_sponsors %}, plataformas de financiamiento externo o URL de financiamiento personalizadas. Para obtener mas información acerca de {% data variables.product.prodname_sponsors %}, consulta "[Acerca de los patrocinadores de GitHub](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)".
 
-Puedes agregar un nombre de usuario, un nombre de paquete o un nombre de proyecto por plataforma de financiamiento externo y hasta cuatro URL personalizadas. Puedes añadir hasta cuatro organizaciones o desarrolladores patrocinadores en {% data variables.product.prodname_sponsors %}. Agrega cada plataforma en una línea nueva, usando la siguiente sintaxis:
+Puedes agregar un nombre de usuario, un nombre de paquete o un nombre de proyecto por plataforma de financiamiento externo y hasta cuatro URL personalizadas. Puedes agregar una organización y hasta cuatro desarrolladores patrocinados en {% data variables.product.prodname_sponsors %}. Agrega cada plataforma en una línea nueva, usando la siguiente sintaxis:
 
 | Plataforma                                                                               | Sintaxis                                                                |
 | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
@@ -58,7 +58,7 @@ custom: ["https://www.paypal.me/octocat", octocat.com]
 
 {% endnote %}
 
-Puedes crear un botón patrocinador predeterminado para tu organización o cuenta de usuario. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Puedes crear un botón de patrocinio predeterminado para tu cuenta personal o de organización. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% note %}
 

@@ -20,9 +20,9 @@ shortTitle: Secretos cifrados
  
 
 
-## Acerca de los secretos cifrados para los {% data variables.product.prodname_codespaces %}
+## Acerca de los secretos cifrados para {% data variables.product.prodname_github_codespaces %}
 
-Puedes agregar a tu cuenta de usuario los secretos cifrados que quieras utilizar en tus codespaces. Por ejemplo, puede que quieras almacenar y acceder a la siguiente información sensible en forma de un secreto cifrado.
+Puedes agregar secretos cifrados a tu cuenta personal si los quieres utilizar en tus codespaces. Por ejemplo, puede que quieras almacenar y acceder a la siguiente información sensible en forma de un secreto cifrado.
 
 - Tokens de acceso personal para los servicios en la nube
 - Entidades de servicio
@@ -41,40 +41,56 @@ Puedes elegir qué repositorios deben tener acceso a cada secreto. Posteriorment
 
 ### Límites para los secretos
 
-Puedes almacenar hasta 100 secretos para los {% data variables.product.prodname_codespaces %}.
+Puedes almacenar hasta 100 secretos para {% data variables.product.prodname_github_codespaces %}.
 
 Los secretos tienen un tamaño máximo de 64 KB.
 
 ## Agregar un secreto
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.codespaces-tab %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.codespaces-tab %}
 1. A la derecha de "Secretos de los codespaces", da clic en **Secreto nuevo**. ![Botón de "Secreto nuevo"](/assets/images/help/settings/codespaces-new-secret-button.png)
 1. Debajo de "Nombre", teclea un nombre para tu secreto. ![Caja de texto de "Nombre"](/assets/images/help/settings/codespaces-secret-name-field.png)
-{% data reusables.user_settings.codespaces-secret-value %}
-{% data reusables.user_settings.codespaces-secret-repository-access %}
+{% data reusables.user-settings.codespaces-secret-value %}
+{% data reusables.user-settings.codespaces-secret-repository-access %}
 1. Haz clic en **Agregar secreto** (Agregar secreto).
 
 ## Editar un secreto
 
 Puedes actualizar el valor de un secreto existente y puedes cambiar qué repositorios pueden acceder a un secreto.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.codespaces-tab %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.codespaces-tab %}
 1. Debajo de "Secretos de los codespaces"; a la derecha del secreto que quieras editar, da clic en **Actualizar**. ![Botón de "Actualizar"](/assets/images/help/settings/codespaces-secret-update-button.png)
 1. Debajo de "Valor", da clic en **Ingresar un valor nuevo**. ![Enlace de "Ingresar un valor nuevo"](/assets/images/help/settings/codespaces-secret-update-value-text.png)
-{% data reusables.user_settings.codespaces-secret-value %}
-{% data reusables.user_settings.codespaces-secret-repository-access %}
+{% data reusables.user-settings.codespaces-secret-value %}
+{% data reusables.user-settings.codespaces-secret-repository-access %}
 1. Opcionalmente, para eliminar el acceso del secreto a un repositorio, deselecciona el repositorio. ![Casillas de verificación para eliminar el acceso a los repositorios](/assets/images/help/settings/codespaces-secret-repository-checkboxes.png)
 1. Haz clic en **Guardar cambios**.
 
 ## Borrar un secreto
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.codespaces-tab %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.codespaces-tab %}
 1. Debajo de "Secretos de los codespaces", a la derecha del secreto que quieras borrar, da clic en **Borrar**. ![Botón de "Borrar"](/assets/images/help/settings/codespaces-secret-delete-button.png)
 1. Lee la advertencia y da clic en **OK**. ![Confirmación para borrar un secreto](/assets/images/help/settings/codespaces-secret-delete-warning.png)
 
+## Utilizar secretos
+
+El secreto se exporta como una variable de ambiente en la sesión de la terminal del usuario.
+
+  ![Mostrar el valor de un secreto exportado en la terminal](/assets/images/help/codespaces/exported-codespace-secret.png)
+
+Puedes utilizar secretos en un codespace después de que este se compile y esté ejecutándose. Por ejemplo, un secreto puede utilizarse:
+
+* Al lanzar una aplicación desde la terminal integrada o sesión ssh.
+* Dentro de un script de ciclo de vida de un contenedor dev que se ejecuta después de que el codespace esté en ejecución. Para obtener más información sobre los scripts de ciclo de vida de contenedor dev, consulta la documentación sobre containers.dev: [Especificación](https://containers.dev/implementors/json_reference/#lifecycle-scripts).
+
+Los secretos de los codespaces no pueden utilizarse durante:
+
+* El tiempo de compilación de un codespace (es decir, dentro de un Dockerfile o punto de entrada personalizado).
+* Dentro de una característica de contenedor dev. Para obtener más información, consulta el atributo de `features` en la documentación de containers.dev: [Especificación](https://containers.dev/implementors/json_reference/#general-properties).
+
 ## Leer más
 
-- "[Administrar los secretos cifrados de tu repositorio y organización en {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)"
+- "[Administrar los secretos cifrados de tu repositorio y organización en {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)"

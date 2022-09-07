@@ -10,7 +10,7 @@ redirect_from:
   - /github/articles/managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account
-  - github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
 versions:
   ghec: '*'
   ghes: '*'
@@ -31,7 +31,7 @@ shortTitle: Políticas de configurações de segurança
 
 ## Exigir autenticação de dois fatores para organizações na sua empresa
 
-Os proprietários corporativos podem exigir que integrantes da organização, gerentes de cobrança e colaboradores externos em todas as organizações pertencentes a uma empresa usem autenticação de dois fatores para proteger suas contas pessoais.
+Os proprietários corporativos podem exigir que integrantes da organização, gerentes de cobrança e colaboradores externos em todas as organizações pertencentes a uma empresa usem autenticação de dois fatores para proteger suas contas de usuário.
 
 Antes de poder exigir a autenticação 2FA para todas as organizações pertencentes à sua empresa, você deve habilitar a autenticação de dois fatores para a sua própria conta. Para obter mais informações, consulte "[Proteger sua conta com autenticação de dois fatores (2FA)](/articles/securing-your-account-with-two-factor-authentication-2fa/)".
 
@@ -39,9 +39,9 @@ Antes de poder exigir a autenticação 2FA para todas as organizações pertence
 
 **Avisos:**
 
-- Se você exigir autenticação de dois fatores para a sua empresa, os integrantes, colaboradores externos e gerentes de cobrança (incluindo contas bot) em todas as organizações pertencentes à sua empresa que não utilizem 2FA serão removidos da organização e perderão acesso aos repositórios dela. Eles também perderão acesso às bifurcações dos repositórios privados da organização. Se a autenticação de dois fatores for habilitada para a conta pessoal deles em até três meses após a remoção da organização, será possível restabelecer as configurações e os privilégios de acesso deles. Para obter mais informações, consulte "[Restabelecer ex-integrantes da organização](/articles/reinstating-a-former-member-of-your-organization)".
-- Qualquer proprietário da organização, integrante, gerente de cobrança ou colaborador externo em qualquer das organizações pertencentes à sua empresa que desabilite a 2FA para a conta pessoal dele depois que você tiver habilitado a autenticação de dois fatores obrigatória será removido automaticamente da organização.
-- Se você for o único proprietário de uma empresa que exige autenticação de dois fatores, não poderá desabilitar 2FA para sua conta pessoal sem desabilitar a autenticação de dois fatores obrigatória para a empresa.
+- Se você exigir autenticação de dois fatores para a sua empresa, os integrantes, colaboradores externos e gerentes de cobrança (incluindo contas bot) em todas as organizações pertencentes à sua empresa que não utilizem 2FA serão removidos da organização e perderão acesso aos repositórios dela. Eles também perderão acesso às bifurcações dos repositórios privados da organização. Você pode restabelecer seus privilégios de acesso e configurações se eles permitirem a autenticação de dois fatores para sua conta dentro de três meses após sua remoção de sua organização. Para obter mais informações, consulte "[Restabelecer ex-integrantes da organização](/articles/reinstating-a-former-member-of-your-organization)".
+- Qualquer proprietário da organização, integrante, gerente de cobrança ou colaborador externo em qualquer das organizações pertencentes à sua empresa que desabilite a 2FA para a conta dele depois que você tiver habilitado a autenticação de dois fatores obrigatória será removido automaticamente da organização.
+- Se você for o único proprietário de uma empresa que exige autenticação de dois fatores, não poderá desabilitar 2FA para sua conta de usuário sem desabilitar a autenticação de dois fatores obrigatória para a empresa.
 
 {% endwarning %}
 
@@ -67,7 +67,7 @@ Você pode restringir o tráfego de rede para a sua empresa em {% data variables
 
 {% elsif ghec %}
 
-Os proprietários de empresas podem restringir o acesso a ativos pertencentes a organizações em uma empresa, configurando uma lista de permissão de endereços IP específicos. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+Os proprietários de empresas podem restringir o acesso a ativos privados pertencentes a organizações em uma empresa, configurando uma lista de permissão de endereços IP específicos. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
@@ -77,18 +77,25 @@ Você também pode configurar endereços IP permitidos para uma organização in
 
 ### Adicionar endereços IP permitidos
 
+{% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
+
+{% data reusables.identity-and-permissions.ipv6-allow-lists %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
+{% data reusables.identity-and-permissions.check-ip-address %}
 
 ### Permitindo acesso de {% data variables.product.prodname_github_apps %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
 
 ### Habilitar endereços IP permitidos
+
+{% data reusables.identity-and-permissions.about-enabling-allowed-ip-addresses %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -98,6 +105,8 @@ Você também pode configurar endereços IP permitidos para uma organização in
 
 ### Editar endereços IP permitidos
 
+{% data reusables.identity-and-permissions.about-editing-ip-allow-list-entries %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
@@ -105,6 +114,18 @@ Você também pode configurar endereços IP permitidos para uma organização in
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
 8. Clique em **Atualizar**.
+{% data reusables.identity-and-permissions.check-ip-address %}
+
+{% ifversion ip-allow-list-address-check %}
+### Verificando se um endereço IP é permitido
+
+{% data reusables.identity-and-permissions.about-checking-ip-address %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+{% data reusables.identity-and-permissions.check-ip-address-step %}
+{% endif %}
 
 ### Excluir endereços IP permitidos
 
@@ -116,7 +137,7 @@ Você também pode configurar endereços IP permitidos para uma organização in
 
 ### Usar {% data variables.product.prodname_actions %} com uma lista endereços IP permitidos
 
-{% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
+{% data reusables.actions.ip-allow-list-self-hosted-runners %}
 
 {% endif %}
 
@@ -126,9 +147,11 @@ Você também pode configurar endereços IP permitidos para uma organização in
 
 Você pode usar as autoridades de certificados SSH (CA) para permitir que os integrantes de qualquer organização pertencente à sua empresa acessem os repositórios da organização usando certificados SSH que você fornecer. {% data reusables.organizations.can-require-ssh-cert %} Para obter mais informações, consulte "[Sobre autoridades certificadas de SSH](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)".
 
+{% data reusables.organizations.add-extension-to-cert %}
+
 ### Adicionar uma autoridade certificada de SSH
 
-{% data reusables.organizations.add-extension-to-cert %}
+Se você precisar de certificados SSH para sua empresa, os integrantes da empresa deverão usar um URL especial para operações do Git por meio do SSH. Para obter mais informações, consulte "[Sobre autoridades certificadas SSH](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#about-ssh-urls-with-ssh-certificates)".
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -148,6 +171,6 @@ A exclusão de uma CA não pode ser desfeita. Se você quiser usar a mesma CA no
 {% ifversion ghec or ghae %}
 ## Leia mais
 
-- "[About identity and access management for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)"{% ifversion ghec %}
-- "[Accessing compliance reports for your enterprise](/admin/overview/accessing-compliance-reports-for-your-enterprise)"{% endif %}
+- "[Sobre a identidade e gerenciamento de acesso da sua empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)"{% ifversion ghec %}
+- "[Relatórios de conformidade para a sua empresa](/admin/overview/accessing-compliance-reports-for-your-enterprise)"{% endif %}
 {% endif %}

@@ -13,21 +13,28 @@ defaultPlatform: linux
 shortTitle: Executar o executor ao iniciar
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% capture service_first_step %}1. Pare o aplicativo do executor auto-hospedado se estiver em execução no momento.{% endcapture %}
 {% capture service_non_windows_intro_shell %}Na máquina, abra um shell no diretório onde você instalou o aplicativo do executor auto-hospedado. Use os comandos abaixo para instalar e gerenciar o serviço do executor auto-hospedado.{% endcapture %}
-{% capture service_nonwindows_intro %}Você deve adicionar um executor a {% data variables.product.product_name %} antes de poder configurar o aplicativo do executor auto-hospedado um serviço. Para obter mais informações, consulte "[Adicionando executores auto-hospedados](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)".{% endcapture %}
-{% capture service_win_name %}actions.runner.*{% endcapture %}
 
+{% capture service_nonwindows_intro %}
+
+{% note %}
+
+**Observação:** Você precisa adicionar um executor a {% data variables.product.product_name %} antes de poder configurar o aplicativo do executor auto-hospedado como um serviço. Para obter mais informações, consulte "[Adicionando executores auto-hospedados](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)".
+
+{% endnote %}
+{% endcapture %}
+
+{% capture service_win_name %}actions.runner.*{% endcapture %}
 
 {% linux %}
 
 {{ service_nonwindows_intro }}
 
-Para os sistemas Linux que usam o `systemd`, você pode usar o script `svc. h` distribuído com o aplicativo do executor auto-hospedado para instalação e gerenciamento usando o aplicativo como um serviço.
+Para sistemas Linux que usam `systemd`, você pode usar o `svc.sh` que é criado após adicionar com sucesso o executor para instalar e gerenciar usar o aplicativo como um serviço.
 
 {{ service_non_windows_intro_shell }}
 
@@ -66,7 +73,14 @@ Você pode gerenciar o serviço do executor no aplicativo **Serviços** do Windo
    sudo ./svc.sh install
    ```
 
+1. Ccomo alternativa, o comando usa um argumento `usuário` opcional para instalar o serviço como um usuário diferente.
+
+  ```shell
+  ./svc.sh install <em>USERNAME</em>
+  ```
+
 {% endlinux %}
+
 {% mac %}
 
 ## Instalando o serviço

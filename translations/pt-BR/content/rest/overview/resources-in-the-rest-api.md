@@ -16,18 +16,6 @@ topics:
 
 Isso descreve os recursos que formam a API REST oficial de {% data variables.product.product_name %}. Em caso de problema ou solicitação, entre em contato com {% data variables.contact.contact_support %}.
 
-## Versão atual
-
-Por padrão, todas as solicitações para `{% data variables.product.api_url_code %}` recebem a versão **v3** [](/developers/overview/about-githubs-apis) da API REST. Nós incentivamos que você a [solicite explicitamente esta versão por meio do cabeçalho `Aceitar`](/rest/overview/media-types#request-specific-version).
-
-    Accept: application/vnd.github.v3+json
-
-{% ifversion fpt or ghec %}
-
-Para obter informações sobre a API do GraphQL do GitHub, consulte a [documentação v4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). Para obter informações sobre migração para o GraphQL, consulte "[Fazendo a migração do REST]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)".
-
-{% endif %}
-
 ## Esquema
 
 {% ifversion fpt or ghec %}Todo acesso à API é feito por meio de HTTPS, e{% else %}a API é{% endif %} acessada a partir de `{% data variables.product.api_url_code %}`.  Todos os dados são
@@ -91,12 +79,18 @@ $ curl -u "username" {% data variables.product.api_url_pre %}
 ### Token do OAuth2 (enviado em um cabeçalho)
 
 ```shell
-$ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
+$ curl -H "Authorization: Bearer <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
 ```
 
 {% note %}
 
 Observação: O GitHub recomenda enviar tokens do OAuth usando o cabeçalho de autorização.
+
+{% endnote %}
+
+{% note %}
+
+**Observação:** {% data reusables.getting-started.bearer-vs-token %}
 
 {% endnote %}
 
@@ -111,7 +105,7 @@ Leia [mais sobre o OAuth2](/apps/building-oauth-apps/).  Observe que os tokens d
 curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/user/repos'
 ```
 
-Using your `client_id` and `client_secret` does _not_ authenticate as a user, it will only identify your OAuth App to increase your rate limit. As permissões só são concedidas a usuários, não aplicativos, e você só obterá dados que um usuário não autenticado visualizaria. Por este motivo, você só deve usar a chave/segredo OAuth2 em cenários de servidor para servidor. Don't leak your OAuth App's client secret to your users.
+Usar o seu `client_id` e `client_secret` _ não_ autenticam você como usuário. Isso apenas irá identificar o seu aplicativo OAuth para aumentar o seu limite de taxa. As permissões só são concedidas a usuários, não aplicativos, e você só obterá dados que um usuário não autenticado visualizaria. Por este motivo, você só deve usar a chave/segredo OAuth2 em cenários de servidor para servidor. Não deixe vazar o segredo do cliente do OAuth do seu aplicativo para os seus usuários.
 
 {% ifversion ghes %}
 Você não conseguirá efetuar a autenticação usando sua chave e segredo do OAuth2 enquanto estiver no modo privado e essa tentativa de autenticação irá retornar `401 Unauthorized`. Para obter mais informações, consulte "[Habilitar o modo privado](/admin/configuration/configuring-your-enterprise/enabling-private-mode)".
@@ -120,7 +114,7 @@ Você não conseguirá efetuar a autenticação usando sua chave e segredo do OA
 
 {% ifversion fpt or ghec %}
 
-Leia [Mais informações sobre limitação da taxa não autenticada](#increasing-the-unauthenticated-rate-limit-for-oauth-applications).
+Leia [mais informações sobre limitação da taxa não autenticada](#increasing-the-unauthenticated-rate-limit-for-oauth-apps).
 
 {% endif %}
 
@@ -177,7 +171,7 @@ $ curl {% ifversion fpt or ghae or ghec %}
 
 ## IDs de nós globais do GraphQL
 
-Consulte o guia em "[Usar IDs do nó globais ]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)" para obter informações detalhadas sobre como encontrar `node_id`s através da API REST e usá-los em operações do GraphQL.
+Consulte o guia em "[Usar IDs do nó globais ](/graphql/guides/using-global-node-ids)" para obter informações detalhadas sobre como encontrar `node_id`s através da API REST e usá-los em operações do GraphQL.
 
 ## Erros do cliente
 
@@ -234,7 +228,7 @@ Os recursos também podem enviar erros de validação personalizados (em que o `
 
 ## Redirecionamentos HTTP
 
-API v3 usa redirecionamento HTTP quando apropriado. Os clientes devem assumir que qualquer solicitação pode resultar em redirecionamento. Receber um redirecionamento de HTTP *não* é um erro e os clientes devem seguir esse redirecionamento. As respostas de redirecionamento terão um campo do cabeçalho do tipo `Localização` que contém o URI do recurso ao qual o cliente deve repetir as solicitações.
+A API REST de {% data variables.product.product_name %} usa o redirecionamento de HTTP, quando apropriado. Os clientes devem assumir que qualquer solicitação pode resultar em redirecionamento. Receber um redirecionamento de HTTP *não* é um erro e os clientes devem seguir esse redirecionamento. As respostas de redirecionamento terão um campo do cabeçalho do tipo `Localização` que contém o URI do recurso ao qual o cliente deve repetir as solicitações.
 
 | Código de status | Descrição                                                                                                                                                                                                                                   |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -245,7 +239,7 @@ Outros códigos de status de redirecionamento podem ser usados de acordo com a e
 
 ## Verbos HTTP
 
-Quando possível, a API v3 se esforça para usar verbos HTTP apropriados para cada ação.
+Sempre que possível, a API REST do {% data variables.product.product_name %} busca usar verbos HTTP apropriados para cada ação. Note que os verbos HTTP diferenciam maiúsculas de minúsculas.
 
 | Verbo    | Descrição                                                                                                                                                                                                                        |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -316,21 +310,33 @@ Os valores de `rel` possíveis são:
 | `first`   | A relação de link para a primeira página de resultados.          |
 | `prev`    | A relação de link para a página de resultados anterior imediata. |
 
+## Tempo esgotado
+
+Se {% data variables.product.prodname_dotcom %} demorar mais de 10 segundos para processar uma solicitação de API, {% data variables.product.prodname_dotcom %} encerrará a solicitação e você receberá uma resposta de tempo esgotado dessa forma:
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+{% data variables.product.product_name %} reserva-se o direito de alterar a janela de tempo limite para proteger a velocidade e a confiabilidade da API.
+
 ## Limite de taxa
 
-Different types of API requests to {% data variables.product.product_location %} are subject to different rate limits.
+Os diferentes tipos de solicitações de API para {% data variables.product.product_location %} estão sujeitos a diferentes limites de taxa.
 
-Additionally, the Search API has dedicated limits. For more information, see "[Search](/rest/reference/search#rate-limit)" in the REST API documentation.
+Além disso, a API de pesquisa tem limites dedicados. Para obter mais informações, consulte "[Pesquisa](/rest/reference/search#rate-limit)" na documentação da API REST.
 
 {% data reusables.enterprise.rate_limit %}
 
 {% data reusables.rest-api.always-check-your-limit %}
 
-### Requests from user accounts
+### Solicitações de contas pessoais
 
-Direct API requests that you authenticate with a personal access token are user-to-server requests. An OAuth App or GitHub App can also make a user-to-server request on your behalf after you authorize the app. For more information, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)," "[Authorizing OAuth Apps](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)," and "[Authorizing GitHub Apps](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)."
+Os pedidos diretos da API que você autentica com um token de acesso pessoal são solicitações do usuário para servidor. Um aplicativo OAuth ou GitHub também pode fazer uma solicitação de usuário para servidor em seu nome depois de autorizar o aplicativo. Para obter mais informações, consulte[Criando um token de acesso pessoal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token), "[Autorizando aplicativos OAuth](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)" e "[Autorizando aplicativos GitHub](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)".
 
-{% data variables.product.product_name %} associates all user-to-server requests with the authenticated user. For OAuth Apps and GitHub Apps, this is the user who authorized the app. All user-to-server requests count toward the authenticated user's rate limit.
+{% data variables.product.product_name %} associa todas as solicitações de usuário para servidor ao usuário autenticado. Para aplicativos OAuth e aplicativos GitHub, este é o usuário que autorizou o aplicativo. Todos os pedidos de usuário-servidor contam para o limite de taxa do usuário autenticado.
 
 {% data reusables.apps.user-to-server-rate-limits %}
 
@@ -340,31 +346,31 @@ Direct API requests that you authenticate with a personal access token are user-
 
 {% ifversion fpt or ghec or ghes %}
 
-Para solicitações não autenticadas, o limite de taxa permite até 60 solicitações por hora. Unauthenticated requests are associated with the originating IP address, and not the person making requests.
+Para solicitações não autenticadas, o limite de taxa permite até 60 solicitações por hora. As solicitações não autenticadas estão associadas ao endereço IP original, e não à pessoa que faz as solicitações.
 
 {% endif %}
 
 {% endif %}
 
-### Requests from GitHub Apps
+### Solicitações de aplicativos GitHub
 
-Requests from a GitHub App may be either user-to-server or server-to-server requests. For more information about rate limits for GitHub Apps, see "[Rate limits for GitHub Apps](/developers/apps/building-github-apps/rate-limits-for-github-apps)."
+As solicitações de um aplicativo GitHub podem ser de usuário para servidor ou de servidor para servidor. Para obter mais informações sobre os limites de taxa para os aplicativos GitHub, consulte "[Limites de taxa para os aplicativos GitHub](/developers/apps/building-github-apps/rate-limits-for-github-apps)".
 
-### Requests from GitHub Actions
+### Solicitações do GitHub Actions
 
-You can use the built-in `GITHUB_TOKEN` to authenticate requests in GitHub Actions workflows. Para obter mais informações, consulte "[Autenticação automática de tokens](/actions/security-guides/automatic-token-authentication)".
+Você pode utilizar o `GITHUB_TOKEN` integrado para autenticar as solicitações nos fluxos de trabalho do GitHub Actions. Para obter mais informações, consulte "[Autenticação automática de tokens](/actions/security-guides/automatic-token-authentication)".
 
-When using `GITHUB_TOKEN`, the rate limit is 1,000 requests per hour per repository.{% ifversion fpt or ghec %} For requests to resources that belong to an enterprise account on {% data variables.product.product_location %}, {% data variables.product.prodname_ghe_cloud %}'s rate limit applies, and the limit is 15,000 requests per hour per repository.{% endif %}
+Ao usar `GITHUB_TOKEN`, o limite de taxa é de 1.000 solicitações por hora por repositório.{% ifversion fpt or ghec %} Para solicitações de recursos que pertencem a uma conta corporativa em {% data variables.product.product_location %}, aplicam-se os limites de taxa de {% data variables.product.prodname_ghe_cloud %} e o limite é de 15.000 solicitações por hora por repositório.{% endif %}
 
-### Checking your rate limit status
+### Verificando o status do seu limite da taxa
 
-The Rate Limit API and a response's HTTP headers are authoritative sources for the current number of API calls available to you or your app at any given time.
+A API de limite de taxa e os cabeçalhos HTTP de uma resposta são fontes autorizadas para o número atual de chamadas de API disponíveis para você ou seu aplicativo a qualquer momento.
 
-#### Rate Limit API
+#### API de limite de taxa
 
-You can use the Rate Limit API to check your rate limit status without incurring a hit to the current limit. For more information, see "[Rate limit](/rest/reference/rate-limit)."
+Você pode usar a API do limite de taxa para verificar o status do seu limite de taxa sem impactar no limite atual. Para obter mais informações, consulte "[Limite de taxa](/rest/reference/rate-limit)".
 
-#### Rate limit HTTP headers
+#### Cabeçalhos de HTTP de limite de taxa
 
 Os cabeçalhos HTTP retornados de qualquer solicitação de API mostram o seu status atual de limite de taxa:
 
@@ -374,6 +380,7 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > x-ratelimit-limit: 60
 > x-ratelimit-remaining: 56
+> x-ratelimit-used: 4
 > x-ratelimit-reset: 1372700873
 ```
 
@@ -381,6 +388,7 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `x-ratelimit-limit`     | O número máximo de solicitações que você pode fazer por hora.                                                                                     |
 | `x-ratelimit-remaining` | O número de solicitações restantes na janela de limite de taxa atual.                                                                             |
+| `x-ratelimit-used`      | O número de solicitações que você fez na janela de limite de taxa atual.                                                                          |
 | `x-ratelimit-reset`     | O tempo em que a janela de limite de taxa atual é redefinida em [segundos no tempo de computação de UTC](http://en.wikipedia.org/wiki/Unix_time). |
 
 Se você precisar de outro formato de tempo, qualquer linguagem de programação moderna pode fazer o trabalho. Por exemplo, se você abrir o console em seu navegador, você pode facilmente obter o tempo de redefinição como um objeto de tempo do JavaScript.
@@ -397,6 +405,7 @@ Se você exceder o limite de taxa, uma resposta do erro retorna:
 > Date: Tue, 20 Aug 2013 14:50:41 GMT
 > x-ratelimit-limit: 60
 > x-ratelimit-remaining: 0
+> x-ratelimit-used: 60
 > x-ratelimit-reset: 1377013266
 
 > {
@@ -405,16 +414,17 @@ Se você exceder o limite de taxa, uma resposta do erro retorna:
 > }
 ```
 
-### Increasing the unauthenticated rate limit for OAuth Apps
+### Aumentando o limite de taxa não autenticado para aplicativos OAuth
 
-If your OAuth App needs to make unauthenticated calls with a higher rate limit, you can pass your app's client ID and secret before the endpoint route.
+Se o seu aplicativo OAuth precisar fazer chamadas não autenticadas com um limite de taxa mais alto, você poderá passar o ID e o segredo do cliente do seu aplicativo antes do encaminhamento de pontos de extremidade.
 
 ```shell
-$ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}/user/repos
+$ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre %}/user/repos
 > HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > x-ratelimit-limit: 5000
 > x-ratelimit-remaining: 4966
+> x-ratelimit-used: 34
 > x-ratelimit-reset: 1372700873
 ```
 
@@ -658,4 +668,3 @@ Se as etapas acima não resultarem em nenhuma informação, usaremos UTC como o 
 [uri]: https://github.com/hannesg/uri_template
 
 [pagination-guide]: /guides/traversing-with-pagination
-

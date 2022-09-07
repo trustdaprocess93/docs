@@ -28,7 +28,7 @@ Tanto para los propietarios como para los colaboradores, las pautas de contribuc
 
 {% ifversion fpt or ghes or ghec %}
 
-Puedes crear lineamientos de contribución predeterminados para tu organización{% ifversion fpt or ghes or ghec %} o cuenta de usuario{% endif %}. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Puedes crear lineamientos de contribución predeterminados para tu cuenta organizacional{% ifversion fpt or ghes or ghec %} o personal{% endif %}. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
@@ -59,7 +59,7 @@ Puedes crear lineamientos de contribución predeterminados para tu organización
 Si estás confundido, aquí hay algunos buenos ejemplos de pautas de contribución:
 
 - Pautas de contribución del Editor Atom [](https://github.com/atom/atom/blob/master/CONTRIBUTING.md).
-- Pautas de contribución de Ruby on Rails [](https://github.com/rails/rails/blob/master/CONTRIBUTING.md).
+- Pautas de contribución de Ruby on Rails [](https://github.com/rails/rails/blob/main/CONTRIBUTING.md).
 - Pautas de contribución de Open Government [](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md).
 
 ## Leer más

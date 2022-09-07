@@ -1,0 +1,1 @@
+Recomendamos que você use apenas executores auto-hospedados com repositórios privados. This is because forks of your public repository can potentially run dangerous code on your self-hosted runner machine by creating a pull request that executes the code in a workflow.

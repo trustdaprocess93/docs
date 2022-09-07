@@ -19,7 +19,7 @@ redirect_from:
 
 Cuando trabajas localmente en tu computadora, Git te permite configurar el autor de tus cambios y la identidad del confirmante. Esto, potencialmente, dificulta que otras personas tengan la confimansa de que realmente hayas creado tus etiquetas y confirmaciones. Para ayudarte a resolver este problema, puedes firmar tus confirmaciones y etiquetas. Para obtener más información, consulta la sección "[Firmar confirmaciones](/github/authenticating-to-github/signing-commits)" y "[Firmar etiquetas](/github/authenticating-to-github/signing-tags)". {% data variables.product.prodname_dotcom %} marca las etiquetas y confirmaciones firmadas con un estado de verificación.
 
-Predeterminadamente, las confirmaciones y etiquetas se marcan como "Verificadas" si se firman con una llave GPG o S/MIME que se verificó con éxito. Si una confirmación o etiqueta tiene una firma que no puede verificar {% data variables.product.prodname_dotcom %}, la marcaremos como "No verificada". En el resto de los casos, no se muestra un estado de verificación.
+By default commits and tags are marked "Verified" if they are signed with a GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME key that was successfully verified. Si una confirmación o etiqueta tiene una firma que no puede verificar {% data variables.product.prodname_dotcom %}, la marcaremos como "No verificada". En el resto de los casos, no se muestra un estado de verificación.
 
 Sin embargo, puedes proporcionar aún más confianza a otros usuarios sobre la identidad que se atribuye a tus confirmaciones y etiquetas si habilitas el modo vigilanten en tu configuración de {% data variables.product.prodname_dotcom %}. Cuando tienes habilitado el modo vigilante, todas tus confirmaciones y etiquetas se marcan con uno de tres estados de verificación.
 
@@ -33,8 +33,8 @@ Deberías habilitar el modo vigilante únicamente si firmas todas tus confirmaci
 
 ## Habilitar el modo vigilante
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 3. En la página de configuración SSH, debajo de "Modo vigilante", selecciona **Marcar las confirmaciones sin firmar como no verificadas**.
 
    ![Casilla de verificación para marcar las confirmaciones no firmadas como sin verificar](/assets/images/help/commits/vigilant-mode-checkbox.png)

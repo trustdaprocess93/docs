@@ -18,7 +18,7 @@ shortTitle: Exibir um botão de patrocinador
 
 Para configurar o botão de patrocinador, edite um arquivo _FUNDING.yml_ na pasta `.github` do repositório, no branch padrão. É possível configurar o botão para incluir desenvolvedores patrocinados no {% data variables.product.prodname_sponsors %}, em plataformas de financiamento externas ou em uma URL de financiamento personalizado. Para obter mais informações a respeito do {% data variables.product.prodname_sponsors %}, consulte "[Sobre o GitHub Sponsors](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)".
 
-Você pode adicionar um nome de usuário, de pacote ou de projeto por plataforma de financiamento externa e até quatro URLs personalizadas. Você pode adicionar até quatro organizações ou desenvolvedores patrocinados no {% data variables.product.prodname_sponsors %}. Adicione cada plataforma em uma nova linha, usando a seguinte sintaxe:
+Você pode adicionar um nome de usuário, de pacote ou de projeto por plataforma de financiamento externa e até quatro URLs personalizadas. Você pode adicionar uma organização e até quatro desenvolvedores patrocinados em {% data variables.product.prodname_sponsors %}. Adicione cada plataforma em uma nova linha, usando a seguinte sintaxe:
 
 | Plataforma                                                                                | Sintaxe                                                                  |
 | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
@@ -58,7 +58,7 @@ custom: ["https://www.paypal.me/octocat", octocat.com]
 
 {% endnote %}
 
-Você pode criar um botão de patrocinador padrão para sua organização ou conta de usuário. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Você pode criar um botão de patrocinador padrão para sua organização ou conta pessoal. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% note %}
 

@@ -15,29 +15,29 @@ shortTitle: 快速入门
 
 {% tip %}
 
-**提示**：如果您是学生，想利用学术折扣，请参阅“[申请学生开发包](/github/teaching-and-learning-with-github-education/applying-for-a-student-developer-pack)”。
+**Tip**: If you're a student and you'd like to take advantage of an academic discount, see "[Apply to {% data variables.product.prodname_global_campus %} as a student](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)."
 
 {% endtip %}
 
 ## 在 {% data variables.product.product_name %} 上创建帐户
 
-首先，您需要在 {% data variables.product.product_name %} 上创建免费用户帐户。
+首先，您需要在 {% data variables.product.product_name %} 上创建免费个人帐户。
 
 {% data reusables.accounts.create-account %}
-1. 按照提示创建免费用户帐户。
+1. 按照提示创建免费个人帐户。
 
-创建用户帐户后，创建一个免费的组织帐户。 您将使用此组织帐户创建和管理教室 {% data variables.product.prodname_classroom %}。
+创建个人帐户后，创建一个免费的组织帐户。 您将使用此组织帐户创建和管理教室 {% data variables.product.prodname_classroom %}。
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.organizations %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.organizations %}
 {% data reusables.organizations.new-organization %}
 4. 按照提示创建免费组织。
 
 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 帐户的类型](/github/getting-started-with-github/types-of-github-accounts)”。
 
-## 申请教育者折扣
+## Applying for teacher benefits
 
-接下来，您将注册从 {% data variables.product.company_short %} 获得服务折扣。 {% data reusables.education.educator-requirements %}
+Next, you'll sign up for teacher benefits and resources from {% data variables.product.company_short %} by applying to {% data variables.product.prodname_global_campus %}, a portal that allows you to access your education benefits all in one place.  {% data reusables.education.educator-requirements %}
 
 {% tip %}
 
@@ -53,12 +53,14 @@ shortTitle: 快速入门
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
 
+Once you are a verified {% data variables.product.prodname_global_campus %} educator, you can access {% data variables.product.prodname_global_campus %} anytime by going to the [{% data variables.product.prodname_education %} website](https://education.github.com).
+
 ## 设置 {% data variables.product.prodname_classroom %}
 
-通过用户帐户和组织帐户便可开始使用 {% data variables.product.prodname_classroom %}。 {% data variables.product.prodname_classroom %} 免费使用。 您可以跟踪和管理作业，自动对工作进行评分，并为学生提供反馈。
+通过个人帐户和组织帐户便可开始使用 {% data variables.product.prodname_classroom %}。 {% data variables.product.prodname_classroom %} 免费使用。 您可以跟踪和管理作业，自动对工作进行评分，并为学生提供反馈。
 
 {% data reusables.classroom.sign-into-github-classroom %}
-1. 要授权 {% data variables.product.prodname_classroom %} 访问您在 {% data variables.product.prodname_dotcom %} 上的用户帐户，请查阅信息，然后单击**授权 {% data variables.product.prodname_classroom %}**。 ![用户帐户的"授权 {% data variables.product.prodname_classroom %}"按钮](/assets/images/help/classroom/setup-click-authorize-github-classroom.png)
+1. 要授权 {% data variables.product.prodname_classroom %} 访问您在 {% data variables.product.prodname_dotcom %} 上的个人帐户，请查阅信息，然后单击**授权 {% data variables.product.prodname_classroom %}**。 ![个人帐户的"授权 {% data variables.product.prodname_classroom %}"按钮](/assets/images/help/classroom/setup-click-authorize-github-classroom.png)
 1. 查看信息。 要授权 {% data variables.product.prodname_classroom %} 访问您在 {% data variables.product.prodname_dotcom %} 上的组织帐户，请单击 **Grant（授予）**。 ![组织的"授予"按钮](/assets/images/help/classroom/setup-click-grant.png)
 
   {% tip %}

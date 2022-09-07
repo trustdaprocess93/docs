@@ -1,6 +1,6 @@
 ---
 title: Informar ao Git sobre a chave de assinatura
-intro: 'Para assinar commits localmente, você precisa informar ao Git que há uma chave GPG ou X.509 que você gostaria de usar.'
+intro: 'Para assinar os commits localmente, você deve informar ao Git que há uma chave GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} ou X.509 que você gostaria de usar.'
 redirect_from:
   - /articles/telling-git-about-your-gpg-key
   - /articles/telling-git-about-your-signing-key
@@ -45,8 +45,12 @@ Se você tiver várias chaves GPG, precisará informar ao Git qual deve ser usad
   $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
     else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
   ```
-
-{% data reusables.gpg.x-509-key %}
+1. Opcionalmente, para solicitar que você digite um PIN ou senha quando necessário, instale `pinentry-mac`. Por exemplo, usando [Homebrew](https://brew.sh/):
+  ```shell
+  $ brew install pinentry-mac
+  $ echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
+  $ killall gpg-agent
+  ```
 
 {% endmac %}
 
@@ -69,8 +73,6 @@ Se você tiver várias chaves GPG, precisará informar ao Git qual deve ser usad
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
 
-{% data reusables.gpg.x-509-key %}
-
 {% endwindows %}
 
 {% linux %}
@@ -91,25 +93,29 @@ Se você tiver várias chaves GPG, precisará informar ao Git qual deve ser usad
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. Para adicionar a sua chave GPG ao seu perfil bash, execute o seguinte comando:
-  ```shell
-  $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
-    else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
+1. Para adicionar a sua chave de GPG ao seu arquivo de inicialização `.bashrc`, execute o seguinte comando:
+  ```bash
+  $ [ -f ~/.bashrc ] && echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
   ```
-  {% note %}
-
-  **Observação:** se você não tiver `.bash_profile`, este comando adicionará sua chave GPG a `.profile`.
-
-  {% endnote %}
-
 {% endlinux %}
+{% ifversion ssh-commit-verification %}
 
+## Informando ao Git sobre sua chave SSH
+
+Você pode usar uma chave SSH existente para assinar commits e tags ou gerar uma nova especificamente para fazer o login. Para obter mais informações, consulte "[Gerar uma nova chave SSH e adicioná-la ao ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)".
+
+{% data reusables.gpg.ssh-git-version %}
+
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.configure-ssh-signing %}
+{% data reusables.gpg.copy-ssh-public-key %}
+{% data reusables.gpg.paste-ssh-public-key %}
+
+{% endif %}
+
+{% data reusables.gpg.x-509-key %}
 ## Leia mais
 
-- "[Verificar se há chaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
-- "[Gerar uma nova chave GPG](/articles/generating-a-new-gpg-key)"
-- "[Usar um endereço de e-mail verificado na chave GPG](/articles/using-a-verified-email-address-in-your-gpg-key)"
-- "[Adicionar uma nova chave GPG à sua conta do GitHub](/articles/adding-a-new-gpg-key-to-your-github-account)"
-- "[Associar um e-mail à sua chave GPG](/articles/associating-an-email-with-your-gpg-key)"
+- "[Adicionando uma nova chave SSH à sua conta do GitHub](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)".
 - "[Assinar commits](/articles/signing-commits)"
 - "[Assinar tags](/articles/signing-tags)"

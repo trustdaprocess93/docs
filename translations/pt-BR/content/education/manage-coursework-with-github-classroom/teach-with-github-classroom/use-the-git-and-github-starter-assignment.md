@@ -96,9 +96,9 @@ A atividade inicial do Git & {% data variables.product.company_short %} só est�
 
 ## Próximas etapas
 
-- Faça recomendações adicionais personalizadas para seu curso. Para obter mais informações, consulte "[Criar uma atividade individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" e "[Criar uma atividade em grupo](/education/manage-coursework-with-github-classroom/create-a-group-assignment)".
+- Faça recomendações adicionais personalizadas para seu curso. Para obter mais informações, consulte "[Criar uma atividade individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment), "[Criar uma atividade em grupo](/education/manage-coursework-with-github-classroom/create-a-group-assignment)e "[Reutilizar uma atividade](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)".
 
 ## Leia mais
 
-- "[Use {% data variables.product.prodname_dotcom %} na sua sala de aula e pesquisa](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
+- "[{% data variables.product.prodname_global_campus %} fpara professores](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)"
 - "[Conecte um sistema de gerenciamento de aprendizagem para {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"
